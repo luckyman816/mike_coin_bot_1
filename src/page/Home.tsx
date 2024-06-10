@@ -107,7 +107,7 @@ function Home() {
       <CountDate date={3} />
       <div
         id="mainWindow"
-        className="mt-10 flex flex-col items-center justify-center w-full h-[60vh] mb-9"
+        className="relative mt-10 flex flex-col items-center justify-center w-full h-[60vh] mb-9"
         ref={coinRef}
       >
         <div className="flex flex-col justify-center items-center mb-7">
@@ -116,12 +116,12 @@ function Home() {
             {formatNumberWithCommas(token)}
           </h1>
         </div>
-        <div style={{ position: "relative" }}>
-          {/* <img
+        <div>
+          <img
             src="/image/shape.png"
             alt=""
-            className=" absolute z-10 top-[-120px] left-[-55px]  md: top-[-120px] md:left-[-150px]"
-          /> */}
+            className="absolute z-10 left-0 top-0"
+          />
           <div
             className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[400px] h-[400px] max-sm:w-[280px] max-sm:h-[280px] z-10 ${
               remainedEnergy > 0
