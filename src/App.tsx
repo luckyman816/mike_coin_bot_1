@@ -11,8 +11,8 @@ import Header from "./component/Header";
 function App() {
   return (
     <Router>
-      <div className="App ">
-        <div className=" w-[500px] h-[840px] max-sm:w-[390px] max-sm:h-[840px]  bg-[#1E1E1F]">
+      <div className="App" style={{display: 'flex', justifyContent: "center"}}>
+        <div className=" w-[500px] h-[840px] max-sm:w-[390px] max-sm:h-[840px]  ">
           <Header />
           <Routes>
             <Route path="/" element={<Layout />}>
