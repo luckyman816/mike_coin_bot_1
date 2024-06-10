@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App ">
-        <div className="w-[390px] h-[844px] bg-[#1E1E1F]">
+        <div className=" w-[500px] h-[840px] max-sm:w-[390px] max-sm:h-[840px]  bg-[#1E1E1F]">
           <Header />
           <Routes>
             <Route path="/" element={<Layout />}>

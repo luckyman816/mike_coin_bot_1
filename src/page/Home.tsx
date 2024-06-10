@@ -107,7 +107,7 @@ function Home() {
       <CountDate date={3} />
       <div
         id="mainWindow"
-        className="mt-10 flex flex-col items-center justify-center w-full h-[55vh] mb-9"
+        className="mt-10 flex flex-col items-center justify-center w-full h-[60vh] mb-9"
         ref={coinRef}
       >
         <div className="flex flex-col justify-center items-center mb-7">
@@ -124,11 +124,11 @@ function Home() {
               zIndex: 0,
               position: "absolute",
               top: "-120px",
-              left: "-45px",
+              left: "-50px",
             }}
           />
           <div
-            className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[300px] h-[300px] max-sm:w-[240px] max-sm:h-[240px] z-10 ${
+            className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[400px] h-[400px] max-sm:w-[280px] max-sm:h-[280px] z-10 ${
               remainedEnergy > 0
                 ? "cursor-pointer"
                 : "cursor-not-allowed opacity-50"
