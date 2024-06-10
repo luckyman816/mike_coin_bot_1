@@ -11,7 +11,7 @@ import Header from "./component/Header";
 function App() {
   return (
     <Router>
-        <div className="App w-[700px] h-[75vh] max-sm:w-[390px] max-sm:h-[840px]">
+        <div className="App w-[700px] h-[75vh] max-sm:w-[700px] max-sm:h-[75vh]">
           <Header />
           <Routes>
             <Route path="/" element={<Layout />}>
