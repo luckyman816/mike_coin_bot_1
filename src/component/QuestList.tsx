@@ -1,0 +1,17 @@
+import { mockQuest } from "../mock";
+export default function QuestList() {
+  return (
+    <div className="max-h-[60vh] max-sm:max-h-[60vh] overflow-auto">
+      {mockQuest.map((data, index) => (
+        <div
+          key={index}
+          className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-lg"
+        >
+          <div className="flex items-center justify-start text-white">
+            {data.name}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
