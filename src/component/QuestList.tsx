@@ -1,7 +1,7 @@
 import { mockQuest } from "../mock";
 export default function QuestList() {
   return (
-    <div className="max-h-[60vh] max-sm:max-h-[60vh] overflow-auto">
+    <div className="max-h-[58vh] max-sm:max-h-[58vh] overflow-auto">
       {mockQuest.map((data, index) => (
         <div
           key={index}
