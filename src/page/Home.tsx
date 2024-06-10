@@ -117,11 +117,11 @@ function Home() {
           </h1>
         </div>
         <div style={{ position: "relative" }}>
-          <img
+          {/* <img
             src="/image/shape.png"
             alt=""
             className=" absolute z-10 top-[-120px] left-[-55px]  md: top-[-120px] md:left-[-150px]"
-          />
+          /> */}
           <div
             className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[400px] h-[400px] max-sm:w-[280px] max-sm:h-[280px] z-10 ${
               remainedEnergy > 0
