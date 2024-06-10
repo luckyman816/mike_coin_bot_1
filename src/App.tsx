@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App" style={{display: 'flex', justifyContent: "center"}}>
-        <div className=" w-[550px] h-[75vh] max-sm:w-[390px] max-sm:h-[840px]  ">
+        <div className=" w-[700px] h-[75vh] max-sm:w-[390px] max-sm:h-[840px]  ">
           <Header />
           <Routes>
             <Route path="/" element={<Layout />}>
