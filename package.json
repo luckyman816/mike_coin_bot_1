@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@pixi/react": "^7.1.2",
-    "@tonconnect/ui-react": "^2.0.4",
+    "@tonconnect/ui-react": "^2.0.5",
     "@twa-dev/sdk": "^7.0.0",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
     "pixi.js": "^8.1.6",

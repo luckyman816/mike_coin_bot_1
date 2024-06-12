@@ -540,17 +540,17 @@
     "@tonconnect/isomorphic-fetch" "^0.0.3"
     "@tonconnect/protocol" "^2.2.6"
 
-"@tonconnect/ui-react@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@tonconnect/ui-react/-/ui-react-2.0.4.tgz"
-  integrity sha512-C4X2IsQWHR8ctIYrV770482hbCVHAglUETxdLm2aY2CzNkUYqxWRZRPAV1BoW27v5Fw+ks7086t6PCI5cxRTxA==
+"@tonconnect/ui-react@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/@tonconnect/ui-react/-/ui-react-2.0.5.tgz"
+  integrity sha512-phK8nZpjdASyuwWZmw6Qj5tqVag83cfgSpgy7OW6cq8ftJrELiPQD0hCbcWb9iSqgf6eYpGz3s+4I0Gq/YJxww==
   dependencies:
-    "@tonconnect/ui" "2.0.4"
+    "@tonconnect/ui" "2.0.5"
 
-"@tonconnect/ui@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@tonconnect/ui/-/ui-2.0.4.tgz"
-  integrity sha512-KPD4btIyFphdQBe22aESslAoArMbjCKxiA/srqkCLmyfg28dGd0HURDpYZuyKJ1dVL9P0GuYxCck3netf7Wq1g==
+"@tonconnect/ui@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/@tonconnect/ui/-/ui-2.0.5.tgz"
+  integrity sha512-AuVtBqX450lJyJtrJDhBPwPzkhm10QCsnS1/p2CLkzzcMH5b5o50oVp5yuRWw/1eIwJZSLjVplkgA/JjMAlmsA==
   dependencies:
     "@tonconnect/sdk" "3.0.3"
     classnames "^2.3.2"
