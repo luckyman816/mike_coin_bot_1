@@ -7,7 +7,7 @@ import { TonConnectButton, useTonWallet, useTonAddress } from "@tonconnect/ui-re
 function Home() {
   const address = useTonAddress();
   const wallet = useTonWallet();
-  console.log("--------->", wallet?.device);
+  console.log("--------->", wallet?.device, address);
   const [token, setToken] = useState<number>(2000);
   const [remainedEnergy, setRemainedEnergy] = useState(500);
   function formatNumberWithCommas(number: number, locale = "en-US") {
