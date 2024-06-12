@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
-import { TonConnectButton, useTonWallet } from "@tonconnect/ui-react";
+import { TonConnectButton, useTonWallet, useTonAddress } from "@tonconnect/ui-react";
 function Home() {
+  const address = useTonAddress();
   const wallet = useTonWallet();
   console.log("--------->", wallet?.device);
   const [token, setToken] = useState<number>(2000);
@@ -64,6 +65,10 @@ function Home() {
   }, []);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!address) {
+      toast.error("Please connect your wallet first");
+      return;
+    }
     if (remainedEnergy > 0) {
       setRemainedEnergy(remainedEnergy - 1);
       setToken(token + 1);
