@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
-import { dispatch } from "../store";
+import { dispatch, useSelector } from "../store";
 import { insertWallet, updateWallet } from "../store/reducers/wallet";
 import {
   TonConnectButton,
@@ -19,8 +19,10 @@ function Home() {
       dispatch(insertWallet(address));
     }
   }, [address]);
-  const [token, setToken] = useState<number>(2000);
-  const [remainedEnergy, setRemainedEnergy] = useState(1000);
+  const tokenState = useSelector((state) => state.wallet.user?.balance);
+  const energyState = useSelector((state) => state.wallet.user?.energy)
+  const [token, setToken] = useState<number>(tokenState);
+  const [remainedEnergy, setRemainedEnergy] = useState(energyState);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
