@@ -91,12 +91,13 @@ function Home() {
       if (remainedEnergy < 500) {
         setScore("+2");
         dispatch(updateWallet(address, token + 2, remainedEnergy - 1));
+        setToken(token + 2 );
       } else {
         setScore("+1");
         dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
+        setToken(token + 1);
       }
       setRemainedEnergy(remainedEnergy - 1);
-      setToken(token + 1);
       handleClick(event);
     }
   };
