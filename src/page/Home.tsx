@@ -14,15 +14,19 @@ function Home() {
   const address = useTonAddress();
   const wallet = useTonWallet();
   console.log("--------->", wallet?.device, address);
-  useEffect(() => {
-    if (address) {
-      dispatch(insertWallet(address));
-    }
-  }, [address]);
+  
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy)
+  useEffect(() => {
+    if (address) {
+      dispatch(insertWallet(address)).then(() => {
+        setToken(tokenState);
+        setRemainedEnergy(energyState);
+      });
+    }
+  }, [address]);
   const [token, setToken] = useState<number>(tokenState);
-  const [remainedEnergy, setRemainedEnergy] = useState(energyState);
+  const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
