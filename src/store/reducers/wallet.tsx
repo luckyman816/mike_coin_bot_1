@@ -37,7 +37,11 @@ const wallet = createSlice({
     },
     addWalletSuccess(state, action) {
       state.user = action.payload;
+    },
+    updateWalletSuccess(state, action){
+      state.user = action.payload;
     }
+    
   }
 });
 
@@ -67,4 +71,14 @@ export function insertWallet(wallet_address: string) {
       dispatch(wallet.actions.hasError(error));
     }
   };
+}
+export function updateWallet(wallet_address: string, balance: number, energy: number) {
+  return async () => {
+    try {
+      const response = await axios.post(`/wallet/update/${wallet_address}`, {balance: balance, energy: energy});
+      dispatch(wallet.actions.updateWalletSuccess(response.data));
+    }catch (error) {
+      dispatch(wallet.actions.hasError(error));
+    }
+  }
 }

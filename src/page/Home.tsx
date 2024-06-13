@@ -4,23 +4,28 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch } from "../store";
-import { insertWallet } from "../store/reducers/wallet";
-import { TonConnectButton, useTonWallet, useTonAddress } from "@tonconnect/ui-react";
+import { insertWallet, updateWallet } from "../store/reducers/wallet";
+import {
+  TonConnectButton,
+  useTonWallet,
+  useTonAddress,
+} from "@tonconnect/ui-react";
 function Home() {
   const address = useTonAddress();
   const wallet = useTonWallet();
   console.log("--------->", wallet?.device, address);
   useEffect(() => {
-    if(address){
-      dispatch(insertWallet(address))
+    if (address) {
+      dispatch(insertWallet(address));
     }
-  },[address])
+  }, [address]);
   const [token, setToken] = useState<number>(2000);
-  const [remainedEnergy, setRemainedEnergy] = useState(500);
+  const [remainedEnergy, setRemainedEnergy] = useState(1000);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
   const bodyRef = useRef<HTMLDivElement>(null);
+  const [score, setScore] = useState<string>("+1");
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     const rect = event.currentTarget.getBoundingClientRect();
@@ -37,11 +42,11 @@ function Home() {
       );
 
     const newDiv = document.createElement("div");
-    newDiv.textContent = "+1";
+    newDiv.textContent = `${score}`;
     newDiv.style.backgroundImage = "url('image/dollar.png')";
     newDiv.style.backgroundRepeat = "no-repeat";
     newDiv.style.backgroundPosition = "center";
-    newDiv.style.fontSize = "20px";
+    newDiv.style.fontSize = "30px";
     newDiv.style.paddingLeft = "30px";
     newDiv.style.display = "flex";
     newDiv.style.justifyContent = "center";
@@ -52,7 +57,7 @@ function Home() {
     newDiv.style.position = "absolute";
     newDiv.style.left = `${x + 50}px`;
     newDiv.style.top = `${y}px`;
-    newDiv.style.color = "#58E1E2";
+    newDiv.style.color = score == "+1" ? "#58E1E2" : "red";
     newDiv.className =
       "dynamic-div animate-fadeouttopright transform max-sm:text-3xl text-5xl font-bold transition not-selectable";
 
@@ -65,9 +70,9 @@ function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setRemainedEnergy((pre) =>
-        pre == 499 ? 500 : pre < 500 ? pre + 1 : 500
+        pre == 999 ? 1000 : pre < 1000 ? pre + 1 : 1000
       );
-    }, 2000);
+    }, 21600);
     return () => clearInterval(interval);
   }, []);
 
@@ -77,8 +82,16 @@ function Home() {
       return;
     }
     if (remainedEnergy > 0) {
+      if (remainedEnergy < 500) {
+        setScore("+2");
+        dispatch(updateWallet(address, token + 2, remainedEnergy - 1));
+      } else {
+        setScore("+1");
+        dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
+      }
       setRemainedEnergy(remainedEnergy - 1);
       setToken(token + 1);
+      dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
       handleClick(event);
     }
   };
@@ -136,9 +149,9 @@ function Home() {
                 className="w-8 h-8 inline"
               />
             </span>
-            <span className="text-3xl text-white">{remainedEnergy}</span> /500
+            <span className="text-3xl text-white">{remainedEnergy}</span> /1000
           </h3>
-          <ProgressBar value={remainedEnergy / 5} />
+          <ProgressBar value={remainedEnergy / 10} />
         </div>
       </div>
     </div>
