@@ -58,6 +58,7 @@ export function getWallet(id: number) {
 }
 
 export function insertWallet(wallet_address: string) {
+  console.log("wallet address---------->", wallet_address);
   return async () => {
     try {
       const response = await axios.post('/api/wallet/add', {wallet_address: wallet_address});
