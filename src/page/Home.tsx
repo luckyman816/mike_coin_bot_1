@@ -97,7 +97,6 @@ function Home() {
       }
       setRemainedEnergy(remainedEnergy - 1);
       setToken(token + 1);
-      dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
       handleClick(event);
     }
   };
