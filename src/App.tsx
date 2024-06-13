@@ -8,7 +8,8 @@ import { ToastContainer } from "react-toastify";
 import Footer from "./component/Footer";
 import Layout from "./Layout";
 import Loading from "./component/Loading";
-
+import { Provider as ReduxProvider } from "react-redux";
+import {store} from "./store";
 function App() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -23,15 +24,17 @@ function App() {
         <Loading />
       ) : (
         <div className="App w-[700px] h-[75vh] max-sm:w-[750px] max-sm:h-[70vh]">
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="ranking" element={<Ranking />} />
-              <Route path="quest" element={<Quest />} />
-            </Route>
-          </Routes>
-          <ToastContainer />
-          <Footer />
+          <ReduxProvider store={store}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="ranking" element={<Ranking />} />
+                <Route path="quest" element={<Quest />} />
+              </Route>
+            </Routes>
+            <ToastContainer />
+            <Footer />
+          </ReduxProvider>
         </div>
       )}
     </Router>

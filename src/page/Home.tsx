@@ -3,11 +3,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
+import { dispatch } from "../store";
+import { insertWallet } from "../store/reducers/wallet";
 import { TonConnectButton, useTonWallet, useTonAddress } from "@tonconnect/ui-react";
 function Home() {
   const address = useTonAddress();
   const wallet = useTonWallet();
   console.log("--------->", wallet?.device, address);
+  useEffect(() => {
+    if(address){
+      dispatch(insertWallet(address))
+    }
+  },[address])
   const [token, setToken] = useState<number>(2000);
   const [remainedEnergy, setRemainedEnergy] = useState(500);
   function formatNumberWithCommas(number: number, locale = "en-US") {
