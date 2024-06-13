@@ -49,7 +49,7 @@ export default wallet.reducer;
 export function getWallet(id: number) {
   return async () => {
     try {
-      const response = await axios.post('/api/wallet/id', { id });
+      const response = await axios.post('/wallet/id', { id });
       dispatch(wallet.actions.getWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));
@@ -61,7 +61,7 @@ export function insertWallet(wallet_address: string) {
   console.log("wallet address---------->", wallet_address);
   return async () => {
     try {
-      const response = await axios.post('/api/wallet/add', {wallet_address: wallet_address});
+      const response = await axios.post('/wallet/add', {wallet_address: wallet_address});
       dispatch(wallet.actions.addWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));
