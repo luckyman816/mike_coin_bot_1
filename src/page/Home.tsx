@@ -24,7 +24,7 @@ function Home() {
         setRemainedEnergy(energyState);
       });
     }
-  }, [address]);
+  }, [address, tokenState, energyState]);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   function formatNumberWithCommas(number: number, locale = "en-US") {
