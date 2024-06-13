@@ -17,14 +17,16 @@ function Home() {
   
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy)
+  const [imgStatus, setImgStatus] = useState(false);
   useEffect(() => {
     if (address) {
-      dispatch(insertWallet(address)).then(() => {
-        setToken(tokenState);
-        setRemainedEnergy(energyState);
-      });
+      dispatch(insertWallet(address))
     }
-  }, [address, tokenState, energyState]);
+  }, [address]);
+  useEffect(() => {
+    setToken(tokenState);
+    setRemainedEnergy(energyState);
+  }, [tokenState, energyState, address])
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   function formatNumberWithCommas(number: number, locale = "en-US") {
@@ -99,7 +101,7 @@ function Home() {
       handleClick(event);
     }
   };
-  const [imgStatus, setImgStatus] = useState(false);
+  
   const handleMouseDown = () => {
     setImgStatus(true);
   };
