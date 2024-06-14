@@ -1,34 +1,30 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import { insertWallet, updateWallet } from "../store/reducers/wallet";
-import {
-  TonConnectButton,
-  useTonWallet,
-  useTonAddress,
-} from "@tonconnect/ui-react";
+//import { insertWallet, updateWallet } from "../store/reducers/wallet";
 function Home() {
-  const address = useTonAddress();
-  const wallet = useTonWallet();
-  console.log("--------->", wallet?.device, address);
-  
+  useEffect(() => {
+    const webapp = window.Telegram.Webapp;
+    console.log(webapp);
+  }, []);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
-  const energyState = useSelector((state) => state.wallet.user?.energy)
+  const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
-  useEffect(() => {
+  /*useEffect(() => {
     if (address) {
-      dispatch(insertWallet(address))
+      dispatch(insertWallet(address));
     }
-  }, [address]);
-  useEffect(() => {
-    setToken(tokenState);
-    setRemainedEnergy(energyState);
-  }, [tokenState, energyState, address])
+  }, []);*/
+  //useEffect(() => {
+  //setToken(tokenState);
+  //setRemainedEnergy(energyState);
+  //}, [tokenState, energyState, address]);
   const [token, setToken] = useState<number>(tokenState);
-  const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
+  const [remainedEnergy, setRemainedEnergy] = useState<number>(1000);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -85,23 +81,25 @@ function Home() {
   }, []);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!address) {
-      toast.error("Please connect your wallet first");
-      return;
-    }
+    //if (!address) {
+    //  toast.error("Please connect your wallet first");
+    //  return;
+    //}
     if (remainedEnergy > 0) {
       if (remainedEnergy < 500) {
         setScore("+2");
-        dispatch(updateWallet(address, token + 2, remainedEnergy - 1));
+        setToken(token + 2);
+        //dispatch(updateWallet(address, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
-        dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
+        setToken(token + 1);
+        //dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);
     }
   };
-  
+
   const handleMouseDown = () => {
     setImgStatus(true);
   };
@@ -111,12 +109,8 @@ function Home() {
   console.log("imgStatus", imgStatus);
 
   return (
-    <div className="mt-3">
+    <div className=" mt-16">
       <ToastContainer />
-      <div className="w-full flex justify-center">
-        <TonConnectButton />
-      </div>
-
       <CountDate date={3} />
       <div
         id="mainWindow"
@@ -147,17 +141,30 @@ function Home() {
           />
         </div>
         <div className="flex flex-col justify-center items-center ">
-          <h3 className="text-2xl mb-2 text-white">
-            <span className="text-3xl ">
-              <img
-                src="/image/icon/lightning.svg"
-                alt="lightning"
-                className="w-8 h-8 inline"
-              />
-            </span>
-            <span className="text-3xl text-white">{remainedEnergy}</span> /1000
-          </h3>
-          <ProgressBar value={remainedEnergy / 10} />
+          <div className="flex justify-around w-full align-middle gap-5">
+            <h3 className="text-2xl mb-2 text-white">
+              <span className="text-3xl ">
+                <img
+                  src="/image/icon/lightning.svg"
+                  alt="lightning"
+                  className="w-6 h-6 inline"
+                />
+              </span>
+              <span className="text-3xl text-white">{remainedEnergy}</span>{" "}
+              /1000
+            </h3>
+            <ProgressBar value={remainedEnergy / 10} />
+            <div className="flex justify-center align-middle">
+              <Link to="/boost" className="flex">
+                <img
+                  src="/image/rocket.png"
+                  alt="rocket"
+                  className="w-8 h-8 inline"
+                />
+                <h3 className="text-3xl text-white">Boost</h3>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
