@@ -1,19 +1,20 @@
-import { /*dispatch,*/ useSelector } from "../store";
-// import { updateEnergy } from "../store/reducers/wallet";
+import { dispatch, useSelector } from "../store";
+import { updateEnergy } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import Modal from "../component/modal";
 export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const user_id_state = useSelector((state) => state.wallet.user?.user_id );
   const [token, setToken] = useState<number>(tokenState)
-  // const [user_id, setUser_Id] = useState<string>(user_id_state)
+  const [user_id, setUser_Id] = useState<string>(user_id_state)
   useEffect(() => {
     setToken(tokenState)
-    //setUser_Id(user_id_state)
+    setUser_Id(user_id_state)
   }, [tokenState, user_id_state])
-  // const handleFullEnergy = () => {
-  //   dispatch(updateEnergy(user_id, 1000))
-  // }
+  const handleFullEnergy = () => {
+    dispatch(updateEnergy(user_id, 1000))
+    setIsModalOpen(false);
+  }
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleMouseClick = () => {
@@ -86,7 +87,7 @@ export default function Boost() {
             <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
-          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px]">Go ahead</div>
+          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-start items-center" onClick={handleFullEnergy}>Go ahead</div>
         </div>
       </Modal>
     </div>
