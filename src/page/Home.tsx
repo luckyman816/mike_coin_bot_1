@@ -81,7 +81,7 @@ function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      dispatch(updateEnergy(user_id, remainedEnergy == 999 ? 1000 : remainedEnergy < 1000 ? remainedEnergy + 1 : 1000))
+      dispatch(updateEnergy(user_id, remainedEnergy + 1))
     }, 2000);
     return () => clearInterval(interval);
   }, []);
