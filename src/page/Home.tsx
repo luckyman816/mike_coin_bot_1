@@ -140,7 +140,7 @@ function Home() {
             onClick={handleTap}
           />
         </div>
-        <div className="flex flex-col justify-center items-center ">
+        <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex justify-around w-full align-middle gap-5">
             <h3 className="text-2xl mb-2 text-white w-[15vw]">
               <span className="text-3xl ">
@@ -150,7 +150,7 @@ function Home() {
                   className="w-6 h-6 inline"
                 />
               </span>
-              <span className="text-2xl text-white">{remainedEnergy}</span>{" "}
+              <span className="text-xl text-white">{remainedEnergy}</span>{" "}
               /1000
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
@@ -161,7 +161,7 @@ function Home() {
                   alt="rocket"
                   className="w-8 h-8 inline"
                 />
-                <h3 className="text-2xl text-white">Boost</h3>
+                <h3 className="text-xl text-white">Boost</h3>
               </Link>
             </div>
           </div>
