@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import { insertWallet, updateWallet } from "../store/reducers/wallet";
+import { insertWallet, updateWallet, updateEnergy } from "../store/reducers/wallet";
 function Home() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
@@ -32,7 +32,7 @@ function Home() {
     setRemainedEnergy(energyState);
   }, [tokenState, energyState, user_id]);
   const [token, setToken] = useState<number>(tokenState);
-  const [remainedEnergy, setRemainedEnergy] = useState<number>(1000);
+  const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -81,10 +81,8 @@ function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRemainedEnergy((pre) =>
-        pre == 999 ? 1000 : pre < 1000 ? pre + 1 : 1000
-      );
-    }, 21600);
+      updateEnergy(user_id, remainedEnergy + 1)
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 

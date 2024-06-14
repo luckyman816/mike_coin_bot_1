@@ -83,3 +83,13 @@ export function updateWallet(user_id: string, balance: number, energy: number) {
     }
   }
 }
+export function updateEnergy (user_id: string, energy: number) {
+  return async () => {
+    try {
+      const response =  await axios.post(`/wallet/updateEnergy/${user_id}`, {energy: energy});
+      dispatch(wallet.actions.updateWalletSuccess(response.data));
+    }catch (error) {
+      dispatch(wallet.actions.hasError(error));
+    }
+  }
+}
