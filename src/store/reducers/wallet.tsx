@@ -15,7 +15,8 @@ const initialState: walletStateProps = {
   error: null,
   user: {
       _id: '',
-      wallet_address: '',
+      user_id: '',
+      username: '',
       balance: 0,
       energy: 0
   },

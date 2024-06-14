@@ -1,6 +1,7 @@
 export interface walletProfile {
     _id: string;
-    wallet_address: string;
+    user_id: string;
+    username: string;
     balance: number;
     energy: number;
 }

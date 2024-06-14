@@ -25,15 +25,6 @@ export default function Boost() {
             <h3 className="text-xl text-[#a8a8a7]">6/6 available</h3>
           </div>
         </div>
-        <div
-          className={`flex my-3 px-5 py-3 items-center bg-[#4d4d4c] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
-        >
-          <img src="/image/turbo.png" alt="" className="w-10 h-10" />
-          <div className="flex flex-col">
-            <h3 className="text-2xl text-white text-left">Turbo</h3>
-            <h3 className="text-xl text-[#a8a8a7]">Coming soon</h3>
-          </div>
-        </div>
         <div className="flex justify-start">
           <h1 className="text-white text-xl">Boosters</h1>
         </div>

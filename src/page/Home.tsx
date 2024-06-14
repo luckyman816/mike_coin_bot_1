@@ -5,33 +5,32 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
-import {  dispatch, useSelector } from "../store";
-import { insertWallet } from "../store/reducers/wallet";
+import { dispatch, useSelector } from "../store";
+import { insertWallet, updateWallet } from "../store/reducers/wallet";
 function Home() {
-  
   const tokenState = useSelector((state) => state.wallet.user?.balance);
-  //const energyState = useSelector((state) => state.wallet.user?.energy);
+  const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
-  const [user_id, setUser_Id] = useState<string>('');
-  const [username, setUsername] = useState<string>('');
+  const [user_id, setUser_Id] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
-    if(webapp) {
-      setUser_Id(webapp['user']['id'])
-      setUsername(webapp['user']['username'])
+    if (webapp) {
+      setUser_Id(webapp["user"]["id"]);
+      setUsername(webapp["user"]["username"]);
     }
   }, []);
   console.log("---Telegram info----->", user_id, username);
   useEffect(() => {
-    if(user_id && username) {
-      dispatch(insertWallet(user_id, username))
+    if (user_id && username) {
+      dispatch(insertWallet(user_id, username));
     }
-  }, [user_id, username])
-  //useEffect(() => {
-  //setToken(tokenState);
-  //setRemainedEnergy(energyState);
-  //}, [tokenState, energyState, address]);
+  }, [user_id, username]);
+  useEffect(() => {
+    setToken(tokenState);
+    setRemainedEnergy(energyState);
+  }, [tokenState, energyState, user_id]);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(1000);
   function formatNumberWithCommas(number: number, locale = "en-US") {
@@ -98,11 +97,11 @@ function Home() {
       if (remainedEnergy < 500) {
         setScore("+2");
         setToken(token + 2);
-        //dispatch(updateWallet(address, token + 2, remainedEnergy - 1));
+        dispatch(updateWallet(user_id, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
         setToken(token + 1);
-        //dispatch(updateWallet(address, token + 1, remainedEnergy - 1));
+        dispatch(updateWallet(user_id, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);
@@ -159,8 +158,7 @@ function Home() {
                   className="w-6 h-6 inline"
                 />
               </span>
-              <span className="text-xl text-white">{remainedEnergy}</span>{" "}
-              /1000
+              <span className="text-xl text-white">{remainedEnergy}</span> /1000
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
             <div className="flex justify-center items-center w-[15vw]">
