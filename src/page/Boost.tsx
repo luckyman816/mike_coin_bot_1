@@ -83,7 +83,7 @@ export default function Boost() {
           <h1 className="text-2xl text-white">Full energy</h1>
           <p className=" text-sm text-white">Recharge your energy to the maximum and do another round of mining</p>
           <div className="flex">
-            <img src="image/dollar.png" alt="" />
+            <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
           <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px]">Go ahead</div>
