@@ -40,8 +40,8 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/quest.png" alt="quest" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">QUEST</p>
+        <img src="/image/add-friend.png" alt="quest" className="w-12 h-12" />
+        <p className="text-sm max-sm:text-sm text-white">Friends</p>
       </Link>
     </div>
   );
