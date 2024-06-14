@@ -50,7 +50,7 @@ export default function QuestList() {
       </div>
       <div className="flex flex-col justify-start items-start">
         <h2 className="text-white text-sm">List of your friends</h2>
-        <div className=" rounded-[20px] bg-[#525252] w-full h-40 flex justify-center items-center">
+        <div className=" rounded-[20px] bg-[#525252] w-full h-16 flex justify-center items-center">
           <input
             type="text"
             placeholder="You haven't invited anyone yet"
