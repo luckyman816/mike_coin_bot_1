@@ -1,6 +1,6 @@
 export default function QuestList() {
   return (
-    <div className="max-h-[50vh] max-sm:max-h-[50vh] overflow-auto">
+    <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto">
       <div className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-lg">
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
@@ -33,8 +33,8 @@ export default function QuestList() {
       </div>
       <div className="flex flex-col justify-start items-start">
         <h2 className="text-white text-sm">List of your friends</h2>
-        <div className=" rounded-[20px] bg-[#525252]">
-          <input type="text" className=" border-none bg-[#525252] text-sm"/>
+        <div className=" rounded-[20px] bg-[#525252] w-full h-40">
+          <input type="text" className=" border-none bg-[#525252] text-sm w-[100%]"/>
         </div>
       </div>
       <div className="w-full h-24 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8">
