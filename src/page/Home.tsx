@@ -109,12 +109,12 @@ function Home() {
   console.log("imgStatus", imgStatus);
 
   return (
-    <div className=" mt-12">
+    <div className=" mt-8">
       <ToastContainer />
       <CountDate date={3} />
       <div
         id="mainWindow"
-        className="relative mt-5 flex flex-col items-center justify-center w-full h-[60vh] mb-9"
+        className="relative mt-8 flex flex-col items-center justify-center w-full h-[62vh] mb-9"
       >
         <div className="flex flex-col justify-center items-center mb-7">
           <h3 className="text-xl font-bold text-[#939392]">$GoXP balance</h3>
@@ -154,7 +154,7 @@ function Home() {
               /1000
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
-            <div className="flex justify-center align-middle w-[15vw]">
+            <div className="flex justify-center items-center w-[15vw]">
               <Link to="/boost" className="flex">
                 <img
                   src="/image/rocket.png"
