@@ -54,12 +54,12 @@ export default function QuestList() {
           <input
             type="text"
             placeholder="You haven't invited anyone yet"
-            className=" border-none bg-[#525252] text-sm w-[100%]"
+            className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none"
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
       </div>
-      <div className="w-full h-24 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8" onClick={handleInvite}>
+      <div className="w-full h-24 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400" onClick={handleInvite}>
         <span className="flex justify-center items-center">
           Invite a friend
         </span>
