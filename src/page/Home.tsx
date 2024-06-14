@@ -5,8 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
-import {  useSelector } from "../store";
-//import { insertWallet, updateWallet } from "../store/reducers/wallet";
+import {  dispatch, useSelector } from "../store";
+import { insertWallet } from "../store/reducers/wallet";
 function Home() {
   
   const tokenState = useSelector((state) => state.wallet.user?.balance);
@@ -23,6 +23,11 @@ function Home() {
     }
   }, []);
   console.log("---Telegram info----->", user_id, username);
+  useEffect(() => {
+    if(user_id && username) {
+      dispatch(insertWallet(user_id, username))
+    }
+  }, [user_id, username])
   //useEffect(() => {
   //setToken(tokenState);
   //setRemainedEnergy(energyState);
