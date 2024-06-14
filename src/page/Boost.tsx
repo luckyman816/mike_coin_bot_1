@@ -1,13 +1,30 @@
-import { dispatch, useSelector } from "../store";
+import { /*dispatch,*/ useSelector } from "../store";
+// import { updateEnergy } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
+import Modal from "../component/modal";
 export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
+  const user_id_state = useSelector((state) => state.wallet.user?.user_id );
   const [token, setToken] = useState<number>(tokenState)
+  // const [user_id, setUser_Id] = useState<string>(user_id_state)
   useEffect(() => {
     setToken(tokenState)
-  }, [tokenState])
+    //setUser_Id(user_id_state)
+  }, [tokenState, user_id_state])
+  // const handleFullEnergy = () => {
+  //   dispatch(updateEnergy(user_id, 1000))
+  // }
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleMouseClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
-    <div className="Boost max-w-full text-white h-[75vh] max-sm:h-[82vh] mt-12 mx-5">
+    <div className="Boost max-w-full text-white h-[75vh] max-sm:h-[82vh] mt-12">
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center ">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
@@ -24,6 +41,7 @@ export default function Boost() {
         </div>
         <div
           className={`flex my-3 px-5 py-3 items-center bg-[#4d4d4c] rounded-[30px] hover:bg-[#3a3a3a]`}
+          onClick={handleMouseClick}
         >
           <img src="/image/icon/lightning.svg" alt="" className="w-10 h-10" />
           <div className="flex flex-col">
@@ -59,6 +77,10 @@ export default function Boost() {
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <h2>Modal Dialog</h2>
+        <p>This is the content of the modal dialog.</p>
+      </Modal>
     </div>
   );
 }
