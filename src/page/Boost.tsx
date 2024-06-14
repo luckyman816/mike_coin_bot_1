@@ -13,7 +13,7 @@ export default function Boost() {
           <h2 className="text-xl text-yellow-400 mt-7">How a boost works</h2>
         </div>
         <hr className="my-3 border-[#363636] border-1" />
-        <div className="flex justify-start">
+        <div className="flex justify-center">
           <h1 className="text-white text-xl">Free daily boosters</h1>
         </div>
         <div

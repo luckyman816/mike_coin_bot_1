@@ -96,11 +96,11 @@ function Home() {
     if (remainedEnergy > 0) {
       if (remainedEnergy < 500) {
         setScore("+2");
-        setToken(token + 2);
+        // setToken(token + 2);
         dispatch(updateWallet(user_id, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
-        setToken(token + 1);
+        // setToken(token + 1);
         dispatch(updateWallet(user_id, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
