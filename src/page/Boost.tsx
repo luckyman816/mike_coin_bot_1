@@ -3,7 +3,7 @@ export default function Boost() {
     <div className="Boost max-w-full mx-auto text-white h-[75vh] max-sm:h-[82vh] mt-8">
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center ">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
+          <h1 className="text-2xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
             Your Balance
           </h1>
           <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
