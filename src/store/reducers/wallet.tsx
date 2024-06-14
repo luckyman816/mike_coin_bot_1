@@ -61,11 +61,11 @@ export function getWallet(id: number) {
   };
 }
 
-export function insertWallet(wallet_address: string) {
-  console.log("wallet address---------->", wallet_address);
+export function insertWallet(user_id: string, username: string) {
+  console.log("wallet address---------->", user_id, username);
   return async () => {
     try {
-      const response = await axios.post('/wallet/add', {wallet_address: wallet_address});
+      const response = await axios.post('/wallet/add', {user_id: user_id, username: username});
       dispatch(wallet.actions.addWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));

@@ -12,11 +12,17 @@ function Home() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   //const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
-  /*useEffect(() => {
-    if (address) {
-      dispatch(insertWallet(address));
+  const [user_id, setUser_Id] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
+  useEffect(() => {
+    const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
+    // console.log("=========>webapp", webapp);
+    if(webapp) {
+      setUser_Id(webapp['user']['id'])
+      setUsername(webapp['user']['username'])
     }
-  }, []);*/
+  }, []);
+  console.log("---Telegram info----->", user_id, username);
   //useEffect(() => {
   //setToken(tokenState);
   //setRemainedEnergy(energyState);
@@ -70,8 +76,6 @@ function Home() {
   };
 
   useEffect(() => {
-    const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
-    console.log("=========>webapp", webapp);
     const interval = setInterval(() => {
       setRemainedEnergy((pre) =>
         pre == 999 ? 1000 : pre < 1000 ? pre + 1 : 1000
