@@ -84,7 +84,7 @@ function Home() {
       dispatch(updateEnergy(user_id, remainedEnergy + 1))
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [user_id, remainedEnergy]);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
     //if (!address) {
