@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -108,7 +109,7 @@ function Home() {
   console.log("imgStatus", imgStatus);
 
   return (
-    <div className=" mt-16">
+    <div className=" mt-12">
       <ToastContainer />
       <CountDate date={3} />
       <div
