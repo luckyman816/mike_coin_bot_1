@@ -6,7 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import { insertWallet, updateWallet, updateEnergy } from "../store/reducers/wallet";
+import {
+  insertWallet,
+  updateWallet,
+  updateEnergy,
+} from "../store/reducers/wallet";
 function Home() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
@@ -80,9 +84,11 @@ function Home() {
   };
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log("-information---->", user_id, remainedEnergy)
-      dispatch(updateEnergy(user_id, remainedEnergy + 1))
-    }, 2000);
+      console.log("-information---->", user_id, remainedEnergy);
+      if (remainedEnergy < 1000) {
+        dispatch(updateEnergy(user_id, remainedEnergy + 1));
+      }
+    }, 216000);
     return () => clearInterval(interval);
   }, [user_id, remainedEnergy]);
 
@@ -91,7 +97,7 @@ function Home() {
     //  toast.error("Please connect your wallet first");
     //  return;
     //}
-    if (remainedEnergy > 0) {
+    if (remainedEnergy > 0 && token < 1000) {
       if (remainedEnergy < 500) {
         setScore("+2");
         // setToken(token + 2);
