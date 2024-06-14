@@ -78,8 +78,16 @@ export default function Boost() {
         </div>
       </div>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <h2>Modal Dialog</h2>
-        <p>This is the content of the modal dialog.</p>
+        <div className="flex flex-col items-center align-middle gap-3">
+          <img src="image/icon/lightning.svr" alt="" className=" w-12 h-12"/>
+          <h1 className="text-2xl text-white">Full energy</h1>
+          <p className=" text-sm text-white">Recharge your energy to the maximum and do another round of mining</p>
+          <div className="flex">
+            <img src="image/dollar.png" alt="" />
+            <h1 className="text-white text-2xl">FREE</h1>
+          </div>
+          <div className="w-full h-9 bg-indigo-600 text-white">Go ahead</div>
+        </div>
       </Modal>
     </div>
   );
