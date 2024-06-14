@@ -1,11 +1,11 @@
 export default function Boost() {
   return (
     <div className="Boost max-w-full mx-auto text-white h-[75vh] max-sm:h-[82vh] mt-8">
-      <h1 className="text-3xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
-        Your Balance
-      </h1>
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center ">
         <div className="max-h-[50vh] max-sm:max-h-[50vh] overflow-auto">
+          <h1 className="text-3xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
+            Your Balance
+          </h1>
           <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
             <img src="/image/dollar.png" alt="" className="w-10 h-10" />
             <h1 className="text-4xl">5145</h1>
