@@ -7,10 +7,7 @@ import ProgressBar from "../component/ProgressBar";
 import {  useSelector } from "../store";
 //import { insertWallet, updateWallet } from "../store/reducers/wallet";
 function Home() {
-  // useEffect(() => {
-  //   const webapp = window.Telegram.Webapp;
-  //   console.log(webapp);
-  // }, []);
+  
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   //const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
@@ -72,6 +69,8 @@ function Home() {
   };
 
   useEffect(() => {
+    const webapp = window.Telegram.Webapp;
+    console.log("=========>webapp", webapp);
     const interval = setInterval(() => {
       setRemainedEnergy((pre) =>
         pre == 999 ? 1000 : pre < 1000 ? pre + 1 : 1000
