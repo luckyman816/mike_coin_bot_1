@@ -87,7 +87,7 @@ export default function Boost() {
             <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
-          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-start items-center" onClick={handleFullEnergy}>Go ahead</div>
+          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleFullEnergy}>Go ahead</div>
         </div>
       </Modal>
     </div>
