@@ -94,3 +94,22 @@ export function updateEnergy (user_id: string, energy: number) {
     }
   }
 }
+export function updateBalance (user_id: string, balance: number) {
+  return async () => {
+    try {
+      const response =  await axios.post(`/wallet/updateBalance/${user_id}`, {balance: balance});
+      dispatch(wallet.actions.updateWalletSuccess(response.data));
+    }catch (error) {
+      dispatch(wallet.actions.hasError(error));
+    }
+  }
+}
+export function addFriend (user_id: string, username: string) {
+  return async () => {
+    try {
+       await axios.post('/wallet/add', {user_id: user_id, username: username}) 
+    }catch (error) {
+      dispatch(wallet.actions.hasError(error))
+    }
+  }
+}
