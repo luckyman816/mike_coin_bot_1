@@ -5,19 +5,26 @@ export default function QuestList() {
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
           <div className=" flex flex-col justify-center items-center">
-            <div className="flex items-center justify-start text-white">
+            <div className="flex justify-start items-start text-white font-bold">
               Invite a friend
             </div>
-            <div className="flex justify-start">
+            <div className="flex justify-start ml-2">
               <img src="image/dollar.png" alt="" className=" w-5 h-5" />
               <span className=" text-amber-400">+200</span>
-              <span>for you and your friend</span>
+              <span>&nbsp;&nbsp;&nbsp;for you and your friend</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8">
-        <span className="flex justify-center items-center">Go ahead</span>
+      <div className="flex flex-col justify-start items-start">
+        <h2 className="text-white text-sm">List of your friends</h2>
+        <div className=" rounded-[20px] bg-[#525252]">
+          <input type="text" className=" border-none bg-[#525252] text-sm"/>
+        </div>
+      </div>
+      <div className="w-full h-24 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8">
+        <span className="flex justify-center items-center">Invite a friend</span>
+        <img src="image/user.png" alt="" className=" w-4 h-4 bg-white"/>
       </div>
     </div>
   );
