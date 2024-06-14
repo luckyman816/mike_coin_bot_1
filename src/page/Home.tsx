@@ -78,9 +78,9 @@ function Home() {
 
     return () => clearTimeout(interval);
   };
-
   useEffect(() => {
     const interval = setInterval(() => {
+      console.log("-information---->", user_id, remainedEnergy)
       dispatch(updateEnergy(user_id, remainedEnergy + 1))
     }, 2000);
     return () => clearInterval(interval);
