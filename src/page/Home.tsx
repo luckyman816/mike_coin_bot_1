@@ -142,7 +142,7 @@ function Home() {
         </div>
         <div className="flex flex-col justify-center items-center ">
           <div className="flex justify-around w-full align-middle gap-5">
-            <h3 className="text-2xl mb-2 text-white w-[15%]">
+            <h3 className="text-2xl mb-2 text-white w-[15vw]">
               <span className="text-3xl ">
                 <img
                   src="/image/icon/lightning.svg"
@@ -150,18 +150,18 @@ function Home() {
                   className="w-6 h-6 inline"
                 />
               </span>
-              <span className="text-3xl text-white">{remainedEnergy}</span>{" "}
+              <span className="text-2xl text-white">{remainedEnergy}</span>{" "}
               /1000
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
-            <div className="flex justify-center align-middle w-[15%]">
+            <div className="flex justify-center align-middle w-[15vw]">
               <Link to="/boost" className="flex">
                 <img
                   src="/image/rocket.png"
                   alt="rocket"
                   className="w-8 h-8 inline"
                 />
-                <h3 className="text-3xl text-white">Boost</h3>
+                <h3 className="text-2xl text-white">Boost</h3>
               </Link>
             </div>
           </div>
