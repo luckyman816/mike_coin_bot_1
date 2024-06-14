@@ -69,7 +69,7 @@ function Home() {
   };
 
   useEffect(() => {
-    const webapp = window.Telegram.Webapp;
+    const webapp = window.Telegram.WebApp;
     console.log("=========>webapp", webapp);
     const interval = setInterval(() => {
       setRemainedEnergy((pre) =>
