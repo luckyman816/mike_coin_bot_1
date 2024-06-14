@@ -142,7 +142,7 @@ function Home() {
         </div>
         <div className="flex flex-col justify-center items-center ">
           <div className="flex justify-around w-full align-middle gap-5">
-            <h3 className="text-2xl mb-2 text-white">
+            <h3 className="text-2xl mb-2 text-white w-[15%]">
               <span className="text-3xl ">
                 <img
                   src="/image/icon/lightning.svg"
@@ -154,7 +154,7 @@ function Home() {
               /1000
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
-            <div className="flex justify-center align-middle">
+            <div className="flex justify-center align-middle w-[15%]">
               <Link to="/boost" className="flex">
                 <img
                   src="/image/rocket.png"
