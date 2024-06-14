@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
-import { dispatch, useSelector } from "../store";
+import {  useSelector } from "../store";
 //import { insertWallet, updateWallet } from "../store/reducers/wallet";
 function Home() {
   useEffect(() => {
@@ -12,7 +12,7 @@ function Home() {
     console.log(webapp);
   }, []);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
-  const energyState = useSelector((state) => state.wallet.user?.energy);
+  //const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
   /*useEffect(() => {
     if (address) {
