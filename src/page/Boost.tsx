@@ -6,13 +6,13 @@ export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const username_state = useSelector((state) => state.wallet.user?.username );
   const [token, setToken] = useState<number>(tokenState)
-  const [user_id, setUser_Id] = useState<string>(username_state)
+  const [username, setUsername] = useState<string>(username_state)
   useEffect(() => {
     setToken(tokenState)
-    setUser_Id(username_state)
+    setUsername(username_state)
   }, [tokenState, username_state])
   const handleFullEnergy = () => {
-    dispatch(updateEnergy(user_id, 1000))
+    dispatch(updateEnergy(username, 1000))
     setIsModalOpen(false);
   }
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
