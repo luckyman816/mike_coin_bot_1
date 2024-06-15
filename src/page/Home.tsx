@@ -37,7 +37,11 @@ function Home() {
     }
   }, [username]);
   useEffect (() => {
-    setTap(tapState)
+    if(tapState == 1) {
+      setTap(1)
+    } else {
+      setTap(2)
+    }
   }, [tapState])
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
