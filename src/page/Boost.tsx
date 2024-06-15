@@ -1,5 +1,5 @@
 import { dispatch, useSelector } from "../store";
-import { updateEnergy } from "../store/reducers/wallet";
+import { updateEnergy, updateTap } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import Modal from "../component/modal";
 export default function Boost() {
@@ -15,14 +15,23 @@ export default function Boost() {
     dispatch(updateEnergy(username, 1000))
     setIsModalOpen(false);
   }
+  const handleMultiTap = () => {
+    dispatch(updateTap(username, 2))
+    setIsTapModalOpen(false);
+  }
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
   const handleMouseClick = () => {
     setIsModalOpen(true);
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+  const [isTapModalOpen, setIsTapModalOpen] = useState<boolean>(false);
+  const handleMouseTapClick = () => {
+    setIsTapModalOpen(true);
+  };
+  const handleCloseTapModal = () => {
+    setIsTapModalOpen(false);
   };
   return (
     <div className="Boost max-w-full text-white h-[75vh] max-sm:h-[82vh] mt-12">
@@ -55,6 +64,7 @@ export default function Boost() {
         </div>
         <div
           className={`flex my-3 px-5 py-3 items-center bg-[#4d4d4c] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
+          onClick={handleMouseTapClick}
         >
           <img src="/image/double-tap.png" alt="" className="w-10 h-10" />
           <div className="flex flex-col gap-1">
@@ -88,6 +98,18 @@ export default function Boost() {
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
           <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleFullEnergy}><span className="flex justify-center items-center">Go ahead</span></div>
+        </div>
+      </Modal>
+      <Modal isOpen={isTapModalOpen} onClose={handleCloseTapModal}>
+        <div className="flex flex-col items-center align-middle gap-3">
+          <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12"/>
+          <h1 className="text-2xl text-white">Multi-Tap</h1>
+          <p className=" text-sm text-white">Recharge your energy to the maximum and do another round of mining</p>
+          <div className="flex">
+            <img src="image/double-tap.png" alt="" className=" w-14 h-14"/>
+            <h1 className="text-white text-2xl">FREE</h1>
+          </div>
+          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleMultiTap}><span className="flex justify-center items-center">Go ahead</span></div>
         </div>
       </Modal>
     </div>

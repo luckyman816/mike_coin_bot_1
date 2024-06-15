@@ -16,10 +16,12 @@ function Home() {
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
+  const tapState = useSelector((state) => state.wallet.user?.tap)
   const [imgStatus, setImgStatus] = useState(false);
   const [username, setUsername] = useState<string>(usernameState);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
+  const [tap, setTap] = useState<number>(tapState)
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
@@ -34,7 +36,9 @@ function Home() {
       dispatch(insertWallet(username));
     }
   }, [username]);
- 
+  useEffect (() => {
+    setTap(tapState)
+  }, [tapState])
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -98,11 +102,11 @@ function Home() {
     if (remainedEnergy > 0 && token < 1000) {
       if (remainedEnergy < 500) {
         setScore("+2");
-        setToken(token + 2);
+        setToken(token + tap);
         dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
-        setToken(token + 2);
+        setToken(token + tap);
         dispatch(updateWallet(username, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
