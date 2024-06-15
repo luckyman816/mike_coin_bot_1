@@ -25,7 +25,7 @@ export default function QuestList() {
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
           <div className=" flex flex-col justify-start items-center">
-            <div className="flex justify-start items-start text-white font-bold">
+            <div className="flex text-left justify-start items-start text-white font-bold">
               Invite a friend
             </div>
             <div className="flex justify-start ml-2">
@@ -39,8 +39,8 @@ export default function QuestList() {
       <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-[20px]">
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
-          <div className=" flex flex-col justify-start items-center">
-            <div className="flex justify-start items-start text-white font-bold">
+          <div className=" flex flex-col">
+            <div className="flex text-left justify-start items-start text-white font-bold">
               Invite a friend with Telegram premium
             </div>
             <div className="flex justify-start ml-2">
