@@ -72,31 +72,31 @@ export function insertWallet(username: string) {
     }
   };
 }
-export function updateWallet(user_id: string, balance: number, energy: number) {
+export function updateWallet(username: string, balance: number, energy: number) {
   return async () => {
     try {
-      const response = await axios.post(`/wallet/update/${user_id}`, {balance: balance, energy: energy});
+      const response = await axios.post(`/wallet/update/${username}`, {balance: balance, energy: energy});
       dispatch(wallet.actions.updateWalletSuccess(response.data));
     }catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
   }
 }
-export function updateEnergy (user_id: string, energy: number) {
+export function updateEnergy (username: string, energy: number) {
   console.log("------>", energy)
   return async () => {
     try {
-      const response =  await axios.post(`/wallet/updateEnergy/${user_id}`, {energy: energy});
+      const response =  await axios.post(`/wallet/updateEnergy/${username}`, {energy: energy});
       dispatch(wallet.actions.updateWalletSuccess(response.data));
     }catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
   }
 }
-export function updateBalance (user_id: string, balance: number) {
+export function updateBalance (username: string, balance: number) {
   return async () => {
     try {
-      const response =  await axios.post(`/wallet/updateBalance/${user_id}`, {balance: balance});
+      const response =  await axios.post(`/wallet/updateBalance/${username}`, {balance: balance});
       dispatch(wallet.actions.updateWalletSuccess(response.data));
     }catch (error) {
       dispatch(wallet.actions.hasError(error));
