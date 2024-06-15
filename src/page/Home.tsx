@@ -22,7 +22,6 @@ function Home() {
   const [username, setUsername] = useState<string>(usernameState);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
-  const [tap, setTap] = useState<number>(tapState);
   const [limit, setLimit] = useState<number>(limitState)
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
@@ -38,13 +37,6 @@ function Home() {
       dispatch(insertWallet(username));
     }
   }, [username]);
-  useEffect(() => {
-    if (tapState == 1) {
-      setTap(1);
-    } else {
-      setTap(2);
-    }
-  }, [tapState]);
   useEffect(() => {
     if(limitState == 1000 ) {
       setLimit(1000)
@@ -113,8 +105,8 @@ function Home() {
     //  return;
     //}
     if (remainedEnergy > 0 && token < 1000) {
-      setScore(`+${tap}`);
-      setToken(token + tap);
+      setScore(`+${tapState}`);
+      setToken(token + tapState);
       dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);
