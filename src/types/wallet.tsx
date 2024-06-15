@@ -3,7 +3,8 @@ export interface walletProfile {
     username: string;
     balance: number;
     energy: number;
-    tap: number
+    tap: number;
+    limit: number;
 }
 export interface walletStateProps {
     user: walletProfile;
