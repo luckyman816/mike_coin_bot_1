@@ -105,7 +105,7 @@ export default function Boost() {
           <img src="image/double-tap.png" alt="" className=" w-12 h-12"/>
           <h1 className="text-2xl text-white">Multi-Tap</h1>
           <p className=" text-sm text-white">Select the Multi-tap, can get the token x 2</p>
-          <div className="flex">
+          <div className="flex items-center">
             <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
