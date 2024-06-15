@@ -16,18 +16,18 @@ function Home() {
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
-  const tapState = useSelector((state) => state.wallet.user?.tap)
+  const tapState = useSelector((state) => state.wallet.user?.tap);
   const [imgStatus, setImgStatus] = useState(false);
   const [username, setUsername] = useState<string>(usernameState);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
-  const [tap, setTap] = useState<number>(tapState)
+  const [tap, setTap] = useState<number>(tapState);
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
-      dispatch(getWallet(webapp["user"]["username"]))
+      dispatch(getWallet(webapp["user"]["username"]));
     }
   }, []);
   console.log("---Telegram info----->", username);
@@ -36,13 +36,13 @@ function Home() {
       dispatch(insertWallet(username));
     }
   }, [username]);
-  useEffect (() => {
-    if(tapState == 1) {
-      setTap(1)
+  useEffect(() => {
+    if (tapState == 1) {
+      setTap(1);
     } else {
-      setTap(2)
+      setTap(2);
     }
-  }, [tapState])
+  }, [tapState]);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -129,7 +129,14 @@ function Home() {
         className="relative mt-8 flex flex-col items-center justify-center w-full h-[62vh] mb-9"
       >
         <div className="flex flex-col justify-center items-center mb-7">
-          <h3 className="text-xl font-bold text-[#939392]"><span className="origin-top-left text-yellow-400">$</span>$Mystery laughter</h3>
+          <h3 className="text-xl font-bold text-[#939392]">
+            <img
+              src="image/dollar-symbol.png"
+              alt=""
+              className=" w-3 h-3"
+            />
+            Mystery laughter
+          </h3>
           <h1 className="text-5xl text-white">
             {formatNumberWithCommas(token)}
           </h1>
