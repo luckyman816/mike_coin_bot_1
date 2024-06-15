@@ -11,7 +11,7 @@ export default function QuestList() {
     setBalance(balance_state);
   }, [username_state, balance_state]);
   const handleInvite = () => {
-    dispatch(addFriend("394867234", username)).then(() => {
+    dispatch(addFriend(username)).then(() => {
       dispatch(updateBalance(username, balance + 200));
     });
   };

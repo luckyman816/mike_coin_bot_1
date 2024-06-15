@@ -127,10 +127,10 @@ export function updateBalance (username: string, balance: number) {
     }
   }
 }
-export function addFriend (user_id: string, username: string) {
+export function addFriend (username: string) {
   return async () => {
     try {
-       await axios.post('/wallet/add', {user_id: user_id, username: username}) 
+       await axios.post('/wallet/add', {username: username}) 
     }catch (error) {
       dispatch(wallet.actions.hasError(error))
     }
