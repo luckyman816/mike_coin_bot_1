@@ -102,7 +102,7 @@ function Home() {
         dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
-        setToken(token + 1);
+        setToken(token + 2);
         dispatch(updateWallet(username, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
