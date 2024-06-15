@@ -19,7 +19,7 @@ export default function QuestList() {
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <div className="flex flex-col justify-center items-center">
-        <h1 className=" text-white text-2xl">Invite friends!</h1>
+        <h1 className=" text-white text-3xl">Invite friends!</h1>
         <p className=" text-white">You and your friend will receive bonuses</p>
       </div>
       <div className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-[20px]">
@@ -63,7 +63,7 @@ export default function QuestList() {
           />
         </div>
       </div>
-      <div className="w-full h-24 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400" onClick={handleInvite}>
+      <div className="w-full h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400" onClick={handleInvite}>
         <span className="flex justify-center items-center">
           Invite a friend
         </span>
