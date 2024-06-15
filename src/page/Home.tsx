@@ -6,35 +6,36 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
+import { useLocation } from "react-router-dom";
 import {
   insertWallet,
   updateWallet,
   updateEnergy,
 } from "../store/reducers/wallet";
 function Home() {
+  const location = useLocation()
+  console.log("-location-->",location.pathname)
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
-  const [user_id, setUser_Id] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
     if (webapp) {
-      setUser_Id(webapp["user"]["id"]);
       setUsername(webapp["user"]["username"]);
     }
   }, []);
-  console.log("---Telegram info----->", user_id, username);
+  console.log("---Telegram info----->", username);
   useEffect(() => {
-    if (user_id && username) {
-      dispatch(insertWallet(user_id, username));
+    if (username) {
+      dispatch(insertWallet(username));
     }
-  }, [user_id, username]);
+  }, [ username]);
   useEffect(() => {
     setToken(tokenState);
     setRemainedEnergy(energyState);
-  }, [tokenState, energyState, user_id]);
+  }, [tokenState, energyState]);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   function formatNumberWithCommas(number: number, locale = "en-US") {
@@ -84,13 +85,13 @@ function Home() {
   };
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log("-information---->", user_id, remainedEnergy);
+      console.log("-information---->", username, remainedEnergy);
       if (remainedEnergy < 1000) {
-        dispatch(updateEnergy(user_id, remainedEnergy + 1));
+        dispatch(updateEnergy(username, remainedEnergy + 1));
       }
     }, 216000);
     return () => clearInterval(interval);
-  }, [user_id, remainedEnergy]);
+  }, [username, remainedEnergy]);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
     //if (!address) {
@@ -101,11 +102,11 @@ function Home() {
       if (remainedEnergy < 500) {
         setScore("+2");
         // setToken(token + 2);
-        dispatch(updateWallet(user_id, token + 2, remainedEnergy - 1));
+        dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
         // setToken(token + 1);
-        dispatch(updateWallet(user_id, token + 1, remainedEnergy - 1));
+        dispatch(updateWallet(username, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);

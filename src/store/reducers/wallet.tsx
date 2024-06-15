@@ -15,7 +15,6 @@ const initialState: walletStateProps = {
   error: null,
   user: {
       _id: '',
-      user_id: '',
       username: '',
       balance: 0,
       energy: 0
@@ -62,11 +61,11 @@ export function getWallet(id: number) {
   };
 }
 
-export function insertWallet(user_id: string, username: string) {
-  console.log("wallet address---------->", user_id, username);
+export function insertWallet(username: string) {
+  console.log("wallet address---------->",  username);
   return async () => {
     try {
-      const response = await axios.post('/wallet/add', {user_id: user_id, username: username});
+      const response = await axios.post('/wallet/add', {username: username});
       dispatch(wallet.actions.addWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));
