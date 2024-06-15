@@ -15,7 +15,7 @@ export default function Boost() {
     setLimit(limit_state)
   }, [tokenState, username_state, limit_state])
   const handleFullEnergy = () => {
-    console.log("-----full energy💰🏆💪------>", limit)
+    console.log("-----full energy💰🏆💪------>", limit_state)
     dispatch(updateEnergy(username, limit))
     setIsModalOpen(false);
   }
