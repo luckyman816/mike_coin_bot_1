@@ -17,11 +17,13 @@ function Home() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
   const tapState = useSelector((state) => state.wallet.user?.tap);
+  const limitState = useSelector((state) => state.wallet.user?.limit)
   const [imgStatus, setImgStatus] = useState(false);
   const [username, setUsername] = useState<string>(usernameState);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   const [tap, setTap] = useState<number>(tapState);
+  const [limit, setLimit] = useState<number>(limitState)
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
@@ -43,6 +45,13 @@ function Home() {
       setTap(2);
     }
   }, [tapState]);
+  useEffect(() => {
+    if(limitState == 1000 ) {
+      setLimit(1000)
+    } else {
+      setLimit(2000)
+    }
+  }, [limitState])
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -91,12 +100,12 @@ function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       console.log("-information---->", username, remainedEnergy);
-      if (remainedEnergy < 1000) {
+      if (remainedEnergy < limit) {
         dispatch(updateEnergy(username, remainedEnergy + 1));
       }
     }, 216000);
     return () => clearInterval(interval);
-  }, [username, remainedEnergy]);
+  }, [username, remainedEnergy, limit]);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
     //if (!address) {
@@ -167,7 +176,7 @@ function Home() {
                   className="w-6 h-6 inline"
                 />
               </span>
-              <span className="text-xl text-white">{remainedEnergy}</span> /1000
+              <span className="text-xl text-white">{remainedEnergy}</span> / {limit}
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
             <div className="flex justify-center items-center w-[15vw]">
