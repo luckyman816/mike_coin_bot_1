@@ -13,8 +13,10 @@ import {
   updateEnergy,
 } from "../store/reducers/wallet";
 function Home() {
-  const location = useLocation()
-  console.log("-location-->",location.pathname)
+  const location = useLocation();
+  useEffect(() => {
+    console.log("-location-->", location.pathname);
+  }, [location]);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
@@ -31,7 +33,7 @@ function Home() {
     if (username) {
       dispatch(insertWallet(username));
     }
-  }, [ username]);
+  }, [username]);
   useEffect(() => {
     setToken(tokenState);
     setRemainedEnergy(energyState);
