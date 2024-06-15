@@ -102,11 +102,11 @@ export default function Boost() {
       </Modal>
       <Modal isOpen={isTapModalOpen} onClose={handleCloseTapModal}>
         <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12"/>
+          <img src="image/double-tap.png" alt="" className=" w-12 h-12"/>
           <h1 className="text-2xl text-white">Multi-Tap</h1>
-          <p className=" text-sm text-white">Recharge your energy to the maximum and do another round of mining</p>
+          <p className=" text-sm text-white">Select the Multi-tap, can get the token x 2</p>
           <div className="flex">
-            <img src="image/double-tap.png" alt="" className=" w-14 h-14"/>
+            <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
           <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleMultiTap}><span className="flex justify-center items-center">Go ahead</span></div>
