@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import Modal from "../component/modal";
 export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
-  const user_id_state = useSelector((state) => state.wallet.user?.user_id );
+  const username_state = useSelector((state) => state.wallet.user?.username );
   const [token, setToken] = useState<number>(tokenState)
-  const [user_id, setUser_Id] = useState<string>(user_id_state)
+  const [user_id, setUser_Id] = useState<string>(username_state)
   useEffect(() => {
     setToken(tokenState)
-    setUser_Id(user_id_state)
-  }, [tokenState, user_id_state])
+    setUser_Id(username_state)
+  }, [tokenState, username_state])
   const handleFullEnergy = () => {
     dispatch(updateEnergy(user_id, 1000))
     setIsModalOpen(false);

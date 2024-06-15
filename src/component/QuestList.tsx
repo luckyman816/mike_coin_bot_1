@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
 import { updateBalance, addFriend } from "../store/reducers/wallet";
 export default function QuestList() {
-  const user_id_state = useSelector((state) => state.wallet.user?.user_id);
+  const username_state = useSelector((state) => state.wallet.user?.username);
   const balance_state = useSelector((state) => state.wallet.user?.balance);
-  const [user_id, setUser_Id] = useState<string>(user_id_state);
   const [balance, setBalance] = useState<number>(balance_state);
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState<string>(username_state);
   useEffect(() => {
-    setUser_Id(user_id_state);
+    setUsername(username_state)
     setBalance(balance_state);
-  }, [user_id_state, balance_state]);
+  }, [username_state, balance_state]);
   const handleInvite = () => {
     dispatch(addFriend("394867234", username)).then(() => {
-      dispatch(updateBalance(user_id, balance + 200));
+      dispatch(updateBalance(username, balance + 200));
     });
   };
   return (
