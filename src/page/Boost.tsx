@@ -80,7 +80,7 @@ export default function Boost() {
         >
           <img src="/image/battery.png" alt="" className="w-10 h-10" />
           <div className="flex flex-col gap-1">
-            <h3 className="text-2xl text-white text-left"><span className="origin-top-left text-yellow-400">$</span>Energy limit</h3>
+            <h3 className="text-2xl text-white text-left">Energy limit</h3>
             <div className="flex gap-3 align-middle">
               <img src="/image/dollar.png" alt="" className="w-5 h-5" />
               <h3>2K * 2M</h3>
