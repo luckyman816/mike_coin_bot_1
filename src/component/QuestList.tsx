@@ -25,7 +25,7 @@ export default function QuestList() {
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
           <div className=" flex flex-col justify-start items-center">
-            <div className="flex text-left justify-start items-start text-white font-bold">
+            <div className="text-left justify-start items-center text-white font-bold">
               Invite a friend
             </div>
             <div className="flex justify-start ml-2">
@@ -40,7 +40,7 @@ export default function QuestList() {
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
           <div className=" flex flex-col">
-            <div className="flex text-left justify-start items-start text-white font-bold">
+            <div className="text-left justify-start items-center text-white font-bold">
               Invite a friend with Telegram premium
             </div>
             <div className="flex justify-start ml-2">
