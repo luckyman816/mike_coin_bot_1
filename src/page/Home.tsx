@@ -19,6 +19,7 @@ function Home() {
   const tapState = useSelector((state) => state.wallet.user?.tap);
   const limitState = useSelector((state) => state.wallet.user?.limit)
   const [imgStatus, setImgStatus] = useState(false);
+  const [tap, setTap] = useState<number>(tapState)
   const [username, setUsername] = useState<string>(usernameState);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
@@ -28,7 +29,9 @@ function Home() {
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
-      dispatch(getWallet(webapp["user"]["username"]));
+      dispatch(getWallet(webapp["user"]["username"])).then (() => {
+        setTap(tapState)
+      });
     }
   }, []);
   console.log("---Telegram info----->", username);
@@ -48,7 +51,7 @@ function Home() {
     return new Intl.NumberFormat(locale).format(number);
   }
   const bodyRef = useRef<HTMLDivElement>(null);
-  const [score, setScore] = useState<string>(`+${tapState}`);
+  const [score, setScore] = useState<string>(`+${tap}`);
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     const rect = event.currentTarget.getBoundingClientRect();
@@ -105,8 +108,8 @@ function Home() {
     //  return;
     //}
     if (remainedEnergy > 0 && token < 1000) {
-      setScore(`+${tapState}`);
-      setToken(token + tapState);
+      setScore(`+${tap}`);
+      setToken(token + tap);
       dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);
