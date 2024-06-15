@@ -10,7 +10,7 @@ export default function RankingList() {
     return new Intl.NumberFormat(locale).format(number);
   }
   return (
-    <div className="md:w-full h-[65vh] mx-auto ">
+    <div className="md:w-full h-[65vh] mx-auto p-4">
       <div className="max-h-[50vh] max-sm:max-h-[50vh] overflow-auto">
         <div className="flex px-3 py-1 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
           <div className="text-start w-[20%] flex justify-center">Rank</div>
