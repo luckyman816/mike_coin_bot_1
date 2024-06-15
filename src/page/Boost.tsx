@@ -35,7 +35,7 @@ export default function Boost() {
   };
   return (
     <div className="Boost max-w-full text-white h-[75vh] max-sm:h-[82vh] mt-12">
-      <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center ">
+      <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center p-4">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
             Your Balance
