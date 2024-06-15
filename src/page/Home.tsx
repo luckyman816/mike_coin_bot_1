@@ -35,7 +35,7 @@ function Home() {
   }, [username]);
   useEffect(() => {
     dispatch(getWallet(username))
-  }, [setToken, setRemainedEnergy, tokenState, energyState, username]);
+  }, []);
  
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
