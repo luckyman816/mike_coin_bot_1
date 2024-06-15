@@ -16,7 +16,7 @@ function Home() {
   const location = useLocation();
   useEffect(() => {
     console.log("-location-->", location.pathname);
-  }, [location]);
+  }, []);
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
