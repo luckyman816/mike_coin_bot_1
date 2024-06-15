@@ -5,14 +5,17 @@ import Modal from "../component/modal";
 export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const username_state = useSelector((state) => state.wallet.user?.username );
+  const limit_state = useSelector((state) => state.wallet.user?.limit);
   const [token, setToken] = useState<number>(tokenState)
   const [username, setUsername] = useState<string>(username_state)
+  const [limit, setLimit] = useState<number>(limit_state)
   useEffect(() => {
     setToken(tokenState)
     setUsername(username_state)
-  }, [tokenState, username_state])
+    setLimit(limit_state)
+  }, [tokenState, username_state, limit_state])
   const handleFullEnergy = () => {
-    dispatch(updateEnergy(username, 1000))
+    dispatch(updateEnergy(username, limit))
     setIsModalOpen(false);
   }
   const handleMultiTap = () => {
