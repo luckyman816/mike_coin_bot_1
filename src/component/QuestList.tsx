@@ -18,7 +18,7 @@ export default function QuestList() {
   };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto">
-      <div className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-lg">
+      <div className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-[20px]">
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
           <div className=" flex flex-col justify-center items-center">
@@ -33,7 +33,7 @@ export default function QuestList() {
           </div>
         </div>
       </div>
-      <div className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-lg">
+      <div className="flex items-center h-36 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-[20px]">
         <div className="flex justify-start items-center">
           <img src="image/bonus.png" alt="" className=" w-14 h-14" />
           <div className=" flex flex-col justify-center items-center">
@@ -54,7 +54,7 @@ export default function QuestList() {
           <input
             type="text"
             placeholder="You haven't invited anyone yet"
-            className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none"
+            className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none focus:outline-none"
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
@@ -63,7 +63,6 @@ export default function QuestList() {
         <span className="flex justify-center items-center">
           Invite a friend
         </span>
-        <img src="image/user.png" alt="" className=" w-4 h-4 bg-white" />
       </div>
     </div>
   );
