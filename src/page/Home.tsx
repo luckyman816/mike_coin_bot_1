@@ -17,20 +17,20 @@ function Home() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
   const tapState = useSelector((state) => state.wallet.user?.tap);
-  const limitState = useSelector((state) => state.wallet.user?.limit)
+  const limitState = useSelector((state) => state.wallet.user?.limit);
   const [imgStatus, setImgStatus] = useState(false);
-  const [tap, setTap] = useState<number>(tapState)
+  const [tap, setTap] = useState<number>(tapState);
   const [username, setUsername] = useState<string>(usernameState);
   const [token, setToken] = useState<number>(tokenState);
   const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
-  const [limit, setLimit] = useState<number>(limitState)
+  const [limit, setLimit] = useState<number>(limitState);
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
-      dispatch(getWallet(webapp["user"]["username"])).then (() => {
-        setTap(tapState)
+      dispatch(getWallet(webapp["user"]["username"])).then(() => {
+        setTap(tapState);
       });
     }
   }, []);
@@ -41,12 +41,12 @@ function Home() {
     }
   }, [username]);
   useEffect(() => {
-    if(limitState == 1000 ) {
-      setLimit(1000)
+    if (limitState == 1000) {
+      setLimit(1000);
     } else {
-      setLimit(2000)
+      setLimit(2000);
     }
-  }, [limitState])
+  }, [limitState]);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -110,7 +110,11 @@ function Home() {
     if (remainedEnergy > 0 && token < 1000) {
       setScore(`+${tap}`);
       setToken(token + tap);
-      dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
+      if (tap == 1) {
+        dispatch(updateWallet(username, token + 1, remainedEnergy - 1));
+      } else {
+        dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
+      }
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);
     }
@@ -171,7 +175,8 @@ function Home() {
                   className="w-6 h-6 inline"
                 />
               </span>
-              <span className="text-xl text-white">{remainedEnergy}</span> / {limit}
+              <span className="text-xl text-white">{remainedEnergy}</span> /{" "}
+              {limit}
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
             <div className="flex justify-center items-center w-[15vw]">
