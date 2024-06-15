@@ -129,14 +129,12 @@ function Home() {
         className="relative mt-8 flex flex-col items-center justify-center w-full h-[62vh] mb-9"
       >
         <div className="flex flex-col justify-center items-center mb-7">
-          <h3 className="text-xl font-bold text-[#939392]">
-            <img
-              src="image/dollar-symbol.png"
-              alt=""
-              className=" w-3 h-3"
-            />
-            Mystery laughter
-          </h3>
+          <div className="flex justify-center items-center">
+            <img src="image/dollar-symbol.png" alt="" className=" w-5 h-5" />
+            <h3 className="text-xl font-bold text-[#939392]">
+              Mystery laughter
+            </h3>
+          </div>
           <h1 className="text-5xl text-white">
             {formatNumberWithCommas(token)}
           </h1>
