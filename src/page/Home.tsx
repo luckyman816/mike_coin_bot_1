@@ -17,10 +17,11 @@ function Home() {
   useEffect(() => {
     console.log("-location-->", location.pathname);
   }, [location]);
+  const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState<string>(usernameState);
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
