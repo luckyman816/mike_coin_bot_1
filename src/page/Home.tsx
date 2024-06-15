@@ -25,6 +25,7 @@ function Home() {
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
+      dispatch(getWallet(webapp["user"]["username"]))
     }
   }, []);
   console.log("---Telegram info----->", username);
@@ -33,9 +34,6 @@ function Home() {
       dispatch(insertWallet(username));
     }
   }, [username]);
-  useEffect(() => {
-    dispatch(getWallet(username))
-  }, []);
  
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
