@@ -50,10 +50,10 @@ export default wallet.reducer;
 
 // ----------------------------------------------------------------------
 
-export function getWallet(id: number) {
+export function getWallet(username: string) {
   return async () => {
     try {
-      const response = await axios.post('/wallet/id', { id });
+      const response = await axios.post(`/wallet/${username}`);
       dispatch(wallet.actions.getWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));

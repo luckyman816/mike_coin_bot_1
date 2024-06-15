@@ -6,22 +6,20 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import { useLocation } from "react-router-dom";
 import {
   insertWallet,
   updateWallet,
   updateEnergy,
+  getWallet,
 } from "../store/reducers/wallet";
 function Home() {
-  const location = useLocation();
-  useEffect(() => {
-    console.log("-location-->", location.pathname);
-  }, []);
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
   const [imgStatus, setImgStatus] = useState(false);
   const [username, setUsername] = useState<string>(usernameState);
+  const [token, setToken] = useState<number>(tokenState);
+  const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
   useEffect(() => {
     const webapp = (window as any).Telegram?.WebApp.initDataUnsafe;
     // console.log("=========>webapp", webapp);
@@ -36,11 +34,9 @@ function Home() {
     }
   }, [username]);
   useEffect(() => {
-    setToken(tokenState);
-    setRemainedEnergy(energyState);
-  }, [tokenState, energyState]);
-  const [token, setToken] = useState<number>(tokenState);
-  const [remainedEnergy, setRemainedEnergy] = useState<number>(energyState);
+    dispatch(getWallet(username))
+  }, []);
+ 
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -104,11 +100,11 @@ function Home() {
     if (remainedEnergy > 0 && token < 1000) {
       if (remainedEnergy < 500) {
         setScore("+2");
-        // setToken(token + 2);
+        setToken(token + 2);
         dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
       } else {
         setScore("+1");
-        // setToken(token + 1);
+        setToken(token + 1);
         dispatch(updateWallet(username, token + 1, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
