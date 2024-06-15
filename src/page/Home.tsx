@@ -48,7 +48,7 @@ function Home() {
     return new Intl.NumberFormat(locale).format(number);
   }
   const bodyRef = useRef<HTMLDivElement>(null);
-  const [score, setScore] = useState<string>(`+${tap}`);
+  const [score, setScore] = useState<string>(`+${tapState}`);
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     const rect = event.currentTarget.getBoundingClientRect();
