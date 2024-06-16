@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { /*updateBalance,*/ addFriend } from "../store/reducers/wallet";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
@@ -25,6 +25,7 @@ export default function QuestList() {
   };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
+      <ToastContainer />
       <div className="flex flex-col justify-center items-center">
         <h1 className=" text-white text-3xl">Invite friends!</h1>
         <p className=" text-white">You and your friend will receive bonuses</p>
