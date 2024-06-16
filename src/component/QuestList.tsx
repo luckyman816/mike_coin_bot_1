@@ -19,7 +19,7 @@ export default function QuestList() {
         console.log("-----friend------->", friend)
       });
     } else {
-      toast("Friend is you. Let not scam!")
+      toast.error("Friend is you, please enter friend name again");
     }
     //dispatch(updateBalance(username, balance + 200))
   };
