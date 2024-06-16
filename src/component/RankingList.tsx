@@ -12,21 +12,6 @@ export default function RankingList() {
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
-  console.log("-----ranking----->", usersa)
-  const users = [
-    {
-      username: "user_name",
-      balance: 500000
-    },
-    {
-      username: "user_name",
-      balance: 500000
-    },
-    {
-      username: "user_name",
-      balance: 500000
-    }
-  ]
   return (
     <div className="md:w-full h-[65vh] mx-auto p-4">
       <div className="max-h-[50vh] max-sm:max-h-[50vh] overflow-auto">
@@ -73,11 +58,11 @@ export default function RankingList() {
         </div>
         <div className="relative h-12 overflow-hidden w-[60%] flex items-center">
           <img src="/image/mikeT.png" alt="avatar" className="w-10 h-10" />
-          <p className="text-xl text-start pl-2 text-white">{users[0].username}</p>
+          <p className="text-xl text-start pl-2 text-white">{usersa[0].username}</p>
         </div>
 
         <p className="text-xl text-start pl-2 w-[30%] text-white">
-          {formatNumberWithCommas(users[0].balance)}
+          {formatNumberWithCommas(usersa[0].balance)}
         </p>
       </div>
     </div>
