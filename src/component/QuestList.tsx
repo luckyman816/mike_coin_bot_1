@@ -13,6 +13,9 @@ export default function QuestList() {
     if (friendName != username) {
       if (friend_state) {
         dispatch(updateBalance(username, balance + 200));
+        toast.success("Invite Friend succesfully!");
+      } else {
+        toast.error("Friend is invalid");
       }
     } else {
       toast.error("Friend is you, please enter friend name again");

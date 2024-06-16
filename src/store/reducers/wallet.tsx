@@ -21,10 +21,7 @@ const initialState: walletStateProps = {
       tap: 1,
       limit: 1000,
   },
-  friend: {
-    check: false,
-    inviteNum: 0
-  },
+  friend: false,
   users: []
 };
 
@@ -48,8 +45,7 @@ const wallet = createSlice({
       state.user = action.payload;
     },
     addFriendSuccess(state, action) {
-      state.friend.check = action.payload
-      state.friend.inviteNum = state.friend.inviteNum ++
+      state.friend = action.payload
     }
   }
 });
