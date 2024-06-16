@@ -1,4 +1,5 @@
 import { dispatch, useSelector } from "../store";
+import { toast, ToastContainer } from "react-toastify";
 import { updateEnergy, updateLimit, updateTap } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import Modal from "../component/modal";
@@ -17,15 +18,18 @@ export default function Boost() {
   const handleFullEnergy = () => {
     console.log("-----full energy💰🏆💪------>", limit_state)
     dispatch(updateEnergy(username, limit))
+    toast.success("Successfully updated energy!")
     setIsModalOpen(false);
   }
   const handleMultiTap = () => {
     dispatch(updateTap(username, 2))
     setIsTapModalOpen(false);
+    toast.success("Successfully updated tap!")
   }
   const handleLimit= () => {
     dispatch(updateLimit(username, 2000))
     setIsLimitModalOpen(false);
+    toast.success("Successfully updated limit!")
   }
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const handleMouseClick = () => {
@@ -51,6 +55,7 @@ export default function Boost() {
   };
   return (
     <div className="Boost max-w-full text-white h-[75vh] max-sm:h-[82vh] mt-12">
+      <ToastContainer/>
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center p-4">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
