@@ -7,14 +7,17 @@ export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const username_state = useSelector((state) => state.wallet.user?.username );
   const limit_state = useSelector((state) => state.wallet.user?.limit);
+  const tap_state = useSelector((state) => state.wallet.user?.tap);
   const [token, setToken] = useState<number>(tokenState)
   const [username, setUsername] = useState<string>(username_state)
   const [limit, setLimit] = useState<number>(limit_state)
+  const [tap, setTap] = useState<number>(tap_state)
   useEffect(() => {
     setToken(tokenState)
     setUsername(username_state)
     setLimit(limit_state)
-  }, [tokenState, username_state, limit_state])
+    setTap(tap_state)
+  }, [tokenState, username_state, limit_state, tap_state])
   const handleFullEnergy = () => {
     console.log("-----full energy💰🏆💪------>", limit_state)
     dispatch(updateEnergy(username, limit))
@@ -22,7 +25,7 @@ export default function Boost() {
     setIsModalOpen(false);
   }
   const handleMultiTap = () => {
-    dispatch(updateTap(username, 2))
+    dispatch(updateTap(username, tap * 2))
     setIsTapModalOpen(false);
     toast.success("Successfully updated tap!")
   }
