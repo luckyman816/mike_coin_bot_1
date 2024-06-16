@@ -39,11 +39,11 @@ function Home() {
   }, []);
   console.log("---Telegram info----->", username);
   useEffect(() => {
-    setLimit(limitState)
+    setLimit(limitState);
   }, [limitState]);
   useEffect(() => {
-    dispatch(insertWallet(username))
-  }, [username])
+    dispatch(insertWallet(username));
+  }, [username]);
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -106,11 +106,12 @@ function Home() {
     //}
     if (remainedEnergy > 0 && token < 1000) {
       setScore(`+${tap}`);
-      setToken(token + tap);
-      if (tap == 1) {
-        dispatch(updateWallet(username, token + 1, remainedEnergy - 1));
+      if (token > 1000) {
+        setToken(1000);
+        dispatch(updateWallet(username, 1000, remainedEnergy - 1));
       } else {
-        dispatch(updateWallet(username, token + 2, remainedEnergy - 1));
+        setToken(token + tap);
+        dispatch(updateWallet(username, token + tap, remainedEnergy - 1));
       }
       setRemainedEnergy(remainedEnergy - 1);
       handleClick(event);
@@ -136,7 +137,7 @@ function Home() {
         <div className="flex flex-col justify-center items-center mb-7">
           <div className="flex justify-center items-center">
             <img src="image/money-bag.png" alt="" className=" w-5 h-5" />
-            <h3 className="text-xl font-bold text-[#939392]">
+            <h3 className="text-xl font-bold text-[#fff243]">
               Mystery laughter
             </h3>
           </div>
