@@ -39,11 +39,7 @@ function Home() {
   }, []);
   console.log("---Telegram info----->", username);
   useEffect(() => {
-    if (limitState == 1000) {
-      setLimit(1000);
-    } else {
-      setLimit(2000);
-    }
+    setLimit(limitState)
   }, [limitState]);
   useEffect(() => {
     dispatch(insertWallet(username))
