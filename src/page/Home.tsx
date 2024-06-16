@@ -138,7 +138,7 @@ function Home() {
           <div className="flex justify-center items-center">
             <img src="image/money-bag.png" alt="" className=" w-5 h-5" />
             <h3 className="text-xl font-bold text-[#fff243]">
-              Mystery laughter
+              &nbsp;&nbsp;Mystery laughter
             </h3>
           </div>
           <h1 className="text-5xl text-white">
