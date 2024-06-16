@@ -6,9 +6,13 @@ export interface walletProfile {
     tap: number;
     limit: number;
 }
+export interface FriendProf{
+    check: boolean;
+    inviteNum : number;
+}
 export interface walletStateProps {
     user: walletProfile;
     users: walletProfile[];
-    friend: boolean;
+    friend: FriendProf;
     error: object | string | null;
 }
