@@ -29,17 +29,16 @@ function Home() {
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
-      dispatch(getWallet(webapp["user"]["username"])).then(() => {
-        setTap(tapState);
-      });
+      if (username) {
+        dispatch(insertWallet(webapp["user"]["username"]));
+      } else {
+        dispatch(getWallet(webapp["user"]["username"])).then(() => {
+          setTap(tapState);
+        });
+      }
     }
   }, []);
   console.log("---Telegram info----->", username);
-  useEffect(() => {
-    if (username) {
-      dispatch(insertWallet(username));
-    }
-  }, [username]);
   useEffect(() => {
     if (limitState == 1000) {
       setLimit(1000);
