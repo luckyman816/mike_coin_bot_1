@@ -9,18 +9,11 @@ export default function QuestList() {
   const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
-  const [prevFriend, setPrevFriend] = useState<string>("");
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
-        if (friendName != prevFriend) {
-          dispatch(updateBalance(username, balance + 200)).then(() => {
-            setPrevFriend(friendName);
-          });
+          dispatch(updateBalance(username, balance + 200))
           toast.success("Invite Friend succesfully!");
-        } else {
-          toast.success("Invite equal name!");
-        }
       } else {
         toast.error("Friend is invalid");
       }

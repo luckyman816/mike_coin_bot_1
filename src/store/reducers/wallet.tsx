@@ -1,32 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // third-party
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // project imports
-import axios from '../../utils/api';
-import { dispatch } from '../index';
+import axios from "../../utils/api";
+import { dispatch } from "../index";
 
 // types
-import { walletStateProps } from '../../types/wallet';
+import { walletStateProps } from "../../types/wallet";
 
 // ----------------------------------------------------------------------
 
 const initialState: walletStateProps = {
   error: null,
   user: {
-      _id: '',
-      username: '',
-      balance: 0,
-      energy: 0,
-      tap: 1,
-      limit: 1000,
+    _id: "",
+    username: "",
+    balance: 0,
+    energy: 0,
+    tap: 1,
+    limit: 1000,
   },
-  friend: false,
-  users: []
+  friend : false,
+  users: [],
 };
 
 const wallet = createSlice({
-  name: 'wallet',
+  name: "wallet",
   initialState,
   reducers: {
     // HAS ERROR
@@ -41,13 +41,13 @@ const wallet = createSlice({
     addWalletSuccess(state, action) {
       state.user = action.payload;
     },
-    updateWalletSuccess(state, action){
+    updateWalletSuccess(state, action) {
       state.user = action.payload;
     },
     addFriendSuccess(state, action) {
-      state.friend = action.payload
-    }
-  }
+      state.friend = action.payload;
+    },
+  },
 });
 
 // Reducer
@@ -67,76 +67,91 @@ export function getWallet(username: string) {
 }
 
 export function insertWallet(username: string) {
-  console.log("wallet address---------->",  username);
+  console.log("wallet address---------->", username);
   return async () => {
     try {
-      const response = await axios.post('/wallet/add', {username: username});
+      const response = await axios.post("/wallet/add", { username: username });
       dispatch(wallet.actions.addWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
   };
 }
-export function updateWallet(username: string, balance: number, energy: number) {
+export function updateWallet(
+  username: string,
+  balance: number,
+  energy: number
+) {
   return async () => {
     try {
-      const response = await axios.post(`/wallet/update/${username}`, {balance: balance, energy: energy});
+      const response = await axios.post(`/wallet/update/${username}`, {
+        balance: balance,
+        energy: energy,
+      });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
-    }catch (error) {
+    } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
-  }
+  };
 }
-export function updateEnergy (username: string, energy: number) {
-  console.log("------>", energy)
+export function updateEnergy(username: string, energy: number) {
+  console.log("------>", energy);
   return async () => {
     try {
-      const response =  await axios.post(`/wallet/updateEnergy/${username}`, {energy: energy});
+      const response = await axios.post(`/wallet/updateEnergy/${username}`, {
+        energy: energy,
+      });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
-    }catch (error) {
+    } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
-  }
+  };
 }
-export function updateTap (username: string, tap: number) {
-  console.log("------>", tap)
+export function updateTap(username: string, tap: number) {
+  console.log("------>", tap);
   return async () => {
     try {
-      const response =  await axios.post(`/wallet/updateTap/${username}`, {tap: tap});
+      const response = await axios.post(`/wallet/updateTap/${username}`, {
+        tap: tap,
+      });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
-    }catch (error) {
+    } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
-  }
+  };
 }
-export function updateLimit (username: string, limit: number) {
-  console.log("------>", limit)
+export function updateLimit(username: string, limit: number) {
+  console.log("------>", limit);
   return async () => {
     try {
-      const response =  await axios.post(`/wallet/updateLimit/${username}`, {limit: limit});
+      const response = await axios.post(`/wallet/updateLimit/${username}`, {
+        limit: limit,
+      });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
-    }catch (error) {
+    } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
-  }
+  };
 }
-export function updateBalance (username: string, balance: number) {
+export function updateBalance(username: string, balance: number) {
   return async () => {
     try {
-      const response =  await axios.post(`/wallet/updateBalance/${username}`, {balance: balance});
+      const response = await axios.post(`/wallet/updateBalance/${username}`, {
+        balance: balance,
+      });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
-    }catch (error) {
+    } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }
-  }
+  };
 }
-export function addFriend (username: string) {
+export function addFriend(username: string) {
   return async () => {
     try {
-       await axios.post(`/wallet/${username}`)
-       dispatch(wallet.actions.addFriendSuccess(true)); 
-    }catch (error) {
-       dispatch(wallet.actions.addFriendSuccess(false));
+      await axios.post(`/wallet/${username}`);
+      dispatch(wallet.actions.addFriendSuccess(true));
+    } catch (error) {
+      dispatch(wallet.actions.addFriendSuccess(false));
     }
-  }
+  };
 }
