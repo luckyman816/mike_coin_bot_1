@@ -38,6 +38,9 @@ const wallet = createSlice({
     getWalletSuccess(state, action) {
       state.user = action.payload;
     },
+    getUsersSuccess (state, action) {
+      state.users = action.payload
+    },
     addWalletSuccess(state, action) {
       state.user = action.payload;
     },
@@ -152,6 +155,16 @@ export function addFriend(username: string) {
       dispatch(wallet.actions.addFriendSuccess(true));
     } catch (error) {
       dispatch(wallet.actions.addFriendSuccess(false));
+    }
+  };
+}
+export function getAllUsers() {
+  return async () => {
+    try {
+      const response = await axios.get("/wallet/all");
+      dispatch(wallet.actions.getUsersSuccess(response.data));
+    } catch (error) {
+      dispatch(wallet.actions.hasError(error));
     }
   };
 }

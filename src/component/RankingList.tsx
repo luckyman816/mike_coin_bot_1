@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { mockData } from "../mock";
+import { useEffect, useState } from "react";
+import { dispatch, useSelector } from "../store";
+import { getAllUsers } from "../store/reducers/wallet";
 export default function RankingList() {
-  const [user] = useState({
-    ranking: 200,
-    name: "EKans",
-    $GoXP: 1000000,
-  });
+  const users_state = useSelector((state) => state.wallet.users);
+  const [users, setUsers] = useState(users_state);
+  useEffect(() => {
+    dispatch(getAllUsers()).then(() => {
+      setUsers(users_state)
+    })
+  },[users_state])
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
@@ -15,9 +18,9 @@ export default function RankingList() {
         <div className="flex px-3 py-1 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
           <div className="text-start w-[20%] flex justify-center">Rank</div>
           <div className="text-start w-[55%] flex justify-center">User</div>
-          <div className="text-start w-[20%] flex justify-center">$Mike</div>
+          <div className="text-start w-[20%] flex justify-center">$Mystery</div>
         </div>
-        {mockData.map((data, index) => (
+        {users.map((data, index) => (
           <div
             key={index}
             className={`flex ${
@@ -37,11 +40,11 @@ export default function RankingList() {
             </div>
             <div className="relative h-10 overflow-hidden w-[60%] flex items-center justify-center">
               <img src="/image/mikeT.png" alt="avatar" className="w-10 h-10" />
-              <p className="text-xl text-start pl-2 text-white">{data.name}</p>
+              <p className="text-xl text-start pl-2 text-white">{data.username}</p>
             </div>
 
             <p className="text-xl text-start pl-2 w-[30%] text-white">
-              {formatNumberWithCommas(data.$GoXP)}
+              {formatNumberWithCommas(data.balance)}
             </p>
           </div>
         ))}
@@ -51,15 +54,15 @@ export default function RankingList() {
         className={`flex my-3 px-3 py-2 items-center bg-[#5A4C3B] rounded-lg`}
       >
         <div className="text-xl text-start pl-2 w-[20%] text-white">
-          {user.ranking}
+          1
         </div>
         <div className="relative h-12 overflow-hidden w-[60%] flex items-center">
           <img src="/image/mikeT.png" alt="avatar" className="w-10 h-10" />
-          <p className="text-xl text-start pl-2 text-white">{user.name}</p>
+          <p className="text-xl text-start pl-2 text-white">{users[0].username}</p>
         </div>
 
         <p className="text-xl text-start pl-2 w-[30%] text-white">
-          {formatNumberWithCommas(user.$GoXP)}
+          {formatNumberWithCommas(users[0].balance)}
         </p>
       </div>
     </div>
