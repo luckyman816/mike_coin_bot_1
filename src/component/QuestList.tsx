@@ -5,26 +5,26 @@ import { /*updateBalance,*/ addFriend } from "../store/reducers/wallet";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const balance_state = useSelector((state) => state.wallet.user?.balance);
-  const friend_state = useSelector((state) => state.wallet.friend)
+  const friend_state = useSelector((state) => state.wallet.friend);
   //const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
-  const [friend, setFriend] = useState(friend_state)
-  useEffect(() => {
-    setUsername(username_state);
-    setFriend(friend_state)
-    //setBalance(balance_state);
-  }, [username_state, balance_state, friend_state]);
-  const handleInvite = async() => {
+  const [friend, setFriend] = useState(friend_state);
+  const handleInvite = async () => {
     if (friendName != username) {
-      await dispatch(addFriend(friendName))
-      console.log("-----friend------->", friend)
-
+      await dispatch(addFriend(friendName)).then(() => {
+        console.log("-----friend------->", friend);
+      });
     } else {
       toast.error("Friend is you, please enter friend name again");
     }
     //dispatch(updateBalance(username, balance + 200))
   };
+  useEffect(() => {
+    setUsername(username_state);
+    setFriend(friend_state);
+    //setBalance(balance_state);
+  }, [username_state, balance_state, friend_state, addFriend]);
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
