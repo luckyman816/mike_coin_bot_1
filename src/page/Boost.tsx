@@ -30,7 +30,7 @@ export default function Boost() {
     toast.success("Successfully updated tap!")
   }
   const handleLimit= () => {
-    dispatch(updateLimit(username, limit*2))
+    dispatch(updateLimit(username, limit * 2))
     setIsLimitModalOpen(false);
     toast.success("Successfully updated limit!")
   }
