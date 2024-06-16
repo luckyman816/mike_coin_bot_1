@@ -9,5 +9,6 @@ export interface walletProfile {
 export interface walletStateProps {
     user: walletProfile;
     users: walletProfile[];
+    friend: boolean;
     error: object | string | null;
 }

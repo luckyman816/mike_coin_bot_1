@@ -21,6 +21,7 @@ const initialState: walletStateProps = {
       tap: 1,
       limit: 1000,
   },
+  friend: false,
   users: []
 };
 
@@ -42,8 +43,10 @@ const wallet = createSlice({
     },
     updateWalletSuccess(state, action){
       state.user = action.payload;
+    },
+    addFriendSuccess(state, action) {
+      state.friend = action.payload
     }
-    
   }
 });
 
@@ -131,9 +134,9 @@ export function addFriend (username: string) {
   return async () => {
     try {
        await axios.post(`/wallet/${username}`)
-       return true 
+       dispatch(wallet.actions.addFriendSuccess(true)); 
     }catch (error) {
-       return false
+       dispatch(wallet.actions.addFriendSuccess(false));
     }
   }
 }

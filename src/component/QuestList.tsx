@@ -1,19 +1,27 @@
-import { /*useEffect,*/ useState } from "react";
-import { dispatch, /*useSelector*/ } from "../store";
+import { useEffect, useState } from "react";
+import { dispatch, useSelector } from "../store";
+import { toast } from "react-toastify";
 import { /*updateBalance,*/ addFriend } from "../store/reducers/wallet";
 export default function QuestList() {
-  // const username_state = useSelector((state) => state.wallet.user?.username);
-  // const balance_state = useSelector((state) => state.wallet.user?.balance);
+  const username_state = useSelector((state) => state.wallet.user?.username);
+  const balance_state = useSelector((state) => state.wallet.user?.balance);
   //const [balance, setBalance] = useState<number>(balance_state);
-  const [username, setUsername] = useState<string>('');
-  // useEffect(() => {
-  //   setUsername(username_state)
-  //   //setBalance(balance_state);
-  // }, [username_state, balance_state]);
+  const [username, setUsername] = useState<string>(username_state);
+  const friend = useSelector((state) => state.wallet.friend)
+  const [friendName, setFriendName] = useState<string>("");
+  useEffect(() => {
+    setUsername(username_state);
+    //setBalance(balance_state);
+  }, [username_state, balance_state]);
   const handleInvite = () => {
-    console.log("---->friend---->",dispatch(addFriend(username)))
-      //dispatch(updateBalance(username, balance + 200))
-
+    if (friendName != username) {
+      dispatch(addFriend(friendName)).then(() => {
+        console.log("-----friend------->", friend)
+      });
+    } else {
+      toast("Friend is you. Let not scam!")
+    }
+    //dispatch(updateBalance(username, balance + 200))
   };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
@@ -58,11 +66,14 @@ export default function QuestList() {
             type="text"
             placeholder="You haven't invited anyone yet"
             className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none focus:outline-none"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setFriendName(e.target.value)}
           />
         </div>
       </div>
-      <div className="w-full h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400" onClick={handleInvite}>
+      <div
+        className="w-full h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
+        onClick={handleInvite}
+      >
         <span className="flex justify-center items-center">
           Invite a friend
         </span>
