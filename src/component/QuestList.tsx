@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
 import { /*updateBalance,*/ addFriend } from "../store/reducers/wallet";
@@ -11,14 +11,17 @@ export default function QuestList() {
   const [friendName, setFriendName] = useState<string>("");
   const handleInvite = async () => {
     if (friendName != username) {
-      await dispatch(addFriend(friendName)).then(() => {
-        console.log("friend_state", friend_state)
-      });
+      console.log("--->", friend_state)
+
     } else {
       toast.error("Friend is you, please enter friend name again");
     }
     //dispatch(updateBalance(username, balance + 200))
   };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(addFriend(e.target.value))
+    setFriendName(e.target.value)
+  }
   useEffect(() => {
     setUsername(username_state);
     //setBalance(balance_state);
@@ -67,7 +70,7 @@ export default function QuestList() {
             type="text"
             placeholder="You haven't invited anyone yet"
             className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none focus:outline-none"
-            onChange={(e) => setFriendName(e.target.value)}
+            onChange={(e) => handleChange(e)}
           />
         </div>
       </div>
