@@ -9,11 +9,10 @@ export default function QuestList() {
   //const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
-  const [friend, setFriend] = useState(friend_state);
   const handleInvite = async () => {
     if (friendName != username) {
       await dispatch(addFriend(friendName)).then(() => {
-        console.log("-----friend------->", friend);
+        console.log("friend_state", friend_state)
       });
     } else {
       toast.error("Friend is you, please enter friend name again");
@@ -22,9 +21,8 @@ export default function QuestList() {
   };
   useEffect(() => {
     setUsername(username_state);
-    setFriend(friend_state);
     //setBalance(balance_state);
-  }, [username_state, balance_state, friend_state, addFriend]);
+  }, [username_state, balance_state, friend_state]);
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
