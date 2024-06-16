@@ -58,11 +58,11 @@ export default function RankingList() {
         </div>
         <div className="relative h-12 overflow-hidden w-[60%] flex items-center">
           <img src="/image/mikeT.png" alt="avatar" className="w-10 h-10" />
-          <p className="text-xl text-start pl-2 text-white">{usersa[0].username}</p>
+          <p className="text-xl text-start pl-2 text-white">{usersa[0]?.username}</p>
         </div>
 
         <p className="text-xl text-start pl-2 w-[30%] text-white">
-          {formatNumberWithCommas(usersa[0].balance)}
+          {formatNumberWithCommas(usersa[0]?.balance)}
         </p>
       </div>
     </div>
