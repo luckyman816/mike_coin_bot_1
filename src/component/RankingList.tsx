@@ -3,7 +3,7 @@ import { dispatch, useSelector } from "../store";
 import { getAllUsers } from "../store/reducers/wallet";
 export default function RankingList() {
   const users_state = useSelector((state) => state.wallet.users);
-  const [users, setUsers] = useState(users_state);
+  const [usersa, setUsers] = useState(users_state);
   useEffect(() => {
     dispatch(getAllUsers()).then(() => {
       setUsers(users_state)
@@ -12,6 +12,21 @@ export default function RankingList() {
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
+  console.log("-----ranking----->", usersa)
+  const users = [
+    {
+      username: "user_name",
+      balance: 500000
+    },
+    {
+      username: "user_name",
+      balance: 500000
+    },
+    {
+      username: "user_name",
+      balance: 500000
+    }
+  ]
   return (
     <div className="md:w-full h-[65vh] mx-auto p-4">
       <div className="max-h-[50vh] max-sm:max-h-[50vh] overflow-auto">
@@ -20,7 +35,7 @@ export default function RankingList() {
           <div className="text-start w-[55%] flex justify-center">User</div>
           <div className="text-start w-[20%] flex justify-center">$Mystery</div>
         </div>
-        {users.map((data, index) => (
+        {usersa.map((data, index) => (
           <div
             key={index}
             className={`flex ${
