@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
-import { updateBalance, addFriend } from "../store/reducers/wallet";
+import { /*updateBalance,*/ addFriend } from "../store/reducers/wallet";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const balance_state = useSelector((state) => state.wallet.user?.balance);
-  const [balance, setBalance] = useState<number>(balance_state);
+  //const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   useEffect(() => {
     setUsername(username_state)
-    setBalance(balance_state);
+    //setBalance(balance_state);
   }, [username_state, balance_state]);
   const handleInvite = () => {
-    dispatch(addFriend(username)).then(() => {
-      dispatch(updateBalance(username, balance + 200));
-    });
+    console.log("---->friend---->",dispatch(addFriend(username)))
+      //dispatch(updateBalance(username, balance + 200))
+
   };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
@@ -28,7 +28,7 @@ export default function QuestList() {
             <div className="text-left justify-start items-center text-white font-bold">
               Invite a friend
             </div>
-            <div className="flex justify-start ml-2">
+            <div className="flex justify-start items-center ml-2">
               <img src="image/dollar.png" alt="" className=" w-5 h-5" />
               <span className=" text-amber-400">+200</span>
               <span>&nbsp;&nbsp;&nbsp;for you and your friend</span>
@@ -43,7 +43,7 @@ export default function QuestList() {
             <div className="text-left justify-start items-center text-white font-bold">
               Invite a friend with Telegram premium
             </div>
-            <div className="flex justify-start ml-2">
+            <div className="flex justify-start items-center ml-2">
               <img src="image/dollar.png" alt="" className=" w-5 h-5" />
               <span className=" text-amber-400">+500</span>
               <span>&nbsp;&nbsp;&nbsp;for you and your friend</span>
