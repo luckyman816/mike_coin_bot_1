@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
+import { useSearchParams } from 'react-router-dom'; 
 import {
   insertWallet,
   updateWallet,
@@ -13,6 +14,19 @@ import {
   getWallet,
 } from "../store/reducers/wallet";
 function Home() {
+
+  const [searchParams] = useSearchParams();
+
+  // Retrieve the user information from the search parameters
+  const userId = searchParams.get('userId');
+  const userName = searchParams.get('userName');
+  const userEmail = searchParams.get('userEmail');
+
+  // Use the user information in your component
+  console.log('User ID:', userId);
+  console.log('User Name:', userName);
+  console.log('User Email:', userEmail);
+
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
