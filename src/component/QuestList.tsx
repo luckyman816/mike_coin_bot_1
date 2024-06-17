@@ -12,7 +12,7 @@ export default function QuestList() {
   const [friends, setFriends] = useState<any[]>([]);
   const [textToCopy, setTextToCopy] = useState<string>("");
   useEffect(() => {
-    setUsername(username_state)
+    setUsername(username_state);
     setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state]);
   const handleCopy = async () => {
@@ -68,31 +68,31 @@ export default function QuestList() {
       <div className="flex flex-col justify-start items-start">
         <h2 className="text-white text-sm">List of your friends</h2>
         <div className=" rounded-[20px] bg-[#525252] w-full h-16 flex justify-center items-center">
-          <input
-            type="text"
-            placeholder="You haven't invited anyone yet"
-            className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none focus:outline-none"
-          />
+          <select name="choice" className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none focus:outline-none">
+            {friends.map((it) => {
+              return <option value={it.friend}>{it.friend}</option>;
+            })}
+          </select>
         </div>
       </div>
       <div className="flex justify-center items-center align-middle w-full h-12 mt-8">
-        <div
-          className="w-[90%] h-12 bg-indigo-600 text-white rounded-[20px] flex items-center justify-center hover:bg-indigo-400"
-        >
-          <span className="flex justify-center items-center">Invite Friend</span>
+        <div className="w-[90%] h-12 bg-indigo-600 text-white rounded-[20px] flex items-center justify-center hover:bg-indigo-400">
+          <span className="flex justify-center items-center">
+            Invite Friend
+          </span>
         </div>
         <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
-        <div
-          style={{
-            backgroundImage: isCopied
-              ? "url('image/checked.png')"
-              : "url('image/link.png')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "40px",
-            height: "40px",
-          }}
-        ></div>
+          <div
+            style={{
+              backgroundImage: isCopied
+                ? "url('image/checked.png')"
+                : "url('image/link.png')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              width: "40px",
+              height: "40px",
+            }}
+          ></div>
         </CopyToClipboard>
       </div>
     </div>
