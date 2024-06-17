@@ -94,20 +94,20 @@ export default function QuestList() {
           />
         </div>
       </div>
-      <div className="flex">
+      <div className="flex justify-center items-center">
         <div
-          className="w-full h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
+          className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
           onClick={handleInvite}
         >
           <span className="flex justify-center items-center">
             Invite a friend
           </span>
         </div>
-        <div onClick={handleCopy}>
+        <div className="h-12" onClick={handleCopy}>
           {isCopied ? (
-            <img src="image/checked.png" alt="" width={20} height={20} />
+            <img src="image/checked.png" alt="" className=" w-10 h-10" />
           ) : (
-            <img src="image/link.png" alt="" width={20} height={20} />
+            <img src="image/link.png" alt="" className=" w-10 h-10" />
           )}
         </div>
       </div>
