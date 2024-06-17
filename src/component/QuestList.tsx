@@ -38,7 +38,7 @@ export default function QuestList() {
     setText(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state, balance_state, friend_state]);
   const handleCopy = async () => {
-    navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(text);
     console.log("clipboard", text)
     toast.success("Copied to clipboard!"); // optional, for displaying a success notification
   };
