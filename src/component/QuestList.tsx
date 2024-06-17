@@ -75,9 +75,9 @@ export default function QuestList() {
           />
         </div>
       </div>
-      <div className="flex justify-center items-center align-middle">
+      <div className="flex justify-center items-center align-middle w-full h-12">
         <div
-          className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] mt-8 hover:bg-indigo-400"
+          className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] mt-8 flex items-center hover:bg-indigo-400"
         >
           <span className="flex justify-center items-center">Invite Friend</span>
         </div>
