@@ -16,6 +16,7 @@ export default function QuestList() {
             dispatch(updateBalance(username, balance + 200))
           } else {
             dispatch(updateBalance(username, 1000))
+            toast.success("Your balance is more than 1000");
           }
           toast.success("Invite Friend succesfully!");
       } else {
