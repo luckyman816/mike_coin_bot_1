@@ -107,7 +107,7 @@ function Home() {
     //}
     if (remainedEnergy > 0 && token < 1000) {
       setScore(`+${tap}`);
-      if (token > 1000) {
+      if (token+tap > 1000) {
         setToken(1000);
         dispatch(updateWallet(username, 1000, remainedEnergy - 1));
       } else {
