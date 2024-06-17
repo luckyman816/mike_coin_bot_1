@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChangeEvent, useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
 import { updateBalance, addFriend } from "../store/reducers/wallet";
+import axios from "../utils/api";
 // import { CopyToClipboard } from "react-copy-to-clipboard";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
@@ -12,6 +14,7 @@ export default function QuestList() {
   const [friendName, setFriendName] = useState<string>("");
   const [textToCopy, setTextToCopy] = useState("");
   const [isCopied, setIsCopied] = useState(false);
+  const [friends, setFriends] = useState<any[]>([]);
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
@@ -41,9 +44,17 @@ export default function QuestList() {
   }, [username_state, balance_state, friend_state]);
   const handleCopy = async () => {
     navigator.clipboard.writeText(textToCopy);
-    setIsCopied(true)
+    setIsCopied(true);
     toast.success("Copied to clipboard!");
   };
+  useEffect(() => {
+    if (username) {
+      axios.post(`/friend/${username}`).then((res) => {
+        setFriends(res.data);
+      });
+    }
+  });
+  console.log("friends", friends);
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
@@ -97,14 +108,14 @@ export default function QuestList() {
           className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
           onClick={handleInvite}
         >
-          <span className="flex justify-center items-center">
-            Invite a friend
-          </span>
+          <span className="flex justify-center items-center">{textToCopy}</span>
         </div>
 
         <div
           style={{
-            backgroundImage: isCopied ? "url('image/checked.png')" : "url('image/link.png')",
+            backgroundImage: isCopied
+              ? "url('image/checked.png')"
+              : "url('image/link.png')",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             width: "40px",
