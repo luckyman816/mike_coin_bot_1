@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
 import { updateBalance, addFriend } from "../store/reducers/wallet";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const balance_state = useSelector((state) => state.wallet.user?.balance);
@@ -10,7 +10,7 @@ export default function QuestList() {
   const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
-  const [textToCopy, setTextToCopy] = useState("");
+  // const [textToCopy, setTextToCopy] = useState("");
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
@@ -36,11 +36,11 @@ export default function QuestList() {
   useEffect(() => {
     setUsername(username_state);
     setBalance(balance_state);
-    setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
+    // setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state, balance_state, friend_state]);
-  const handleCopy = async () => {
-    toast.success("Copied to clipboard!"); // optional, for displaying a success notification
-  };
+  // const handleCopy = async () => {
+  //   toast.success("Copied to clipboard!"); // optional, for displaying a success notification
+  // };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
@@ -99,7 +99,7 @@ export default function QuestList() {
           </span>
         </div>
 
-        <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
+        {/* <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
           <div
             style={{
               backgroundImage: "url('image/link.png')",
@@ -109,7 +109,7 @@ export default function QuestList() {
               height: "40px",
             }}
           ></div>
-        </CopyToClipboard>
+        </CopyToClipboard> */}
       </div>
     </div>
   );
