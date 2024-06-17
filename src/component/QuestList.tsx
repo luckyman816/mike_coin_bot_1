@@ -9,6 +9,7 @@ export default function QuestList() {
   const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
+  const [clipboard, setClipboard] = useState<string>("");
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
@@ -34,10 +35,11 @@ export default function QuestList() {
   useEffect(() => {
     setUsername(username_state);
     setBalance(balance_state);
+    setClipboard(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state, balance_state, friend_state]);
-  const text = `https://t.me/monster_mysterybot?start=${username}`;
   const handleCopy = async () => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(clipboard);
+    console.log("clipboard", clipboard)
     toast.success("Copied to clipboard!"); // optional, for displaying a success notification
   };
   return (
