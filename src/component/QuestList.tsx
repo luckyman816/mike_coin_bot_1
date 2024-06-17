@@ -11,6 +11,7 @@ export default function QuestList() {
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
   const [textToCopy, setTextToCopy] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
@@ -39,8 +40,9 @@ export default function QuestList() {
     setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state, balance_state, friend_state]);
   const handleCopy = async () => {
-    navigator.clipboard.writeText(textToCopy)
-    toast.success("Copied to clipboard!"); 
+    navigator.clipboard.writeText(textToCopy);
+    setIsCopied(true)
+    toast.success("Copied to clipboard!");
   };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
@@ -90,7 +92,7 @@ export default function QuestList() {
           />
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center align-middle">
         <div
           className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
           onClick={handleInvite}
@@ -100,16 +102,16 @@ export default function QuestList() {
           </span>
         </div>
 
-          <div
-            style={{
-              backgroundImage: "url('image/link.png')",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              width: "40px",
-              height: "40px",
-            }}
-            onClick={handleCopy}
-          ></div>
+        <div
+          style={{
+            backgroundImage: isCopied ? "url('image/checked.png')" : "url('image/link.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "40px",
+            height: "40px",
+          }}
+          onClick={handleCopy}
+        ></div>
       </div>
     </div>
   );
