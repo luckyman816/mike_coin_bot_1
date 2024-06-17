@@ -37,12 +37,8 @@ export default function QuestList() {
   }, [username_state, balance_state, friend_state]);
   const text = `https://t.me/monster_mysterybot?start=${username}`;
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      toast.success("Copied to clipboard!"); // optional, for displaying a success notification
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
+    navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard!"); // optional, for displaying a success notification
   };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
