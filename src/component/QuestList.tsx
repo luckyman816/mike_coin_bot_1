@@ -36,7 +36,7 @@ export default function QuestList() {
     setBalance(balance_state);
   }, [username_state, balance_state, friend_state]);
   const [isCopied, setIsCopied] = useState(false);
-  const text = `https://mike-token-bot.vercel.app/?start=${username}`;
+  const text = `https://t.me/monster_mysterybot?start=${username}`;
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
