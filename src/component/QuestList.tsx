@@ -105,7 +105,7 @@ export default function QuestList() {
       </div>
       <div className="flex justify-center items-center align-middle">
         <div
-          className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
+          className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] mt-8 hover:bg-indigo-400"
           onClick={handleInvite}
         >
           <span className="flex justify-center items-center">{textToCopy}</span>
