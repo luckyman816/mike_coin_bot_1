@@ -1,49 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChangeEvent, useEffect, useState } from "react";
-import { dispatch, useSelector } from "../store";
+import { useEffect, useState } from "react";
+import { useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
-import { updateBalance, addFriend } from "../store/reducers/wallet";
 import axios from "../utils/api";
 // import { CopyToClipboard } from "react-copy-to-clipboard";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
-  const balance_state = useSelector((state) => state.wallet.user?.balance);
-  const friend_state = useSelector((state) => state.wallet.friend);
-  const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
-  const [friendName, setFriendName] = useState<string>("");
-  const [textToCopy, setTextToCopy] = useState("");
   const [isCopied, setIsCopied] = useState(false);
   const [friends, setFriends] = useState<any[]>([]);
-  const handleInvite = async () => {
-    if (friendName != username) {
-      if (friend_state) {
-        if (balance < 801) {
-          dispatch(updateBalance(username, balance + 200));
-        } else {
-          dispatch(updateBalance(username, 1000));
-          toast.error("Your balance is over 1000 coins");
-        }
-        toast.success("Invite Friend succesfully!");
-      } else {
-        toast.error("Friend is invalid");
-      }
-    } else {
-      toast.error("Friend is you, please enter friend name again");
-    }
-    //
-  };
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(addFriend(e.target.value));
-    setFriendName(e.target.value);
-  };
+  const [textToCopy, setTextToCopy] = useState<string>("");
   useEffect(() => {
-    setUsername(username_state);
-    setBalance(balance_state);
+    setUsername(username_state)
     setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
-  }, [username_state, balance_state, friend_state]);
+  }, [username_state]);
   const handleCopy = async () => {
-    navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
     toast.success("Copied to clipboard!");
   };
@@ -55,6 +26,7 @@ export default function QuestList() {
     }
   });
   console.log("friends", friends);
+  console.log("textToCopy", textToCopy);
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
@@ -99,16 +71,14 @@ export default function QuestList() {
             type="text"
             placeholder="You haven't invited anyone yet"
             className=" border-none bg-[#525252] text-sm w-[100%] mx-9 focus:border-none focus:outline-none"
-            onChange={(e) => handleChange(e)}
           />
         </div>
       </div>
       <div className="flex justify-center items-center align-middle">
         <div
           className="w-[80%] h-12 bg-indigo-600 text-white rounded-[20px] mt-8 hover:bg-indigo-400"
-          onClick={handleInvite}
         >
-          <span className="flex justify-center items-center">{textToCopy}</span>
+          <span className="flex justify-center items-center">Invite Friend</span>
         </div>
 
         <div
