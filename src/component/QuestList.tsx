@@ -12,7 +12,11 @@ export default function QuestList() {
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
-          dispatch(updateBalance(username, balance + 200))
+          if(balance < 801) {
+            dispatch(updateBalance(username, balance + 200))
+          } else {
+            dispatch(updateBalance(username, 1000))
+          }
           toast.success("Invite Friend succesfully!");
       } else {
         toast.error("Friend is invalid");
