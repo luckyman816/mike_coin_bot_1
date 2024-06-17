@@ -12,13 +12,13 @@ export default function QuestList() {
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
-          if(balance < 801) {
-            dispatch(updateBalance(username, balance + 200))
-          } else {
-            dispatch(updateBalance(username, 1000))
-            toast.error("Your balance is over 1000 coins");
-          }
-          toast.success("Invite Friend succesfully!");
+        if (balance < 801) {
+          dispatch(updateBalance(username, balance + 200));
+        } else {
+          dispatch(updateBalance(username, 1000));
+          toast.error("Your balance is over 1000 coins");
+        }
+        toast.success("Invite Friend succesfully!");
       } else {
         toast.error("Friend is invalid");
       }
@@ -35,6 +35,17 @@ export default function QuestList() {
     setUsername(username_state);
     setBalance(balance_state);
   }, [username_state, balance_state, friend_state]);
+  const [isCopied, setIsCopied] = useState(false);
+  const text = `https://mike-token-bot.vercel.app/?start=${username}`;
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setIsCopied(true);
+      toast.success("Copied to clipboard!"); // optional, for displaying a success notification
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
@@ -83,13 +94,22 @@ export default function QuestList() {
           />
         </div>
       </div>
-      <div
-        className="w-full h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
-        onClick={handleInvite}
-      >
-        <span className="flex justify-center items-center">
-          Invite a friend
-        </span>
+      <div className="flex">
+        <div
+          className="w-full h-12 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center mt-8 hover:bg-indigo-400"
+          onClick={handleInvite}
+        >
+          <span className="flex justify-center items-center">
+            Invite a friend
+          </span>
+        </div>
+        <div onClick={handleCopy}>
+          {isCopied ? (
+            <img src="image/checked.png" alt="" width={20} height={20} />
+          ) : (
+            <img src="image/link.png" alt="" width={20} height={20} />
+          )}
+        </div>
       </div>
     </div>
   );
