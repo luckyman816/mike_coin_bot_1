@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import axios from "../utils/api";
 // import { CopyToClipboard } from "react-copy-to-clipboard";
 export default function QuestList() {
@@ -80,7 +81,7 @@ export default function QuestList() {
         >
           <span className="flex justify-center items-center">Invite Friend</span>
         </div>
-
+        <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
         <div
           style={{
             backgroundImage: isCopied
@@ -91,8 +92,8 @@ export default function QuestList() {
             width: "40px",
             height: "40px",
           }}
-          onClick={handleCopy}
         ></div>
+        </CopyToClipboard>
       </div>
     </div>
   );
