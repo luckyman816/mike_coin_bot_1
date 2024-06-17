@@ -10,7 +10,7 @@ export default function QuestList() {
   const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
-  // const [textToCopy, setTextToCopy] = useState("");
+  const [textToCopy, setTextToCopy] = useState("");
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
@@ -36,11 +36,12 @@ export default function QuestList() {
   useEffect(() => {
     setUsername(username_state);
     setBalance(balance_state);
-    // setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
+    setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state, balance_state, friend_state]);
-  // const handleCopy = async () => {
-  //   toast.success("Copied to clipboard!"); // optional, for displaying a success notification
-  // };
+  const handleCopy = async () => {
+    navigator.clipboard.writeText(textToCopy)
+    toast.success("Copied to clipboard!"); 
+  };
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
       <ToastContainer />
@@ -99,7 +100,6 @@ export default function QuestList() {
           </span>
         </div>
 
-        {/* <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
           <div
             style={{
               backgroundImage: "url('image/link.png')",
@@ -108,8 +108,8 @@ export default function QuestList() {
               width: "40px",
               height: "40px",
             }}
+            onClick={handleCopy}
           ></div>
-        </CopyToClipboard> */}
       </div>
     </div>
   );
