@@ -35,12 +35,10 @@ export default function QuestList() {
     setUsername(username_state);
     setBalance(balance_state);
   }, [username_state, balance_state, friend_state]);
-  const [isCopied, setIsCopied] = useState(false);
   const text = `https://t.me/monster_mysterybot?start=${username}`;
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
-      setIsCopied(true);
       toast.success("Copied to clipboard!"); // optional, for displaying a success notification
     } catch (err) {
       console.error("Failed to copy text: ", err);
@@ -103,16 +101,16 @@ export default function QuestList() {
             Invite a friend
           </span>
         </div>
-
-        {isCopied ? (
-          <img
-            src="image/checked.png"
-            alt=""
-            className=" w-12 h-12"
-          />
-        ) : (
-          <img src="image/link.png" alt="" className=" w-12 h-12" onClick={handleCopy} />
-        )}
+        <div
+          style={{
+            backgroundImage: "url('image/link.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: "40px",
+            height: "40px",
+          }}
+          onClick={handleCopy}
+        ></div>
       </div>
     </div>
   );
