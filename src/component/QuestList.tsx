@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { dispatch, useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
 import { updateBalance, addFriend } from "../store/reducers/wallet";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const balance_state = useSelector((state) => state.wallet.user?.balance);
@@ -9,7 +10,7 @@ export default function QuestList() {
   const [balance, setBalance] = useState<number>(balance_state);
   const [username, setUsername] = useState<string>(username_state);
   const [friendName, setFriendName] = useState<string>("");
-  const [text, setText] = useState<string>("");
+  const [textToCopy, setTextToCopy] = useState("");
   const handleInvite = async () => {
     if (friendName != username) {
       if (friend_state) {
@@ -35,11 +36,9 @@ export default function QuestList() {
   useEffect(() => {
     setUsername(username_state);
     setBalance(balance_state);
-    setText(`https://t.me/monster_mysterybot?start=${username_state}`);
+    setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state, balance_state, friend_state]);
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(text);
-    console.log("clipboard", text)
     toast.success("Copied to clipboard!"); // optional, for displaying a success notification
   };
   return (
@@ -99,16 +98,18 @@ export default function QuestList() {
             Invite a friend
           </span>
         </div>
-        <div
-          style={{
-            backgroundImage: "url('image/link.png')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "40px",
-            height: "40px",
-          }}
-          onClick={handleCopy}
-        ></div>
+
+        <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
+          <div
+            style={{
+              backgroundImage: "url('image/link.png')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              width: "40px",
+              height: "40px",
+            }}
+          ></div>
+        </CopyToClipboard>
       </div>
     </div>
   );
