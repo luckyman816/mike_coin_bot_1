@@ -15,7 +15,7 @@ export default function RankingList() {
   return (
     <div className="md:w-full h-[65vh] mx-auto p-4">
       <div className="max-h-[50vh] max-sm:max-h-[50vh] overflow-auto">
-        <div className="flex px-3 py-1 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
+        <div className="flex px-3 py-1 text-white text-lg font-bold justify-start align-middle overflow-y-hidden ml-3">
           <div className="text-start w-[20%] flex justify-center">Rank</div>
           <div className="text-start w-[55%] flex justify-center">User</div>
           <div className="text-start w-[20%] flex justify-center">$Mystery</div>
@@ -38,7 +38,7 @@ export default function RankingList() {
                 index + 1
               )}
             </div>
-            <div className="relative h-10 overflow-hidden w-[60%] flex items-center justify-center">
+            <div className="relative h-10 overflow-hidden w-[60%] flex items-center justify-start">
               <img src="/image/mikeT.png" alt="avatar" className="w-10 h-10" />
               <p className="text-xl text-start pl-2 text-white">{data.username}</p>
             </div>
