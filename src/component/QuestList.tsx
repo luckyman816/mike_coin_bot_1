@@ -103,11 +103,11 @@ export default function QuestList() {
             Invite a friend
           </span>
         </div>
-        <div className="h-12" onClick={handleCopy}>
+        <div className="h-12 w-fit" onClick={handleCopy}>
           {isCopied ? (
-            <img src="image/checked.png" alt="" className=" w-10 h-10" />
+            <img src="image/checked.png" alt="" className=" w-12 h-12" />
           ) : (
-            <img src="image/link.png" alt="" className=" w-10 h-10" />
+            <img src="image/link.png" alt="" className=" w-12 h-12" />
           )}
         </div>
       </div>
