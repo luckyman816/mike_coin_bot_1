@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
+import soundEffect from "effect/water.wav"
 import {
   insertWallet,
   updateWallet,
@@ -13,7 +14,7 @@ import {
   getWallet,
 } from "../store/reducers/wallet";
 function Home() {
-
+  const audio = new Audio(soundEffect);
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
@@ -105,6 +106,7 @@ function Home() {
     //  toast.error("Please connect your wallet first");
     //  return;
     //}
+    audio.play();
     if (remainedEnergy > 0 && token < 1000) {
       setScore(`+${tap}`);
       if (token+tap > 1000) {
