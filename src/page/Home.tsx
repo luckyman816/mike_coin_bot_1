@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import soundEffect from "../../public/effect/water.wav"
+import soundEffect from "../../public/effect/water.wav";
 import {
   insertWallet,
   updateWallet,
@@ -33,10 +33,11 @@ function Home() {
       setUsername(webapp["user"]["username"]);
       if (!username) {
         dispatch(insertWallet(webapp["user"]["username"]));
+      } else {
+        dispatch(getWallet(webapp["user"]["username"])).then(() => {
+          setTap(tapState);
+        });
       }
-      dispatch(getWallet(webapp["user"]["username"])).then(() => {
-        setTap(tapState);
-      });
     }
   }, []);
   console.log("---Telegram info----->", username);
@@ -102,14 +103,10 @@ function Home() {
   }, [username, remainedEnergy, limit]);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
-    //if (!address) {
-    //  toast.error("Please connect your wallet first");
-    //  return;
-    //}
     audio.play();
     if (remainedEnergy > 0 && token < 1000) {
       setScore(`+${tap}`);
-      if (token+tap > 1000) {
+      if (token + tap > 1000) {
         setToken(1000);
         dispatch(updateWallet(username, 1000, remainedEnergy - 1));
       } else {
@@ -148,7 +145,7 @@ function Home() {
             {formatNumberWithCommas(token)}
           </h1>
         </div>
-        <div>
+        <div className="relative">
           <img
             src="/image/shape.png"
             alt=""
