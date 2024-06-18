@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import soundEffect from "effect/water.wav"
+import soundEffect from "../../public/effect/water.wav"
 import {
   insertWallet,
   updateWallet,
