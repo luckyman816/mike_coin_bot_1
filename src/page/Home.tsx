@@ -145,7 +145,7 @@ function Home() {
             {formatNumberWithCommas(token)}
           </h1>
         </div>
-        <div className="relative">
+        <div>
           <img
             src="/image/shape.png"
             alt=""
