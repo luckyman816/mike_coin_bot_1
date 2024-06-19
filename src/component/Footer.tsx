@@ -9,9 +9,7 @@ export default function Footer() {
     setPath(location.pathname);
   }, [location]);
   return (
-    <div
-      className="grid grid-cols-3 gap-10 justify-center items-center"
-    >
+    <div className="grid grid-cols-3 gap-10 justify-center items-center">
       <Link
         to="/ranking"
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
@@ -42,6 +40,17 @@ export default function Footer() {
       >
         <img src="/image/add-friend.png" alt="quest" className="w-12 h-12" />
         <p className="text-sm max-sm:text-sm text-white">Friends</p>
+      </Link>
+      <Link
+        to="/task"
+        className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
+          path === "/ranking"
+            ? "scale-[110%] opacity-100"
+            : "opacity-50 text-white"
+        }`}
+      >
+        <img src="/image/ranking.png" alt="ranking" className="w-12 h-12" />
+        <p className="text-sm max-sm:text-sm text-white">task</p>
       </Link>
     </div>
   );

@@ -31,10 +31,10 @@ function Home() {
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
-        dispatch(insertWallet(webapp["user"]["username"]));
-        dispatch(getWallet(webapp["user"]["username"])).then(() => {
-          setTap(tapState);
-        });
+      dispatch(insertWallet(webapp["user"]["username"]));
+      dispatch(getWallet(webapp["user"]["username"])).then(() => {
+        setTap(tapState);
+      });
     }
   }, []);
   console.log("---Telegram info----->", username);
