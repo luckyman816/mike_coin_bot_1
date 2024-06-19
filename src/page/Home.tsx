@@ -7,6 +7,7 @@ import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
 import soundEffect from "../../public/effect/water.wav";
+import axios from "../utils/api";
 import {
   insertWallet,
   updateWallet,
@@ -31,6 +32,7 @@ function Home() {
     // console.log("=========>webapp", webapp);
     if (webapp) {
       setUsername(webapp["user"]["username"]);
+      axios.post(`/earnings/add`, {username: webapp["user"]["username"]})
       dispatch(insertWallet(webapp["user"]["username"]));
       dispatch(getWallet(webapp["user"]["username"])).then(() => {
         setTap(tapState);
