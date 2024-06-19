@@ -44,13 +44,13 @@ export default function Footer() {
       <Link
         to="/task"
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
-          path === "/ranking"
+          path === "/task"
             ? "scale-[110%] opacity-100"
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/task.png" alt="ranking" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">task</p>
+        <img src="/image/earnings.png" alt="ranking" className="w-12 h-12" />
+        <p className="text-sm max-sm:text-sm text-white">TASK</p>
       </Link>
     </div>
   );
