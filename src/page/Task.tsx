@@ -21,7 +21,7 @@ export default function Task() {
             </div>
           </div>
         </div>
-        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-[20px]">
+        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]">
           <div className="flex justify-start items-center">
             <img src="image/telegram.png" alt="" className=" w-14 h-14" />
             <div className=" flex flex-col justify-start">
@@ -35,7 +35,7 @@ export default function Task() {
             </div>
           </div>
         </div>
-        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] rounded-[20px]">
+        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]">
           <div className="flex justify-start items-center">
             <img src="image/twitter.png" alt="" className=" w-14 h-14" />
             <div className=" flex flex-col justify-start">
