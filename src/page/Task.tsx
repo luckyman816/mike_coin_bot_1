@@ -1,38 +1,53 @@
-import axios from "../utils/api"
-import { useSelector } from "../store";
+import axios from "../utils/api";
+import { useSelector, dispatch } from "../store";
+import { updateBalance } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 export default function Task() {
-  const username_state = useSelector((state) => state.wallet.user?.username)
-  const [username, setUsername] = useState<string>(username_state)
+  const username_state = useSelector((state) => state.wallet.user?.username);
+  const balance_state = useSelector((state) => state.wallet.user?.balance);
+  const [username, setUsername] = useState<string>(username_state);
+  const [balance, setBalance] = useState<number>(balance_state);
   useEffect(() => {
     setUsername(username_state);
-  }, [username_state])
-  const handleJoinTelegramGroup = async() => {
+    setBalance(balance_state);
+  }, [username_state, balance_state]);
+  const handleJoinTelegramGroup = async () => {
     try {
       await axios.post(`/earnings/${username}`).then((res) => {
-        if(res.data.joinTelegram.status) {
-          toast.success("Joined Telegram successful")
+        if (res.data.joinTelegram.status) {
+          if (!res.data.joinTelegram.earned) {
+            dispatch(updateBalance(username, balance + 1000)).then(() => {
+              axios.post(`/earnings/update/joinTelegram/${username}`, {
+                status: true,
+                earned: true,
+              });
+              toast.success("You have received +1000 coins successfully!");
+            });
+          } else {
+            toast.warning("You have already received bonus!");
+          }
         } else {
-          toast.warning("You didn't join Telegram yet! Please join again")
+          toast.warning("You didn't join Telegram yet! Please join again");
         }
-    })
-
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
-  }
+  };
   return (
     <div className="Ranking max-w-full mx-auto text-white h-[75vh] max-sm:h-[82vh] mt-8">
-      <ToastContainer/>
+      <ToastContainer />
       <div className="flex justify-center items-center">
         <img src="image/dollar.png" alt="" className=" w-20 h-20" />
         <h1>Bonus</h1>
       </div>
 
       <div className="flex flex-col justify-center p-7">
-        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]" onClick={handleJoinTelegramGroup}>
+        <div
+          className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]"
+          onClick={handleJoinTelegramGroup}
+        >
           <div className="flex justify-start items-center">
             <img src="image/telegram.png" alt="" className=" w-14 h-14" />
             <div className=" flex flex-col justify-start">
