@@ -8,7 +8,7 @@ export default function Task() {
     setUsername(username_state);
   }, [username_state])
   const handleJoinTelegramGroup = async() => {
-    await axios.post(`/earnings/udpate/${username}`).then((res) => {
+    await axios.post(`/earnings/${username}`).then((res) => {
       if(res.data){
         console.log(res.data);
       }
