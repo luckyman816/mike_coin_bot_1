@@ -1,4 +1,20 @@
+import axios from "../utils/api"
+import { useSelector } from "../store";
+import { useEffect, useState } from "react";
 export default function Task() {
+  const username_state = useSelector((state) => state.wallet.user?.username)
+  const [username, setUsername] = useState<string>(username_state)
+  useEffect(() => {
+    setUsername(username_state);
+  }, [username_state])
+  const handleJoinTelegramGroup = async() => {
+    await axios.post(`/earnings/udpate/${username}`).then((res) => {
+      if(res.data){
+        console.log(res.data);
+      }
+    })
+
+  }
   return (
     <div className="Ranking max-w-full mx-auto text-white h-[75vh] max-sm:h-[82vh] mt-8">
       <div className="flex justify-center items-center">
@@ -7,7 +23,7 @@ export default function Task() {
       </div>
 
       <div className="flex flex-col justify-center p-7">
-        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]">
+        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]" onClick={handleJoinTelegramGroup}>
           <div className="flex justify-start items-center">
             <img src="image/telegram.png" alt="" className=" w-14 h-14" />
             <div className=" flex flex-col justify-start">
@@ -16,7 +32,7 @@ export default function Task() {
               </div>
               <div className="flex justify-start items-center ml-2">
                 <img src="image/dollar.png" alt="" className=" w-5 h-5" />
-                <span className=" text-amber-400">+5000</span>
+                <span className=" text-amber-400">+1000</span>
               </div>
             </div>
           </div>
@@ -30,7 +46,7 @@ export default function Task() {
               </div>
               <div className="flex justify-start items-center ml-2">
                 <img src="image/dollar.png" alt="" className=" w-5 h-5" />
-                <span className=" text-amber-400">+5000</span>
+                <span className=" text-amber-400">+1000</span>
               </div>
             </div>
           </div>
@@ -44,7 +60,7 @@ export default function Task() {
               </div>
               <div className="flex justify-start items-center ml-2">
                 <img src="image/dollar.png" alt="" className=" w-5 h-5" />
-                <span className=" text-amber-400">+5000</span>
+                <span className=" text-amber-400">+1000</span>
               </div>
             </div>
           </div>
