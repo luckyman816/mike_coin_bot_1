@@ -1,6 +1,7 @@
 import axios from "../utils/api"
 import { useSelector } from "../store";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 export default function Task() {
   const username_state = useSelector((state) => state.wallet.user?.username)
   const [username, setUsername] = useState<string>(username_state)
@@ -8,15 +9,23 @@ export default function Task() {
     setUsername(username_state);
   }, [username_state])
   const handleJoinTelegramGroup = async() => {
-    await axios.post(`/earnings/${username}`).then((res) => {
-      if(res.data){
-        console.log(res.data);
-      }
+    try {
+      await axios.post(`/earnings/${username}`).then((res) => {
+        if(res.data.joinTelegram.status) {
+          toast.success("Joined Telegram successful")
+        } else {
+          toast.warning("You didn't join Telegram yet! Please join again")
+        }
     })
+
+    } catch (error) {
+      console.log(error)
+    }
 
   }
   return (
     <div className="Ranking max-w-full mx-auto text-white h-[75vh] max-sm:h-[82vh] mt-8">
+      <ToastContainer/>
       <div className="flex justify-center items-center">
         <img src="image/dollar.png" alt="" className=" w-20 h-20" />
         <h1>Bonus</h1>
