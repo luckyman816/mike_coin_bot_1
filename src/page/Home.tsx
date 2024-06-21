@@ -106,11 +106,11 @@ function Home() {
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
     audio.play();
-    if (remainedEnergy > 0 && token < 1000) {
+    if (remainedEnergy > 0 && token < 100000) {
       setScore(`+${tap}`);
-      if (token + tap > 1000) {
+      if (token + tap > 100000) {
         setToken(1000);
-        dispatch(updateWallet(username, 1000, remainedEnergy - 1));
+        dispatch(updateWallet(username, 100000, remainedEnergy - 1));
       } else {
         setToken(token + tap);
         dispatch(updateWallet(username, token + tap, remainedEnergy - 1));
