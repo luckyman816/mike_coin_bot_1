@@ -12,7 +12,8 @@ export default function Task() {
     setUsername(username_state);
     setBalance(balance_state);
   }, [username_state, balance_state]);
-  const handleJoinTelegramGroup = async () => {
+  const telegramGroupLink = "https://t.me/MikeToken";
+    const handleJoinTelegramGroup = async () => {
     try {
       await axios.post(`/earnings/${username}`).then((res) => {
         if (res.data.joinTelegram.status) {
@@ -28,7 +29,7 @@ export default function Task() {
             toast.warning("You have already received bonus!");
           }
         } else {
-          toast.warning("You didn't join Telegram Group yet! Please join again");
+          window.open(telegramGroupLink, "_blank"); 
         }
       });
     } catch (error) {
