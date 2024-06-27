@@ -148,11 +148,6 @@ function Home() {
           </h1>
         </div>
         <div>
-          <img
-            src="/image/shape.png"
-            alt=""
-            className="absolute z-10 left-0 top-[-50px]"
-          />
           <div
             className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[400px] h-[400px] max-sm:w-[280px] max-sm:h-[280px] z-10 ${
               remainedEnergy > 0
