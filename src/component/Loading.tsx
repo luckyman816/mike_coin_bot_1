@@ -41,7 +41,7 @@ const Loading = () => {
           }}
         ></div>
       </div>
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <h3 className="text-white">Meet The Worldwide Community</h3>
         <div className="flex gap-2">
             {imgURL.map((item) => {
