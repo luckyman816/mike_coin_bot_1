@@ -2,7 +2,7 @@ import "./Loading.css";
 const Loading = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-12">
-        <img src="/image/title.png" alt="" />
+        <img src="/image/title.png" alt="" className=" w-[80%] h-auto"/>
       <div className="loadingspinner">
         <div
           id="square1"
