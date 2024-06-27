@@ -1,8 +1,8 @@
 import "./Loading.css";
 const Loading = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-12">
-        <img src="/image/title.png" alt="" className=" w-[80%] h-auto"/>
+    <div className="flex flex-col justify-center items-center ">
+        <img src="/image/title.png" alt="" className=" w-[500px] h-[100px]"/>
       <div className="loadingspinner">
         <div
           id="square1"
