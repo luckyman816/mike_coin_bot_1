@@ -1,8 +1,9 @@
 import "./Loading.css";
 const Loading = () => {
+    const imgURL: string[] = ["/image/social/instagram.png", "/image/social/telegram.png", "/image/social/twitter.png", "/image/social/youtubu.png"];
   return (
     <div className="flex flex-col justify-center items-center ">
-        <img src="/image/title.png" alt="" className=" w-[60vw] h-auto"/>
+      <img src="/image/title.png" alt="" className=" w-[60vw] h-auto" />
       <div className="loadingspinner">
         <div
           id="square1"
@@ -39,6 +40,16 @@ const Loading = () => {
             backgroundSize: "cover",
           }}
         ></div>
+      </div>
+      <div className="flex flex-col justify-center items-center">
+        <h3>Meet The Worldwide Community</h3>
+        <div className="flex gap-2">
+            {imgURL.map((item) => {
+                return (
+                    <img src={item} alt="" className=" w-3 h-3"/>
+                )
+            })}
+        </div>
       </div>
     </div>
   );
