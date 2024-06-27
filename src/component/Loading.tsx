@@ -2,7 +2,7 @@ import "./Loading.css";
 const Loading = () => {
     const imgURL: string[] = ["/image/social/instagram.png", "/image/social/telegram.png", "/image/social/twitter.png", "/image/social/youtubu.png"];
   return (
-    <div className="flex flex-col justify-center items-center ">
+    <div className="flex flex-col justify-around items-center ">
       <img src="/image/title.png" alt="" className=" w-[60vw] h-auto" />
       <div className="loadingspinner">
         <div
