@@ -76,9 +76,14 @@ export default function QuestList() {
         </div>
       </div>
       <div className="flex flex-col justify-center items-start">
-        <h2 className="text-white text-3xl text-left mb-6" style={{ fontFamily: "spicy" }}>
-          My Refferals :
-        </h2>
+        <div className="flex justify-start items-center">
+          <h2
+            className="text-white text-3xl mb-6"
+            style={{ fontFamily: "spicy" }}
+          >
+            My Refferals :
+          </h2>
+        </div>
         {friends.length == 0 ? (
           <div className="flex flex-col justify-center items-center gap-9">
             <h2
@@ -97,7 +102,9 @@ export default function QuestList() {
                 className={`flex ${
                   index > 0 && "my-3"
                 } px-3 py-2 items-center bg-[#363636] rounded-lg w-[70%] text-[white]`}
-              >{item}</div>
+              >
+                {item}
+              </div>
             ))}
           </div>
         )}
