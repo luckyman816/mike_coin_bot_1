@@ -147,7 +147,7 @@ function Home() {
         </div>
         <div>
           <div
-            className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[400px] h-[385px] max-sm:w-[280px] max-sm:h-[280px] z-10 ${
+            className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
               remainedEnergy > 0
                 ? "cursor-pointer"
                 : "cursor-not-allowed opacity-50"
