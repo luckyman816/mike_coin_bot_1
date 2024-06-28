@@ -84,9 +84,9 @@ export default function QuestList() {
             My Refferals :
           </h2>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center w-full">
           {friends.length == 0 ? (
-            <div className="flex flex-col justify-center items-center gap-9 w-full">
+            <div className="flex flex-col justify-center items-center gap-9 ">
               <h2
                 className="text-[white] text-xl"
                 style={{ fontFamily: "poppins" }}
