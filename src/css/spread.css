@@ -1,0 +1,12 @@
+@keyframes colorSpread {
+    0% {
+      background-color: #283C4F;
+    }
+    100% {
+      background-color: #202533;
+    }
+  }
+  
+  .color-spread {
+    animation: colorSpread 1s ease-in-out infinite alternate;
+  }
