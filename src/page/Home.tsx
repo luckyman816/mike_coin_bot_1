@@ -161,18 +161,16 @@ function Home() {
         </div>
         <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex flex-col justify-center w-full items-center gap-2">
-            <h3 className="text-xl mb-2 text-white w-[fit-content]">
-              <span className="text-3xl ">
-                <img
-                  src="/image/icon/lightning.svg"
-                  alt="lightning"
-                  className="w-6 h-6 inline"
-                />
-              </span>
+            <div className=" my-2 w-[fit-content] flex">
+              <img
+                src="/image/icon/lightning.svg"
+                alt="lightning"
+                className="w-6 h-6 inline"
+              />
               <p className="text-xl text-white">
                 {remainedEnergy} &#8725; {limit}
               </p>
-            </h3>
+            </div>
             <ProgressBar value={remainedEnergy / 10} />
           </div>
         </div>
