@@ -135,7 +135,7 @@ function Home() {
         id="mainWindow"
         className="relative mt-8 flex flex-col items-center justify-center w-full h-[62vh] mb-9"
       >
-        <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-[80%] rounded-[10px]">
+        <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-[80%] rounded-[10px] p-2">
           <div className="flex justify-center items-center">
             <img src="image/assets/mkt.png" alt="" className=" w-10 h-10" />
             <h1
