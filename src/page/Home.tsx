@@ -7,7 +7,7 @@ import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
 import soundEffect from "../../public/effect/water.wav";
 import axios from "../utils/api";
-import "../css/font.css"
+import "../css/font.css";
 import {
   insertWallet,
   updateWallet,
@@ -135,16 +135,23 @@ function Home() {
         id="mainWindow"
         className="relative mt-8 flex flex-col items-center justify-center w-full h-[62vh] mb-9"
       >
-        <div className="flex flex-col justify-center items-center mb-7">
+        <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-[80%]">
           <div className="flex justify-center items-center">
-            <img src="image/money-bag.png" alt="" className=" w-5 h-5" />
-            <h3 className="text-xl font-bold text-[#fff243]" style={{fontFamily: "MyCustomFont"}}>
-              &nbsp;&nbsp;Mystery laughter
-            </h3>
+            <img src="image/assets/mkt.png" alt="" className=" w-5 h-5" />
+            <h1
+              className="text-4xl text-white"
+              style={{ fontFamily: "MyCustomFont" }}
+            >
+              {formatNumberWithCommas(token)}
+            </h1>
           </div>
-          <h1 className="text-5xl text-white" style={{fontFamily: "MyCustomFont"}}>
-            {formatNumberWithCommas(token)}
-          </h1>
+
+          <h3
+            className="text-4xl font-bold text-[#fff243]"
+            style={{ fontFamily: "MyCustomFont" }}
+          >
+            &nbsp;&nbsp;MKT
+          </h3>
         </div>
         <div>
           <div
