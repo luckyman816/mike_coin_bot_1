@@ -15,7 +15,10 @@ import {
   getWallet,
 } from "../store/reducers/wallet";
 
-const colorSpreadAnimation = keyframes`
+
+
+function Home() {
+  const colorSpreadAnimation = keyframes`
   0% {
     box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.4);
   }
@@ -26,8 +29,6 @@ const colorSpreadAnimation = keyframes`
     box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.4);
   }
 `;
-
-function Home() {
   const audio = new Audio(soundEffect);
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
