@@ -84,30 +84,36 @@ export default function QuestList() {
             My Refferals :
           </h2>
         </div>
-        {friends.length == 0 ? (
-          <div className="flex flex-col justify-center items-center gap-9">
-            <h2
-              className="text-[white] text-xl"
-              style={{ fontFamily: "poppins" }}
-            >
-              You don't have refferal!
-            </h2>
-            <img src="image/assets/noRefferal.png" alt="" className="w-7 h-7" />
-          </div>
-        ) : (
-          <div className="max-h-[40vh] max-sm:max-h-[40vh] overflow-auto">
-            {friends.map((item, index) => (
-              <div
-                key={index}
-                className={`flex ${
-                  index > 0 && "my-3"
-                } px-3 py-2 items-center bg-[#363636] rounded-lg w-[70%] text-[white]`}
+        <div className="flex justify-center items-center">
+          {friends.length == 0 ? (
+            <div className="flex flex-col justify-center items-center gap-9">
+              <h2
+                className="text-[white] text-xl"
+                style={{ fontFamily: "poppins" }}
               >
-                {item}
-              </div>
-            ))}
-          </div>
-        )}
+                You don't have refferal!
+              </h2>
+              <img
+                src="image/assets/noRefferal.png"
+                alt=""
+                className="w-7 h-7"
+              />
+            </div>
+          ) : (
+            <div className="max-h-[40vh] max-sm:max-h-[40vh] overflow-auto">
+              {friends.map((item, index) => (
+                <div
+                  key={index}
+                  className={`flex ${
+                    index > 0 && "my-3"
+                  } px-3 py-2 items-center bg-[#363636] rounded-lg w-[70%] text-[white]`}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
