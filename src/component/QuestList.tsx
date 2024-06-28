@@ -76,7 +76,7 @@ export default function QuestList() {
         </div>
       </div>
       <div className="flex flex-col justify-center items-start">
-        <div className="flex justify-start items-center">
+        <div className="flex justify-start items-center w-[80%]">
           <h2
             className="text-white text-3xl mb-6"
             style={{ fontFamily: "spicy" }}
