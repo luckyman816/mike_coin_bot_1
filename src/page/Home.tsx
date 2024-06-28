@@ -184,7 +184,7 @@ function Home() {
           </h3>
         </div>
         <div>
-          <div className="w-[400px] h-[400px] absolute left-0 top-0 bg-color-animation z-10 rounded-[200px]">
+          <div className="absolute left-0 top-0 bg-color-animation z-10">
 
           </div>
           <div

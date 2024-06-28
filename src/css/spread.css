@@ -1,28 +1,19 @@
 @keyframes colorSpread {
   0% {
-    background-color: #00E9F8;
-    opacity: 0.6;
+    background-image: url("./spread/1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
-  20% {
-    background-color: #00E9F8;
-    opacity: 0.4;
+  50% {
+    background-image: url("./spread/2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     
   }
-  40% {
-    background-color: #00E9F8;
-    opacity: 0.2;
-  }
-  60% {
-    background-color: #AA4BAE;
-    opacity: 0.6;
-  }
-  80% {
-    background-color: #AA4BAE;
-    opacity: 0.4;
-  }
   100% {
-    background-color: #AA4BAE;
-    opacity: 0.2;
+    background-image: url("./spread/3.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 .bg-color-animation {
