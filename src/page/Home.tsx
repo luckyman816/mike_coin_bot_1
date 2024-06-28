@@ -142,7 +142,7 @@ function Home() {
               &nbsp;&nbsp;Mystery laughter
             </h3>
           </div>
-          <h1 className="text-5xl text-white">
+          <h1 className="text-5xl text-white" style={{fontFamily: "MyCustomFont"}}>
             {formatNumberWithCommas(token)}
           </h1>
         </div>
