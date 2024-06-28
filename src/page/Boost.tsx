@@ -61,9 +61,6 @@ export default function Boost() {
       <ToastContainer/>
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center p-4">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-2xl mb-3  max-w-[500px] mx-auto text-start text-white flex justify-center">
-            Your Balance
-          </h1>
           <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
             <img src="/image/dollar.png" alt="" className="w-10 h-10" />
             <h1 className="text-4xl">{token}</h1>
