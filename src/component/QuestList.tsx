@@ -86,7 +86,7 @@ export default function QuestList() {
         </div>
         <div className="flex justify-center items-center">
           {friends.length == 0 ? (
-            <div className="flex flex-col justify-center items-center gap-9">
+            <div className="flex flex-col justify-center items-center gap-9 w-full">
               <h2
                 className="text-[white] text-xl"
                 style={{ fontFamily: "poppins" }}
@@ -100,7 +100,7 @@ export default function QuestList() {
               />
             </div>
           ) : (
-            <div className="max-h-[40vh] max-sm:max-h-[40vh] overflow-auto">
+            <div className="max-h-[40vh] max-sm:max-h-[40vh] overflow-auto w-full">
               {friends.map((item, index) => (
                 <div
                   key={index}
