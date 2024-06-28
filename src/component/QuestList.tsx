@@ -28,12 +28,14 @@ export default function QuestList() {
   console.log("friends", friends);
   console.log("textToCopy", textToCopy);
   return (
-    <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5">
+    <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5 flex flex-col justify-center items-center gap-2">
       <ToastContainer />
       <div className="flex justify-center items-center">
-        <h1 className=" text-white text-2xl">{friends.length} Refferals</h1>
+        <h1 className=" text-white text-3xl" style={{fontFamily: "spicy"}}>{friends.length} Refferals</h1>
+        <h1 className=" text-[#33CC66] text-3xl" style={{fontFamily: "poppins"}}>+ 1000</h1>
+
       </div>
-      <div className="flex justify-center items-center align-middle w-full h-12 mt-8">
+      <div className="flex justify-center items-center align-middle w-full mt-8">
         <div className="w-[90%] bg-gradient-to-r from-[#567481] to-[#2D4047]  text-white rounded-[20px] flex items-center justify-center p-5">
           <div className="flex flex-col justify-center items-center gap-2">
             <span className="flex justify-center items-cente text-2xl" style={{fontFamily: "spicy"}}>
@@ -44,7 +46,7 @@ export default function QuestList() {
             </span>
           </div>
           <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
-            <div className="bg-gradient-to-r flex justify-center items-center gap-2 from-[#806FC0] to-[#14D6F0] p-3">
+            <div className="bg-gradient-to-r flex justify-center items-center gap-5 from-[#806FC0] to-[#14D6F0] p-3 rounded-[8px]">
               <img src="/image/assets/copy.png" alt="" className="w-4 h-4"/>
               <h2 className="text-sm text-[white]" style={{ fontFamily: "poppins" }}>Copy</h2>
             </div>
