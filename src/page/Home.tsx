@@ -161,7 +161,7 @@ function Home() {
         </div>
         <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex flex-col justify-center w-full items-center gap-2">
-            <h3 className="text-xl mb-2 text-white w-[fit-content] flex">
+            <h3 className="text-xl mb-2 text-white w-[fit-content]">
               <span className="text-3xl ">
                 <img
                   src="/image/icon/lightning.svg"

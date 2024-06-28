@@ -18,7 +18,11 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/refferal.png" alt="quest" className=" w-12 h-12" />
+        <img
+          src="/image/footer/refferal.png"
+          alt="quest"
+          className=" w-12 h-12"
+        />
       </Link>
       <Link
         to="/task"
@@ -41,18 +45,26 @@ export default function Footer() {
       <Link
         to=""
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
-          path === "/boost" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
+          path === "/boost"
+            ? "scale-[110%] opacity-100"
+            : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/boost.png" alt="play" className=" w-12 h-12" />
+        <img src="/image/footer/boost.png" alt="boost" className=" w-12 h-12" />
       </Link>
       <Link
         to=""
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
-          path === "/airdrop" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
+          path === "/airdrop"
+            ? "scale-[110%] opacity-100"
+            : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/airdrop.png" alt="play" className=" w-12 h-12" />
+        <img
+          src="/image/footer/airdrop.png"
+          alt="airdrop"
+          className=" w-12 h-12"
+        />
       </Link>
     </div>
   );
