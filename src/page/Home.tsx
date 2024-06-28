@@ -137,7 +137,7 @@ function Home() {
         <div className="flex flex-col justify-center items-center mb-7">
           <div className="flex justify-center items-center">
             <img src="image/money-bag.png" alt="" className=" w-5 h-5" />
-            <h3 className="text-xl font-bold text-[#fff243]">
+            <h3 className="text-xl font-bold text-[#fff243] MyCustomFont">
               &nbsp;&nbsp;Mystery laughter
             </h3>
           </div>

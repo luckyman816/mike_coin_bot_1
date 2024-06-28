@@ -88,7 +88,12 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../public/font/spicy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 .card {
   padding: 2em;
 }
