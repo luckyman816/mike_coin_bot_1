@@ -7,6 +7,7 @@ import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
 import soundEffect from "../../public/effect/water.wav";
 import axios from "../utils/api";
+import "../css/font.css"
 import {
   insertWallet,
   updateWallet,
