@@ -131,7 +131,7 @@ function Home() {
       <ToastContainer />
       <div className="flex justify-around items-center px-3">
         <h3
-          className="text-3xl font-bold text-[white]"
+          className="text-2xl font-bold text-[white]"
           style={{ fontFamily: "spicy" }}
         >
           Hello, {username}
@@ -139,20 +139,20 @@ function Home() {
         <img src="image/assets/icon.png" alt="" className=" w-10 h-10"/>
       </div>
       <div className="flex gap-2 justify-around items-center">
-        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px]">
+        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
             <h2 className=" text-sm text-[#F8B219]">Earn Per Tap</h2>
             <div className="flex justify-center items-center">
               <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
               <h2 className="text-sm text-[white]">+{tap}</h2>
             </div>
         </div>
-        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px]">
+        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
             <h2 className=" text-sm text-[#00E9F8]">Level</h2>
             <div className="flex justify-center items-center">
               <h2 className="text-sm text-[white]"> 1 </h2>
             </div>
         </div>
-        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px]">
+        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
             <h2 className=" text-sm text-[#1ED760]">Coins To Level Up</h2>
             <div className="flex justify-center items-center">
               <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
@@ -168,7 +168,7 @@ function Home() {
           <div className="flex justify-center items-center">
             <img src="image/assets/mkt.png" alt="" className=" w-10 h-10" />
             <h1
-              className=" text-3xl text-white"
+              className=" text-2xl text-white"
               style={{ fontFamily: " spicy" }}
             >
               {formatNumberWithCommas(token)}
@@ -176,7 +176,7 @@ function Home() {
           </div>
 
           <h3
-            className="text-3xl font-bold text-[#fff243]"
+            className="text-2xl font-bold text-[#fff243]"
             style={{ fontFamily: "spicy" }}
           >
             &nbsp;&nbsp;MKT
