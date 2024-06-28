@@ -11,26 +11,6 @@ export default function Footer() {
   return (
     <div className="grid grid-cols-4 gap-10 justify-center items-center">
       <Link
-        to="/ranking"
-        className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
-          path === "/ranking"
-            ? "scale-[110%] opacity-100"
-            : "opacity-50 text-white"
-        }`}
-      >
-        <img src="/image/ranking.png" alt="ranking" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">RANKING</p>
-      </Link>
-      <Link
-        to=""
-        className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
-          path === "/" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
-        }`}
-      >
-        <img src="/image/footer/earn.png" alt="play" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">Earn</p>
-      </Link>
-      <Link
         to="/quest"
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
           path === "/quest"
@@ -38,8 +18,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/refferal.png" alt="quest" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">Friends</p>
+        <img src="/image/footer/refferal.png" alt="quest" className=" w-16 h-16" />
       </Link>
       <Link
         to="/task"
@@ -49,8 +28,31 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">TASK</p>
+        <img src="/image/footer/task.png" alt="ranking" className="w-16 h-16" />
+      </Link>
+      <Link
+        to=""
+        className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
+          path === "/" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
+        }`}
+      >
+        <img src="/image/footer/earn.png" alt="play" className=" w-20 h-20" />
+      </Link>
+      <Link
+        to=""
+        className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
+          path === "/boost" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
+        }`}
+      >
+        <img src="/image/footer/boost.png" alt="play" className=" w-16 h-16" />
+      </Link>
+      <Link
+        to=""
+        className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
+          path === "/airdrop" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
+        }`}
+      >
+        <img src="/image/footer/airdrop.png" alt="play" className=" w-16 h-16" />
       </Link>
     </div>
   );
