@@ -3,7 +3,7 @@
     background-image: url("./spread/3.png");
     background-size: cover;
     width: 300px;
-    height: 300px;
+    height: 393px;
     background-repeat: no-repeat;
   }
   50% {
@@ -11,7 +11,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 320px;
-    height: 320px;
+    height: 313px;
     
   }
   100% {
@@ -19,7 +19,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;
-    height: 340px;
+    height: 333px;
   }
 }
 .bg-color-animation {
