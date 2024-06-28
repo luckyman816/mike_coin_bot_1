@@ -7,7 +7,7 @@ import { dispatch, useSelector } from "../store";
 import soundEffect from "../../public/effect/water.wav";
 import axios from "../utils/api";
 import "../css/font.css";
-import "../css/spread.css"
+import "../css/spread.css";
 import {
   insertWallet,
   updateWallet,
@@ -137,28 +137,28 @@ function Home() {
         >
           Hello, {username}
         </h3>
-        <img src="image/assets/icon.png" alt="" className=" w-10 h-10"/>
+        <img src="image/assets/icon.png" alt="" className=" w-10 h-10" />
       </div>
       <div className="flex gap-2 justify-center items-center gap-2">
         <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[25%]">
-            <h2 className=" text-sm text-[#F8B219]">Earn Per Tap</h2>
-            <div className="flex justify-center items-center">
-              <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
-              <h2 className="text-sm text-[white]">+{tap}</h2>
-            </div>
+          <h2 className=" text-sm text-[#F8B219]">Earn Per Tap</h2>
+          <div className="flex justify-center items-center">
+            <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
+            <h2 className="text-sm text-[white]">+{tap}</h2>
+          </div>
         </div>
         <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[25%]">
-            <h2 className=" text-sm text-[#00E9F8]">Level</h2>
-            <div className="flex justify-center items-center">
-              <h2 className="text-sm text-[white]"> 1 </h2>
-            </div>
+          <h2 className=" text-sm text-[#00E9F8]">Level</h2>
+          <div className="flex justify-center items-center">
+            <h2 className="text-sm text-[white]"> 1 </h2>
+          </div>
         </div>
         <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[25%]">
-            <h2 className=" text-sm text-[#1ED760]">Coins To Level Up</h2>
-            <div className="flex justify-center items-center">
-              <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
-              <h2 className="text-sm text-[white]"> 1 M </h2>
-            </div>
+          <h2 className=" text-sm text-[#1ED760]">Coins To Level Up</h2>
+          <div className="flex justify-center items-center">
+            <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
+            <h2 className="text-sm text-[white]"> 1 M </h2>
+          </div>
         </div>
       </div>
       <div
@@ -183,20 +183,21 @@ function Home() {
             &nbsp;&nbsp;MKT
           </h3>
         </div>
-        <div>
-          <div className="absolute left-[50vw] top-[60vh] bg-color-animation z-10"/>
-          <div
-            className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
-              remainedEnergy > 0
-                ? "cursor-pointer"
-                : "cursor-not-allowed opacity-50"
-            } ${imgStatus ? " border-[5px]" : "border-0"}
+        <div className="flex justify-center items-center">
+          <div className="bg-color-animation flex justify-center items-center">
+            <div
+              className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
+                remainedEnergy > 0
+                  ? "cursor-pointer"
+                  : "cursor-not-allowed opacity-50"
+              } ${imgStatus ? " border-[5px]" : "border-0"}
             `}
-            ref={bodyRef}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseLeave}
-            onClick={handleTap}
-          />
+              ref={bodyRef}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseLeave}
+              onClick={handleTap}
+            />
+          </div>
         </div>
         <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex flex-col justify-center w-full items-center gap-2">
