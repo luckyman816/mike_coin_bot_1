@@ -43,7 +43,7 @@ export default function Footer() {
         <img src="/image/footer/earn.png" alt="play" className=" w-20 h-20" />
       </Link>
       <Link
-        to=""
+        to="/boost"
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
           path === "/boost"
             ? "scale-[110%] opacity-100"
@@ -53,7 +53,7 @@ export default function Footer() {
         <img src="/image/footer/boost.png" alt="boost" className=" w-12 h-12" />
       </Link>
       <Link
-        to=""
+        to="/airdrop"
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
           path === "/airdrop"
             ? "scale-[110%] opacity-100"
