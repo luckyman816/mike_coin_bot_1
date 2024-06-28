@@ -187,9 +187,9 @@ function Home() {
           <div
             className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
               remainedEnergy > 0
-                ? "cursor-pointer border-spread"
+                ? "cursor-pointer"
                 : "cursor-not-allowed opacity-50"
-            } ${imgStatus ? " border-[5px]" : "border-0"}
+            } ${imgStatus ? " border-[5px]" : "border-0"}  bg-color-animation
             `}
             ref={bodyRef}
             onMouseDown={handleMouseDown}
