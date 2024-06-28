@@ -61,7 +61,7 @@ export default function Task() {
     }
   }
   return (
-    <div className="Ranking max-w-full mx-auto text-white h-[75vh] max-sm:h-[82vh] mt-8">
+    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-8">
       <ToastContainer />
       <div className="flex flex-col justify-center items-center">
         <img src="image/dollar.png" alt="" className=" w-20 h-20" />

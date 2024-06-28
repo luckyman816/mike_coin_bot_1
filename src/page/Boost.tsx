@@ -57,7 +57,7 @@ export default function Boost() {
     setIsLimitModalOpen(false);
   };
   return (
-    <div className="Boost max-w-full text-white h-[75vh] max-sm:h-[82vh] mt-12">
+    <div className="Boost max-w-full text-white max-sm:h-[78vh] mt-12">
       <ToastContainer/>
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center p-4">
         <div className="flex flex-col justify-center items-center">
