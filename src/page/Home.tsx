@@ -169,8 +169,9 @@ function Home() {
                   className="w-6 h-6 inline"
                 />
               </span>
-              <span className="text-xl text-white">{remainedEnergy}</span> /{" "}
-              {limit}
+              <span className="text-xl text-white">
+                {remainedEnergy} / {limit}
+              </span>
             </h3>
             <ProgressBar value={remainedEnergy / 10} />
           </div>
