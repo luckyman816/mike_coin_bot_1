@@ -183,10 +183,10 @@ function Home() {
             &nbsp;&nbsp;MKT
           </h3>
         </div>
-        <div className="flex justify-center items-center">
-          <div className="bg-color-animation flex justify-center items-center">
+        <div className="flex justify-center items-center relative">
+          <div className="bg-color-animation flex justify-center items-center absolute">
             <div
-              className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
+              className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
                 remainedEnergy > 0
                   ? "cursor-pointer"
                   : "cursor-not-allowed opacity-50"
