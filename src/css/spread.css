@@ -2,10 +2,10 @@
   0% {
     background-color: #283C4F;
   }
-  100% {
+  130% {
     background-color: #202533;
   }
 }
 .bg-color-animation {
-  animation: colorSpread 1s linear forwards;
+  animation: colorSpread 10s linear forwards;
 }
