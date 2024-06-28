@@ -127,7 +127,7 @@ function Home() {
   };
   console.log("imgStatus", imgStatus);
   return (
-    <div className=" mt-8">
+    <div className=" mt-2">
       <ToastContainer />
       <div className="flex justify-around items-center px-3">
         <h3
@@ -138,7 +138,7 @@ function Home() {
         </h3>
         <img src="image/assets/icon.png" alt="" className=" w-10 h-10"/>
       </div>
-      <div className="flex gap-2 justify-around items-center">
+      <div className="flex gap-2 justify-between items-center">
         <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
             <h2 className=" text-sm text-[#F8B219]">Earn Per Tap</h2>
             <div className="flex justify-center items-center">
