@@ -1,12 +1,14 @@
-@keyframes colorSpread {
-    0% {
-      background-color: #283C4F;
-    }
-    100% {
-      background-color: #202533;
-    }
+@keyframes borderSpread {
+  0% {
+    border-color: #283C4F;
   }
-  
-  .color-spread {
-    animation: colorSpread 1s ease-in-out infinite alternate;
+  100% {
+    border-color: #202533;
   }
+}
+
+.border-spread {
+  animation: borderSpread 1s ease-in-out infinite alternate;
+  border-width: 5px;
+  border-style: solid;
+}
