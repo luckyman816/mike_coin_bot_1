@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
 import soundEffect from "../../public/effect/water.wav";
@@ -130,7 +129,15 @@ function Home() {
   return (
     <div className=" mt-8">
       <ToastContainer />
-      <CountDate date={3} />
+      <div className="flex justify-around items-center px-3">
+        <h3
+          className="text-4xl font-bold text-[#fff243]"
+          style={{ fontFamily: "spicy" }}
+        >
+          Hello, {username}
+        </h3>
+        <img src="image/assets/icon.png" alt="" className=" w-10 h-10"/>
+      </div>
       <div
         id="mainWindow"
         className="relative mt-8 flex flex-col items-center justify-center w-full h-[62vh] mb-9"
@@ -139,8 +146,8 @@ function Home() {
           <div className="flex justify-center items-center">
             <img src="image/assets/mkt.png" alt="" className=" w-10 h-10" />
             <h1
-              className="text-4xl text-white"
-              style={{ fontFamily: " CustomFont" }}
+              className=" text-4xl text-white"
+              style={{ fontFamily: " spicy" }}
             >
               {formatNumberWithCommas(token)}
             </h1>
@@ -148,7 +155,7 @@ function Home() {
 
           <h3
             className="text-4xl font-bold text-[#fff243]"
-            style={{ fontFamily: "CustomFont" }}
+            style={{ fontFamily: "spicy" }}
           >
             &nbsp;&nbsp;MKT
           </h3>

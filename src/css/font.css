@@ -1,4 +1,8 @@
 @font-face {
-  font-family: 'CustomFont';
+  font-family: 'spicy';
   src: url('./spicy.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'poppins';
+  src: url('./poppins.ttf') format('truetype');
 }
