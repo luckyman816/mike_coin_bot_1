@@ -9,7 +9,7 @@ import Footer from "./component/Footer";
 import Layout from "./Layout";
 import Loading from "./component/Loading";
 import { Provider as ReduxProvider } from "react-redux";
-import {store} from "./store";
+import { store } from "./store";
 import Boost from "./page/Boost";
 import Task from "./page/Task";
 function App() {
@@ -32,8 +32,8 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="ranking" element={<Ranking />} />
                 <Route path="quest" element={<Quest />} />
-                <Route path="boost" element = {<Boost/>} />
-                <Route path="task" element = {<Task/>}/>
+                <Route path="boost" element={<Boost />} />
+                <Route path="task" element={<Task />} />
               </Route>
             </Routes>
             <ToastContainer />
