@@ -1,6 +1,6 @@
 @keyframes colorSpread {
   0% {
-    background-image: url("./spread/1.png");
+    background-image: url("./spread/3.png");
     background-size: cover;
     width: 300px;
     height: 300px;
@@ -15,7 +15,7 @@
     
   }
   100% {
-    background-image: url("./spread/3.png");
+    background-image: url("./spread/1.png");
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;
@@ -23,5 +23,5 @@
   }
 }
 .bg-color-animation {
-  animation: colorSpread 5s linear forwards infinite;
+  animation: colorSpread 1s linear forwards infinite;
 }

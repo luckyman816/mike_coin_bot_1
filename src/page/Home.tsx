@@ -184,9 +184,7 @@ function Home() {
           </h3>
         </div>
         <div>
-          <div className="absolute left-0 top-0 bg-color-animation z-10">
-
-          </div>
+          <div className="absolute left-[50vw] top-[60vh] bg-color-animation z-10"/>
           <div
             className={`relative bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
               remainedEnergy > 0
