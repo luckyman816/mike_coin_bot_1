@@ -27,8 +27,8 @@ export default function Footer() {
           path === "/" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/mining.png" alt="play" className="w-12 h-12" />
-        <p className="text-sm max-sm:text-sm text-white">Mint</p>
+        <img src="/image/footer/earn.png" alt="play" className="w-12 h-12" />
+        <p className="text-sm max-sm:text-sm text-white">Earn</p>
       </Link>
       <Link
         to="/quest"
@@ -38,7 +38,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/add-friend.png" alt="quest" className="w-12 h-12" />
+        <img src="/image/footer/refferal.png" alt="quest" className="w-12 h-12" />
         <p className="text-sm max-sm:text-sm text-white">Friends</p>
       </Link>
       <Link
@@ -49,7 +49,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/earnings.png" alt="ranking" className="w-12 h-12" />
+        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12" />
         <p className="text-sm max-sm:text-sm text-white">TASK</p>
       </Link>
     </div>
