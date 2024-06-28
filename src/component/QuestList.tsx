@@ -34,7 +34,7 @@ export default function QuestList() {
         <h1 className=" text-white text-2xl">{friends.length} Refferals</h1>
       </div>
       <div className="flex justify-center items-center align-middle w-full h-12 mt-8">
-        <div className="w-[90%] h-12 bg-gradient-to-r from-[#567481] to-[#2D4047]  text-white rounded-[20px] flex items-center justify-center p-5">
+        <div className="w-[90%] bg-gradient-to-r from-[#567481] to-[#2D4047]  text-white rounded-[20px] flex items-center justify-center p-5">
           <div className="flex flex-col justify-center items-center gap-2">
             <span className="flex justify-center items-cente text-2xl" style={{fontFamily: "spicy"}}>
               My invite link
