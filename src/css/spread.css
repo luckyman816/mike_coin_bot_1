@@ -2,18 +2,24 @@
   0% {
     background-image: url("./spread/1.png");
     background-size: cover;
+    width: 300;
+    height: 300;
     background-repeat: no-repeat;
   }
   50% {
     background-image: url("./spread/2.png");
     background-size: cover;
     background-repeat: no-repeat;
+    width: 320;
+    height: 320;
     
   }
   100% {
     background-image: url("./spread/3.png");
     background-size: cover;
     background-repeat: no-repeat;
+    width: 340;
+    height: 340;
   }
 }
 .bg-color-animation {
