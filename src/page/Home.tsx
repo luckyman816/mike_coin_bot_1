@@ -6,7 +6,6 @@ import CountDate from "../component/CountDate";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
 import soundEffect from "../../public/effect/water.wav";
-import { keyframes } from 'styled-components';
 import axios from "../utils/api";
 import {
   insertWallet,
@@ -15,20 +14,7 @@ import {
   getWallet,
 } from "../store/reducers/wallet";
 
-
-
 function Home() {
-  const colorSpreadAnimation = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 20px rgba(255, 0, 0, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.4);
-  }
-`;
   const audio = new Audio(soundEffect);
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
@@ -166,7 +152,7 @@ function Home() {
                 ? "cursor-pointer"
                 : "cursor-not-allowed opacity-50"
             } ${imgStatus ? " border-[5px]" : "border-0"}
-            animation: ${colorSpreadAnimation} 5s ease-in-out infinite;`}
+            `}
             ref={bodyRef}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseLeave}
