@@ -163,7 +163,7 @@ function Home() {
           <div className="flex flex-col justify-center w-full items-center gap-2">
             <div className=" my-2 w-[fit-content] flex">
               <img
-                src="/image/icon/lightning.svg"
+                src="/image/assets/lightning.png"
                 alt="lightning"
                 className="w-6 h-6 inline"
               />
