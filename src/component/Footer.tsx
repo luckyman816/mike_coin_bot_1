@@ -9,7 +9,7 @@ export default function Footer() {
     setPath(location.pathname);
   }, [location]);
   return (
-    <div className="grid grid-cols-4 gap-10 justify-center items-center">
+    <div className="grid grid-cols-5 gap-10 justify-center items-center">
       <Link
         to="/quest"
         className={`flex flex-col items-center justify-center cursor-pointer transform origin-bottom transition ${
@@ -18,7 +18,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/refferal.png" alt="quest" className=" w-16 h-16" />
+        <img src="/image/footer/refferal.png" alt="quest" className=" w-12 h-12" />
       </Link>
       <Link
         to="/task"
@@ -28,7 +28,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/task.png" alt="ranking" className="w-16 h-16" />
+        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12" />
       </Link>
       <Link
         to=""
@@ -44,7 +44,7 @@ export default function Footer() {
           path === "/boost" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/boost.png" alt="play" className=" w-16 h-16" />
+        <img src="/image/footer/boost.png" alt="play" className=" w-12 h-12" />
       </Link>
       <Link
         to=""
@@ -52,7 +52,7 @@ export default function Footer() {
           path === "/airdrop" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/airdrop.png" alt="play" className=" w-16 h-16" />
+        <img src="/image/footer/airdrop.png" alt="play" className=" w-12 h-12" />
       </Link>
     </div>
   );

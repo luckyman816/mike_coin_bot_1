@@ -160,8 +160,7 @@ function Home() {
           />
         </div>
         <div className="flex flex-col justify-center items-center content-center ">
-          <div className="flex justify-around w-full align-middle gap-5">
-            <ProgressBar value={remainedEnergy / 10} />
+          <div className="flex flex-col justify-center w-full items-center gap-2">
             <h3 className="text-xl mb-2 text-white w-[15vw]">
               <span className="text-3xl ">
                 <img
@@ -173,6 +172,7 @@ function Home() {
               <span className="text-xl text-white">{remainedEnergy}</span> /{" "}
               {limit}
             </h3>
+            <ProgressBar value={remainedEnergy / 10} />
           </div>
         </div>
       </div>
