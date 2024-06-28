@@ -75,19 +75,19 @@ export default function QuestList() {
           </CopyToClipboard>
         </div>
       </div>
-      <div className="flex flex-col justify-start items-start">
-        <h2 className="text-white text-3xl" style={{ fontFamily: "spicy" }}>
-          My Refferals
+      <div className="flex flex-col justify-center items-start">
+        <h2 className="text-white text-3xl text-left mb-6" style={{ fontFamily: "spicy" }}>
+          My Refferals :
         </h2>
         {friends.length == 0 ? (
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center gap-9">
             <h2
               className="text-[white] text-xl"
               style={{ fontFamily: "poppins" }}
             >
               You don't have refferal!
             </h2>
-            <img src="image/assets/noRefferal.png" alt="" className="w-4 h-4" />
+            <img src="image/assets/noRefferal.png" alt="" className="w-7 h-7" />
           </div>
         ) : (
           <div className="max-h-[40vh] max-sm:max-h-[40vh] overflow-auto">
