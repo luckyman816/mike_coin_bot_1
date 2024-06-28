@@ -34,9 +34,9 @@ export default function QuestList() {
         <h1 className=" text-white text-2xl">{friends.length} Refferals</h1>
       </div>
       <div className="flex justify-center items-center align-middle w-full h-12 mt-8">
-        <div className="w-[90%] h-12 bg-gradient-to-r from-[#806FC0] to-[#14D6F0] text-white rounded-[20px] flex items-center justify-center">
+        <div className="w-[90%] h-12 bg-gradient-to-r from-[#567481] to-[#2D4047]  text-white rounded-[20px] flex items-center justify-center p-5">
           <div className="flex flex-col justify-center items-center gap-2">
-            <span className="flex justify-center items-cente">
+            <span className="flex justify-center items-cente text-2xl" style={{fontFamily: "spicy"}}>
               My invite link
             </span>
             <span className="text-[#00E9F8]" style={{maxWidth: "150px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
@@ -44,7 +44,7 @@ export default function QuestList() {
             </span>
           </div>
           <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
-            <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex justify-center items-center gap-2">
+            <div className="bg-gradient-to-r flex justify-center items-center gap-2 from-[#806FC0] to-[#14D6F0] p-3">
               <img src="/image/assets/copy.png" alt="" className="w-4 h-4"/>
               <h2 className="text-sm text-[white]" style={{ fontFamily: "poppins" }}>Copy</h2>
             </div>
