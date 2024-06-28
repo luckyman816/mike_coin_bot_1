@@ -131,7 +131,7 @@ function Home() {
       <ToastContainer />
       <div className="flex justify-around items-center px-3">
         <h3
-          className="text-4xl font-bold text-[#fff243]"
+          className="text-3xl font-bold text-[white]"
           style={{ fontFamily: "spicy" }}
         >
           Hello, {username}
@@ -146,7 +146,7 @@ function Home() {
           <div className="flex justify-center items-center">
             <img src="image/assets/mkt.png" alt="" className=" w-10 h-10" />
             <h1
-              className=" text-4xl text-white"
+              className=" text-3xl text-white"
               style={{ fontFamily: " spicy" }}
             >
               {formatNumberWithCommas(token)}
@@ -154,7 +154,7 @@ function Home() {
           </div>
 
           <h3
-            className="text-4xl font-bold text-[#fff243]"
+            className="text-3xl font-bold text-[#fff243]"
             style={{ fontFamily: "spicy" }}
           >
             &nbsp;&nbsp;MKT
