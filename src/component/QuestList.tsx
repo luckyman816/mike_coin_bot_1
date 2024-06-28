@@ -9,7 +9,6 @@ import "../css/font.css";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const [username, setUsername] = useState<string>(username_state);
-  const [isCopied, setIsCopied] = useState(false);
   const [friends, setFriends] = useState<any[]>([]);
   const [textToCopy, setTextToCopy] = useState<string>("");
   useEffect(() => {
@@ -17,7 +16,6 @@ export default function QuestList() {
     setTextToCopy(`https://t.me/monster_mysterybot?start=${username_state}`);
   }, [username_state]);
   const handleCopy = async () => {
-    setIsCopied(true);
     toast.success("Copied to clipboard!");
   };
   useEffect(() => {
@@ -36,27 +34,20 @@ export default function QuestList() {
         <h1 className=" text-white text-2xl">{friends.length} Refferals</h1>
       </div>
       <div className="flex justify-center items-center align-middle w-full h-12 mt-8">
-        <div className="w-[90%] h-12bg-gradient-to-r from-[#567481] to-[#2D4047] text-white rounded-[20px] flex items-center justify-center hover:bg-indigo-400">
-          <div className="flex flex-col justify-center items-center">
-            <span className="flex justify-center items-center">
+        <div className="w-[90%] h-12 bg-gradient-to-r from-[#806FC0] to-[#14D6F0] text-white rounded-[20px] flex items-center justify-center">
+          <div className="flex flex-col justify-center items-center gap-2">
+            <span className="flex justify-center items-cente">
               My invite link
             </span>
-            <span className="text-[#00E9F8]">
+            <span className="text-[#00E9F8]" style={{maxWidth: "150px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
               {textToCopy}
             </span>
           </div>
           <CopyToClipboard text={textToCopy} onCopy={handleCopy}>
-            <div
-              style={{
-                backgroundImage: isCopied
-                  ? "url('image/checked.png')"
-                  : "url('image/link.png')",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                width: "40px",
-                height: "40px",
-              }}
-            ></div>
+            <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex justify-center items-center gap-2">
+              <img src="/image/assets/copy.png" alt="" className="w-4 h-4"/>
+              <h2 className="text-sm text-[white]" style={{ fontFamily: "poppins" }}>Copy</h2>
+            </div>
           </CopyToClipboard>
         </div>
       </div>
