@@ -10,8 +10,8 @@ export default function Airdrop() {
           type="text"
           className=" bg-gradient-to-r from-[#556166] to-[#293337] p-4 border border-[white] border-solid rounded-[10px] w-[80%]"
         />
-        <button className="bg-[#33CC66] text-[white] w-[30%] rounded-[10px]">
-          <img src="image/icon/submit.png" alt="" className=" w-3 h-3" />
+        <button className="bg-[#33CC66] text-[white] w-[20%] rounded-[10px] flex items-center text-2xl">
+          <img src="image/icon/submit.png" alt="" className=" w-8 h-8 " />
           Submit
         </button>
       </div>
