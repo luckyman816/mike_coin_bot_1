@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
-import soundEffect from "../../public/effect/water.wav";
 import axios from "../utils/api";
 import "../css/font.css";
 import "../css/spread.css";
@@ -16,7 +15,6 @@ import {
 } from "../store/reducers/wallet";
 
 function Home() {
-  const audio = new Audio(soundEffect);
   const usernameState = useSelector((state) => state.wallet.user?.username);
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const energyState = useSelector((state) => state.wallet.user?.energy);
@@ -105,7 +103,6 @@ function Home() {
   }, [username, remainedEnergy, limit]);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
-    audio.play();
     if (remainedEnergy > 0 && token < 100000) {
       setScore(`+${tap}`);
       if (token + tap > 100000) {
