@@ -5,6 +5,7 @@ export default function Airdrop() {
             <img src="image/assets/wallet.png" alt="" className="w-24 h-24"/>
             <h2 className="text-sm text-[white]">Submit your bep20 wallet address</h2>
             <input type="text" className=" bg-gradient-to-r from-[#556166] to-[#293337] p-4 border border-[white] border-solid rounded-[10px] width-[80%]"/>
+            <button></button>
         </div>
     </div>
   );
