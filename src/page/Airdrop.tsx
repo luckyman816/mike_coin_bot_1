@@ -3,8 +3,8 @@ export default function Airdrop() {
     <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-8">
         <div className="flex flex-col justify-center items-center gap-5">
             <img src="image/assets/wallet.png" alt="" className="w-24 h-24"/>
-            <h2 className="text-xl text-[white]">Submit your bep20 wallet address</h2>
-            <input type="text" className=" bg-gradient-to-r from-[#556166] to-[#293337] p-4"/>
+            <h2 className="text-sm text-[white]">Submit your bep20 wallet address</h2>
+            <input type="text" className=" bg-gradient-to-r from-[#556166] to-[#293337] p-4 border border-[white] border-solid rounded-[10px] width-[80%]"/>
         </div>
     </div>
   );
