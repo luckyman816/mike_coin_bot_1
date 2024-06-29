@@ -42,7 +42,7 @@ export default function QuestList() {
         </h1>
       </div>
       <div className="flex justify-center items-center align-middle w-full mt-8">
-        <div className="w-[80%] bg-gradient-to-r from-[#567481] to-[#2D4047]  text-white rounded-[20px] flex items-center justify-center p-5">
+        <div className="w-[80%] bg-gradient-to-r from-[#567481] to-[#2D4047]  text-white rounded-[20px] flex items-center justify-center p-5 gap-5">
           <div className="flex flex-col justify-center items-center gap-2">
             <span
               className="flex justify-center items-cente text-2xl"
