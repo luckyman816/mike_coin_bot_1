@@ -12,6 +12,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./store";
 import Boost from "./page/Boost";
 import Task from "./page/Task";
+import Airdrop from "./page/Airdrop";
 function App() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
                 <Route path="quest" element={<Quest />} />
                 <Route path="boost" element={<Boost />} />
                 <Route path="task" element={<Task />} />
+                <Route path="airdrop" element={<Airdrop />} />
               </Route>
             </Routes>
             <ToastContainer />
