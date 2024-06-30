@@ -101,14 +101,14 @@ export default function Task() {
         </div>
 
         {!colorTag && (
-          <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3">
+          <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
             <h2
               className="text-[white] text-[xl]"
               style={{ fontFamily: "poppins" }}
             >
               Send your vibe to Mike's TG group and earn some coins
             </h2>
-            <div className="flex justify-center items-center  w-full">
+            <div className="flex justify-center items-center  w-full gap-3">
               <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
                 Let's Go
               </button>
