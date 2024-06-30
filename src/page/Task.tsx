@@ -115,6 +115,17 @@ export default function Task() {
             </button>
           </div>
         </div>
+        <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3">
+          <h2
+            className="text-[white] text-[xl]"
+            style={{ fontFamily: "poppins" }}
+          >
+            Receive your daily coins
+          </h2>
+          <button className="bg-[#F8B219] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+            Receive
+          </button>
+        </div>
       </div>
 
       {/* <div className="flex flex-col justify-center p-7">
