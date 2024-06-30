@@ -77,9 +77,9 @@ export default function Task() {
         <div className="flex flex-col justify-center items-center">
           <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
         </div>
-        <div className="flex justify-center items-center w-[80%] h-16 rounded-[10px]">
+        <div className="flex justify-center items-center w-[80%] h-16 rounded-[10px] bg-[#394A50]">
           <div
-            className={`h-full text-center w-[50%] text-[white] rounded-[10px] ${
+            className={`h-full items-center w-[50%] text-[white] rounded-[10px] ${
               !colorTag
                 ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
                 : "bg-[#394A50]"
@@ -89,7 +89,7 @@ export default function Task() {
             Daily Tasks
           </div>
           <div
-            className={`h-full text-center w-[50%] text-[white] rounded-[10px] ${
+            className={`h-full items-center w-[50%] text-[white] rounded-[10px] ${
               colorTag
                 ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
                 : "bg-[#394A50]"
