@@ -16,7 +16,7 @@ export default function Task() {
   //   setUsername(username_state);
   //   setBalance(balance_state);
   // }, [username_state, balance_state]);
-  // const telegramGroupLink = "https://t.me/MikeToken";
+  const telegramGroupLink = "https://t.me/MikeToken";
   //   const handleJoinTelegramGroup = async () => {
   //   try {
   //     await axios.post(`/earnings/${username}`).then((res) => {
@@ -40,6 +40,9 @@ export default function Task() {
   //     console.log(error);
   //   }
   // };
+  const handleJoinTelgramChannel = () => {
+    window.open(telegramGroupLink, "_blank");
+  }
   // const handleSubscribeTelegramChannel = async() => {
   //   try {
   //     await axios.post(`/earnings/${username}`).then((res) => {
@@ -141,7 +144,7 @@ export default function Task() {
                 Join Mike's TG Group and Chain
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
-                <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
+                <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid" onClick={handleJoinTelgramChannel}>
                   Join
                 </button>
                 <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
