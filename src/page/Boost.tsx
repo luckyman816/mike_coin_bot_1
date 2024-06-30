@@ -71,7 +71,7 @@ export default function Boost() {
           <h1 className="text-white text-xl">Free daily boosters</h1>
         </div>
         <div
-          className={`flex my-3 px-5 py-3 items-center bg-[#4d4d4c] rounded-[30px] hover:bg-[#3a3a3a]`}
+          className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] hover:bg-[#3a3a3a]`}
           onClick={handleMouseClick}
         >
           <img src="/image/icon/lightning.svg" alt="" className="w-10 h-10" />
@@ -84,7 +84,7 @@ export default function Boost() {
           <h1 className="text-white text-xl">Boosters</h1>
         </div>
         <div
-          className={`flex my-3 px-5 py-3 items-center bg-[#4d4d4c] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
+          className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
           onClick={handleMouseTapClick}
         >
           <img src="/image/double-tap.png" alt="" className="w-10 h-10" />
@@ -97,7 +97,7 @@ export default function Boost() {
           </div>
         </div>
         <div
-          className={`flex my-3 px-5 py-3 items-center bg-[#4d4d4c] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
+          className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
           onClick={handleMouseLimitClick}
         >
           <img src="/image/battery.png" alt="" className="w-10 h-10" />
