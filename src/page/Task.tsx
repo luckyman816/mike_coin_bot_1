@@ -99,10 +99,8 @@ export default function Task() {
             Other Tasks
           </div>
         </div>
-        <div
-          hidden={!colorTag ? false : true}
-          className="flex flex-col justify-center items-center gap-3"
-        >
+
+        {!colorTag && (
           <div className="flex flex-col justify-center items-center w-full rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3">
             <h2
               className="text-[white] text-[xl]"
@@ -119,6 +117,8 @@ export default function Task() {
               </button>
             </div>
           </div>
+        )}
+        {!colorTag && (
           <div className="flex justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
             <h2
               className="text-[white] text-[xl]"
@@ -130,7 +130,7 @@ export default function Task() {
               Receive
             </button>
           </div>
-        </div>
+        )}
       </div>
 
       {/* <div className="flex flex-col justify-center p-7">
