@@ -1,74 +1,107 @@
-import axios from "../utils/api";
-import { useSelector, dispatch } from "../store";
-import { updateBalance } from "../store/reducers/wallet";
-import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+// import axios from "../utils/api";
+// import { useSelector, dispatch } from "../store";
+// import { updateBalance } from "../store/reducers/wallet";
+// import { useEffect, useState } from "react";
+
+import { useState } from "react";
+
+// import { ToastContainer, toast } from "react-toastify";
 export default function Task() {
-  const username_state = useSelector((state) => state.wallet.user?.username);
-  const balance_state = useSelector((state) => state.wallet.user?.balance);
-  const [username, setUsername] = useState<string>(username_state);
-  const [balance, setBalance] = useState<number>(balance_state);
-  useEffect(() => {
-    setUsername(username_state);
-    setBalance(balance_state);
-  }, [username_state, balance_state]);
-  const telegramGroupLink = "https://t.me/MikeToken";
-    const handleJoinTelegramGroup = async () => {
-    try {
-      await axios.post(`/earnings/${username}`).then((res) => {
-        if (res.data.joinTelegram.status) {
-          if (!res.data.joinTelegram.earned) {
-            dispatch(updateBalance(username, balance + 1000)).then(() => {
-              axios.post(`/earnings/update/joinTelegram/${username}`, {
-                status: true,
-                earned: true,
-              });
-              toast.success("You have received +1000 coins successfully!");
-            });
-          } else {
-            toast.warning("You have already received bonus!");
-          }
-        } else {
-          window.open(telegramGroupLink, "_blank"); 
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  const [colorTag, setColorTag] = useState<boolean>(false);
+  // const username_state = useSelector((state) => state.wallet.user?.username);
+  // const balance_state = useSelector((state) => state.wallet.user?.balance);
+  // const [username, setUsername] = useState<string>(username_state);
+  // const [balance, setBalance] = useState<number>(balance_state);
+  // useEffect(() => {
+  //   setUsername(username_state);
+  //   setBalance(balance_state);
+  // }, [username_state, balance_state]);
+  // const telegramGroupLink = "https://t.me/MikeToken";
+  //   const handleJoinTelegramGroup = async () => {
+  //   try {
+  //     await axios.post(`/earnings/${username}`).then((res) => {
+  //       if (res.data.joinTelegram.status) {
+  //         if (!res.data.joinTelegram.earned) {
+  //           dispatch(updateBalance(username, balance + 1000)).then(() => {
+  //             axios.post(`/earnings/update/joinTelegram/${username}`, {
+  //               status: true,
+  //               earned: true,
+  //             });
+  //             toast.success("You have received +1000 coins successfully!");
+  //           });
+  //         } else {
+  //           toast.warning("You have already received bonus!");
+  //         }
+  //       } else {
+  //         window.open(telegramGroupLink, "_blank");
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // const handleSubscribeTelegramChannel = async() => {
+  //   try {
+  //     await axios.post(`/earnings/${username}`).then((res) => {
+  //       if(res.data.subscribeTelegram.status) {
+  //         if(!res.data.subscribeTelegram.earned) {
+  //           dispatch(updateBalance(username, balance + 1000)).then(() => {
+  //             axios.post(`/earnings/update/subscribeTelegram/${username}`, {
+  //               status: true,
+  //               earned: true,
+  //             });
+  //             toast.success("You have received +1000 coins successfully!");
+  //           })
+  //         } else {
+  //           toast.warning("You have already received bonus!");
+  //         }
+  //       } else {
+  //         toast.warning("You didn't subscribe Telegram Channel yet! Please join again");
+  //       }
+  //     })
+  //   }
+  //   catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+  const handleDailyTask = () => {
+    setColorTag(!colorTag);
   };
-  const handleSubscribeTelegramChannel = async() => {
-    try {
-      await axios.post(`/earnings/${username}`).then((res) => {
-        if(res.data.subscribeTelegram.status) {
-          if(!res.data.subscribeTelegram.earned) {
-            dispatch(updateBalance(username, balance + 1000)).then(() => {
-              axios.post(`/earnings/update/subscribeTelegram/${username}`, {
-                status: true,
-                earned: true,
-              });
-              toast.success("You have received +1000 coins successfully!");
-            })
-          } else {
-            toast.warning("You have already received bonus!");
-          }
-        } else {
-          toast.warning("You didn't subscribe Telegram Channel yet! Please join again");
-        }
-      })
-    }
-    catch (error) {
-      console.log(error)
-    }
-  }
+  const handleOtherTask = () => {
+    setColorTag(!colorTag);
+  };
   return (
     <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-8">
-      <ToastContainer />
-      <div className="flex flex-col justify-center items-center">
-        <img src="image/dollar.png" alt="" className=" w-20 h-20" />
-        <h2 className=" text-xl">Earn more coins</h2>
+      {/* <ToastContainer /> */}
+      <div className="flex flex-col justify-center items-center gap-4">
+        <div className="flex flex-col justify-center items-center">
+          <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
+        </div>
+        <div className="flex justify-center items-center w-[80%] h-16">
+          <div
+            className={`h-full w-[50%] text-[white] ${
+              !colorTag
+                ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
+                : "bg-[#394A50]"
+            }`}
+            onClick={handleDailyTask}
+          >
+            Daily Tasks
+          </div>
+          <div
+            className={`h-full w-[50%] text-[white] ${
+              colorTag
+                ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
+                : "bg-[#394A50]"
+            }`}
+            onClick={handleOtherTask}
+          >
+            Other Tasks
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-col justify-center p-7">
+      {/* <div className="flex flex-col justify-center p-7">
         <div
           className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]"
           onClick={handleJoinTelegramGroup}
@@ -114,7 +147,7 @@ export default function Task() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
