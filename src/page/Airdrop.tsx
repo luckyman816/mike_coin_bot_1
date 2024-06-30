@@ -6,10 +6,13 @@ export default function Airdrop() {
         <h2 className="text-sm text-[white]">
           Submit your bep20 wallet address
         </h2>
-        <input
-          type="text"
-          className=" bg-gradient-to-r from-[#556166] to-[#293337] p-4 border border-[white] border-solid rounded-[10px] w-[80%]"
-        />
+        <div className="flex w-[80%] relative">
+          <input
+            type="text"
+            className=" bg-gradient-to-r from-[#556166] to-[#293337] p-4 border border-[white] border-solid rounded-[10px] w-full"
+          />
+          <img src="image/icon/input.png" alt="" className="aboslute right-[10px] w-3 h-3"/>
+        </div>
         <button className="bg-[#33CC66] text-[white] w-[20%] rounded-[10px] flex justify-center items-center text-xl gap-2">
           <img src="image/icon/submit.png" alt="" className=" w-6 h-6 " />
           Submit
