@@ -131,6 +131,56 @@ export default function Task() {
             </button>
           </div>
         )}
+        <div className="flex flex-col justify-center gap-3 w-[80%]">
+          <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+            <h2
+              className="text-[white] text-[xl]"
+              style={{ fontFamily: "poppins" }}
+            >
+              Join Mike's TG Group and Chain
+            </h2>
+            <div className="flex justify-center items-center  w-full gap-3">
+              <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
+                Join
+              </button>
+              <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+                Check
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+            <h2
+              className="text-[white] text-[xl]"
+              style={{ fontFamily: "poppins" }}
+            >
+              Follow Mike's Twitter
+            </h2>
+            <div className="flex justify-center items-center  w-full gap-3">
+              <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
+                Join
+              </button>
+              <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+                Check
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+            <h2
+              className="text-[white] text-[xl]"
+              style={{ fontFamily: "poppins" }}
+            >
+              Subscribe to Mike's YT Channel
+            </h2>
+            <div className="flex justify-center items-center  w-full gap-3">
+              <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
+                Join
+              </button>
+              <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+                Check
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* <div className="flex flex-col justify-center p-7">
