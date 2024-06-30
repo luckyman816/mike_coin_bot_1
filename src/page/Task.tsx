@@ -106,7 +106,7 @@ export default function Task() {
           >
             Send your vibe to Mike's TG group and earn some coins
           </h2>
-          <div className="flex justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-3 w-full">
             <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
               Let's Go
             </button>
