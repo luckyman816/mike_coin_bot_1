@@ -99,7 +99,7 @@ export default function Task() {
             Other Tasks
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center w-[80%] h-11 rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3">
+        <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3">
           <h2
             className="text-[white] text-[xl]"
             style={{ fontFamily: "poppins" }}
