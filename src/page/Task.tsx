@@ -141,7 +141,7 @@ export default function Task() {
                 className="text-[white] text-[xl]"
                 style={{ fontFamily: "poppins" }}
               >
-                Join Mike's TG Group and Chain
+                Join Mike's TG Group and Channel
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
                 <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid" onClick={handleJoinTelgramChannel}>
