@@ -115,7 +115,7 @@ export default function Task() {
             </button>
           </div>
         </div>
-        <div className="flex justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3">
+        <div className="flex justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
           <h2
             className="text-[white] text-[xl]"
             style={{ fontFamily: "poppins" }}
