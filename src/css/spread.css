@@ -1,10 +1,17 @@
 @keyframes colorSpread {
   0% {
+    background-image: url("./spread/4.png");
+    background-size: cover;
+    width: 280px;
+    height: 273px;
+    background-repeat: no-repeat;
+  }
+  30% {
     background-image: url("./spread/3.png");
     background-size: cover;
-    width: 300px;
-    height: 293px;
     background-repeat: no-repeat;
+    width: 300px;
+    height: 303px;
   }
   50% {
     background-image: url("./spread/2.png");
