@@ -1,6 +1,6 @@
 import axios from "../utils/api";
 import { useSelector, dispatch } from "../store";
-import { updateBalance } from "../store/reducers/wallet";
+import { updateBalance, updateDailyCoins } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Modal from "../component/modal";
@@ -129,6 +129,18 @@ export default function Task() {
   };
   const handleCloseReceiveModal = () => {
     setIsReceiveModalOpen(false);
+  };
+  const receivedCoins = () => {
+    if (diffDays > 0) {
+      dispatch(updateBalance(username, balance + diffDays * 1000)).then(() => {
+        dispatch(updateDailyCoins(username, moment())).then(() => {
+          toast.success("You have received " + diffDays * 1000 + " coins!");
+          setIsReceiveModalOpen(false);
+        });
+      });
+    } else {
+      toast.warning("Please wait for the next day!");
+    }
   };
   return (
     <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12">
@@ -275,10 +287,17 @@ export default function Task() {
           <h1 className="text-2xl text-white">Daily Coins</h1>
           <p className=" text-sm ngtext-white">You can get the Daily Coins!</p>
           <h2 className=" text-xl text-white">
-            Remaining Time: <span className="text-2xl text-[red]">{diffDays}</span> d <span className="text-2xl text-[green]">{diffHours}</span> h <span className="text-2xl text-[blue]">{diffMinutes}</span>m <span className="text-2xl text-[white]">{diffSeconds}</span> s
+            Remaining Time:{" "}
+            <span className="text-2xl text-[red]">{diffDays}</span> d{" "}
+            <span className="text-2xl text-[green]">{diffHours}</span> h{" "}
+            <span className="text-2xl text-[blue]">{diffMinutes}</span>m{" "}
+            <span className="text-2xl text-[white]">{diffSeconds}</span> s
           </h2>
-          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400">
-            <span className="flex justify-center items-center">Get Received</span>
+          <div
+            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400"
+            onClick={receivedCoins}
+          >
+            <span className="flex justify-center items-center">Receive</span>
           </div>
         </div>
       </Modal>
