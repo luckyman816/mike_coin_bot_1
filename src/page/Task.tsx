@@ -105,7 +105,7 @@ export default function Task() {
     await axios.post(`/earnings/${username}`).then((res) => {
       if (!res.data.followTwitter.earned) {
         dispatch(updateBalance(username, balance + 1000)).then(() => {
-          axios.post(`/earnings/update/subscribeTelegram/${username}`, {
+          axios.post(`/earnings/update/followTwitter/${username}`, {
             status: true,
             earned: true,
           });
