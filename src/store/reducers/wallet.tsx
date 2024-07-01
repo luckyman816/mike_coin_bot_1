@@ -1,16 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// third-party
 import { createSlice } from "@reduxjs/toolkit";
-
-// project imports
 import axios from "../../utils/api";
 import { dispatch } from "../index";
-
-// types
+import moment from "moment";
 import { walletStateProps } from "../../types/wallet";
-
-// ----------------------------------------------------------------------
-
 const initialState: walletStateProps = {
   error: null,
   user: {
@@ -20,6 +12,7 @@ const initialState: walletStateProps = {
     energy: 0,
     tap: 1,
     limit: 1000,
+    daily_coins: new Date()
   },
   friend : false,
   users: [],
@@ -163,6 +156,18 @@ export function getAllUsers() {
     try {
       const response = await axios.get("/wallet/all");
       dispatch(wallet.actions.getUsersSuccess(response.data));
+    } catch (error) {
+      dispatch(wallet.actions.hasError(error));
+    }
+  };
+}
+export function updateDailyCoins(username: string, daily_coins: moment.Moment) {
+  return async () => {
+    try {
+      const response = await axios.post(`/wallet/updateDailyCoins/${username}`, {
+        daily_coins: daily_coins,
+      });
+      dispatch(wallet.actions.updateWalletSuccess(response.data));
     } catch (error) {
       dispatch(wallet.actions.hasError(error));
     }

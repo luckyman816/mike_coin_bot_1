@@ -2,18 +2,51 @@ import axios from "../utils/api";
 import { useSelector, dispatch } from "../store";
 import { updateBalance } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
-
 import { ToastContainer, toast } from "react-toastify";
+import Modal from "../component/modal";
+import moment from "moment";
 export default function Task() {
   const [colorTag, setColorTag] = useState<boolean>(false);
   const username_state = useSelector((state) => state.wallet.user?.username);
   const balance_state = useSelector((state) => state.wallet.user?.balance);
+  const daily_coins_state = useSelector(
+    (state) => state.wallet.user?.daily_coins
+  );
   const [username, setUsername] = useState<string>(username_state);
   const [balance, setBalance] = useState<number>(balance_state);
+  const [daily_coins, setDailyCoins] = useState<moment.Moment | null>(
+    daily_coins_state ? moment(daily_coins_state) : null
+  );
+  const [diffDays, setDiffDays] = useState<number>(0);
+  const [diffHours, setDiffHours] = useState<number>(0);
+  const [diffMinutes, setDiffMinutes] = useState<number>(0);
+  const [diffSeconds, setDiffSeconds] = useState<number>(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      calculateDifference(moment());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+  const calculateDifference = (currentDateTime: moment.Moment) => {
+    if (daily_coins) {
+      const dateDiff = daily_coins
+        ? currentDateTime.diff(daily_coins, "seconds")
+        : 0;
+      setDiffDays(Math.floor(dateDiff / (60 * 60 * 24)));
+      setDiffHours(Math.floor((dateDiff % (60 * 60 * 24)) / (60 * 60)));
+      setDiffMinutes(Math.floor((dateDiff % (60 * 60)) / 60));
+      setDiffSeconds(Math.floor(dateDiff % 60));
+    }
+  };
+  console.log(
+    `${moment()} ${diffDays}d ${diffHours}h ${diffMinutes}m ${diffSeconds}s`
+  );
   useEffect(() => {
     setUsername(username_state);
     setBalance(balance_state);
-  }, [username_state, balance_state]);
+    setDailyCoins(daily_coins_state ? moment(daily_coins_state) : null);
+  }, [username_state, balance_state, daily_coins_state, setDailyCoins]);
   const telegramChannelLink = "https://t.me/MikeToken";
   const telegramGroupLink = "https://t.me/MikeTokenAnn";
   const twitterChannelLink = "https://twitter.com/MikeTokenio";
@@ -68,7 +101,7 @@ export default function Task() {
       }
     });
   };
-  const handleTwitterChannelCheck = async() => {
+  const handleTwitterChannelCheck = async () => {
     await axios.post(`/earnings/${username}`).then((res) => {
       if (!res.data.followTwitter.earned) {
         dispatch(updateBalance(username, balance + 1000)).then(() => {
@@ -89,6 +122,13 @@ export default function Task() {
   };
   const handleOtherTask = () => {
     setColorTag(!colorTag);
+  };
+  const [isReceiveModalOpen, setIsReceiveModalOpen] = useState(false);
+  const handleOpenReceiveModal = () => {
+    setIsReceiveModalOpen(true);
+  };
+  const handleCloseReceiveModal = () => {
+    setIsReceiveModalOpen(false);
   };
   return (
     <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12">
@@ -146,7 +186,10 @@ export default function Task() {
             >
               Receive your daily coins
             </h2>
-            <button className="bg-[#F8B219] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+            <button
+              className="bg-[#F8B219] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+              onClick={handleOpenReceiveModal}
+            >
               Receive
             </button>
           </div>
@@ -211,7 +254,10 @@ export default function Task() {
                 >
                   Join
                 </button>
-                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid" onClick={handleTwitterChannelCheck}>
+                <button
+                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                  onClick={handleTwitterChannelCheck}
+                >
                   Check
                 </button>
               </div>
@@ -219,54 +265,23 @@ export default function Task() {
           </div>
         )}
       </div>
-
-      {/* <div className="flex flex-col justify-center p-7">
-        <div
-          className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]"
-          onClick={handleJoinTelegramGroup}
-        >
-          <div className="flex justify-start items-center">
-            <img src="image/telegram.png" alt="" className=" w-14 h-14" />
-            <div className=" flex flex-col justify-start">
-              <div className="text-left justify-start items-center text-white ml-3 font-bold">
-                Join Our TG Group
-              </div>
-              <div className="flex justify-start items-center ml-2">
-                <img src="image/dollar.png" alt="" className=" w-5 h-5" />
-                <span className=" text-amber-400">+1000</span>
-              </div>
-            </div>
+      <Modal isOpen={isReceiveModalOpen} onClose={handleCloseReceiveModal}>
+        <div className="flex flex-col items-center align-middle gap-3">
+          <img
+            src="image/assets/sand-timer.png"
+            alt=""
+            className=" w-12 h-12"
+          />
+          <h1 className="text-2xl text-white">Daily Coins</h1>
+          <p className=" text-sm ngtext-white">You can get the Daily Coins!</p>
+          <h2 className=" text-2xl text-white">
+            Remaining Time: {diffDays} days {diffHours} hours {diffMinutes} minutes {diffSeconds} seconds
+          </h2>
+          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400">
+            <span className="flex justify-center items-center">Get Received</span>
           </div>
         </div>
-        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]" onClick={handleSubscribeTelegramChannel}>
-          <div className="flex justify-start items-center">
-            <img src="image/telegram.png" alt="" className=" w-14 h-14" />
-            <div className=" flex flex-col justify-start">
-              <div className="text-left justify-start items-center text-white ml-3 font-bold">
-                Subscribe Our TG Channel
-              </div>
-              <div className="flex justify-start items-center ml-2">
-                <img src="image/dollar.png" alt="" className=" w-5 h-5" />
-                <span className=" text-amber-400">+1000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center h-24 max-sm:h-24 justify-between px-3 py-2 my-4 bg-[#363636] hover:bg-zinc-500 rounded-[20px]">
-          <div className="flex justify-start items-center">
-            <img src="image/twitter.png" alt="" className=" w-14 h-14" />
-            <div className=" flex flex-col justify-start">
-              <div className="text-left justify-start items-center text-white ml-3 font-bold">
-                Follow our X account
-              </div>
-              <div className="flex justify-start items-center ml-2">
-                <img src="image/dollar.png" alt="" className=" w-5 h-5" />
-                <span className=" text-amber-400">+1000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
+      </Modal>
     </div>
   );
 }
