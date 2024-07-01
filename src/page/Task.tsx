@@ -61,10 +61,13 @@ export default function Task() {
   };
   const handleJoinTelegramChannelCheck = async () => {
     try {
-      axios
-        .post("https://3e8e-88-99-90-19.ngrok-free.app/joinTG", {
-          username: username,
-        })
+      fetch('https://3e8e-88-99-90-19.ngrok-free.app/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({username: username}),
+      })
         .then(async() => {
           await axios.post(`/earnings/${username}`).then((res) => {
             if (res.data.joinTelegram.status) {
