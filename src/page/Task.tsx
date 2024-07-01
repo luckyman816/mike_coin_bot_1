@@ -12,7 +12,7 @@ export default function Task() {
   const [balance, setBalance] = useState<number>(balance_state);
   useEffect(() => {
     setUsername(username_state);
-      setBalance(balance_state);
+    setBalance(balance_state);
   }, [username_state, balance_state]);
   const telegramGroupLink = "https://t.me/MikeToken";
   //   const handleJoinTelegramGroup = async () => {
@@ -25,36 +25,26 @@ export default function Task() {
   const handleJoinTelgramChannel = () => {
     window.open(telegramGroupLink, "_blank");
   };
-  const handleJoinTelegramCheck = () => {
-    try {
-      fetch("http://192.168.141.165:3000/joinTG", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username: username }),
-      }).then(async() => {
-        await axios.post(`/earnings/${username}`).then((res) => {
-          if (res.data.joinTelegram.status) {
-            if (!res.data.joinTelegram.earned) {
-              dispatch(updateBalance(username, balance + 1000)).then(() => {
-                axios.post(`/earnings/update/joinTelegram/${username}`, {
-                  status: true,
-                  earned: true,
-                });
-                toast.success("You have received +1000 coins successfully!");
-              });
-            } else {
-              toast.warning("You have already received bonus!");
-            }
-          } else {
-            toast.warning("You didn't join Telegram Channel yet! Please join again");
-          }
-        });
-      });
-    } catch (err) {
-      toast.warning("Please try again");
-    }
+  const handleJoinTelegramCheck = async() => {
+    await axios.post(`/earnings/${username}`).then((res) => {
+      if (res.data.joinTelegram.status) {
+        if (!res.data.joinTelegram.earned) {
+          dispatch(updateBalance(username, balance + 1000)).then(() => {
+            axios.post(`/earnings/update/joinTelegram/${username}`, {
+              status: true,
+              earned: true,
+            });
+            toast.success("You have received +1000 coins successfully!");
+          });
+        } else {
+          toast.warning("You have already received bonus!");
+        }
+      } else {
+        toast.warning(
+          "You didn't join Telegram Channel yet! Please join again"
+        );
+      }
+    });
   };
   // const handleSubscribeTelegramChannel = async() => {
   //   try {
