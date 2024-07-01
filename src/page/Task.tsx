@@ -60,25 +60,36 @@ export default function Task() {
     window.open(twitterChannelLink, "_blank");
   };
   const handleJoinTelegramChannelCheck = async () => {
-    await axios.post(`/earnings/${username}`).then((res) => {
-      if (res.data.joinTelegram.status) {
-        if (!res.data.joinTelegram.earned) {
-          dispatch(updateBalance(username, balance + 1000)).then(() => {
-            axios.post(`/earnings/update/joinTelegram/${username}`, {
-              status: true,
-              earned: true,
-            });
-            toast.success("You have received +1000 coins successfully!");
+    try {
+      axios
+        .post("https://3e8e-88-99-90-19.ngrok-free.app/joinTG", {
+          username: username,
+        })
+        .then(async() => {
+          await axios.post(`/earnings/${username}`).then((res) => {
+            if (res.data.joinTelegram.status) {
+              if (!res.data.joinTelegram.earned) {
+                dispatch(updateBalance(username, balance + 1000)).then(() => {
+                  axios.post(`/earnings/update/joinTelegram/${username}`, {
+                    status: true,
+                    earned: true,
+                  });
+                  toast.success("You have received +1000 coins successfully!");
+                });
+              } else {
+                toast.warning("You have already received bonus!");
+              }
+            } else {
+              toast.warning(
+                "You didn't join Telegram Channel yet! Please join again"
+              );
+            }
           });
-        } else {
-          toast.warning("You have already received bonus!");
-        }
-      } else {
-        toast.warning(
-          "You didn't join Telegram Channel yet! Please join again"
-        );
-      }
-    });
+        });
+
+    } catch(err) {
+      console.log(err);
+    }
   };
   const handleSubscribeTelegramChannelCheck = async () => {
     await axios.post(`/earnings/${username}`).then((res) => {
