@@ -1,21 +1,20 @@
 // import axios from "../utils/api";
-// import { useSelector, dispatch } from "../store";
+import { useSelector } from "../store";
 // import { updateBalance } from "../store/reducers/wallet";
-// import { useEffect, useState } from "react";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 // import { ToastContainer, toast } from "react-toastify";
 export default function Task() {
   const [colorTag, setColorTag] = useState<boolean>(false);
-  // const username_state = useSelector((state) => state.wallet.user?.username);
+  const username_state = useSelector((state) => state.wallet.user?.username);
   // const balance_state = useSelector((state) => state.wallet.user?.balance);
-  // const [username, setUsername] = useState<string>(username_state);
+  const [username, setUsername] = useState<string>(username_state);
   // const [balance, setBalance] = useState<number>(balance_state);
-  // useEffect(() => {
-  //   setUsername(username_state);
+  useEffect(() => {
+    setUsername(username_state);
   //   setBalance(balance_state);
-  // }, [username_state, balance_state]);
+  }, [username_state]);
   const telegramGroupLink = "https://t.me/MikeToken";
   //   const handleJoinTelegramGroup = async () => {
   //   try {
@@ -42,6 +41,11 @@ export default function Task() {
   // };
   const handleJoinTelgramChannel = () => {
     window.open(telegramGroupLink, "_blank");
+  }
+  const handleJoinTelegramCheck = () => {
+    axios.post("http://192.168.141.165:3000/webhook", {username: username}).then((res) => {
+      console.log(res.data);
+    })
   }
   // const handleSubscribeTelegramChannel = async() => {
   //   try {
@@ -147,7 +151,7 @@ export default function Task() {
                 <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid" onClick={handleJoinTelgramChannel}>
                   Join
                 </button>
-                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid" onClick={handleJoinTelegramCheck}>
                   Check
                 </button>
               </div>
