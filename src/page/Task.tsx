@@ -43,8 +43,14 @@ export default function Task() {
     window.open(telegramGroupLink, "_blank");
   }
   const handleJoinTelegramCheck = () => {
-    axios.post("http://192.168.141.165:3000/webhook", {username: username}).then((res) => {
-      console.log(res.data);
+    fetch("http://192.168.141.165:3000/webhook", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: username }),
+    }).then((res) => {
+      console.log(res)
     })
   }
   // const handleSubscribeTelegramChannel = async() => {
