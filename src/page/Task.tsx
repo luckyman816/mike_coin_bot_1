@@ -14,18 +14,15 @@ export default function Task() {
     setUsername(username_state);
     setBalance(balance_state);
   }, [username_state, balance_state]);
-  const telegramGroupLink = "https://t.me/MikeToken";
-  //   const handleJoinTelegramGroup = async () => {
-  //   try {
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const telegramChannelLink = "https://t.me/MikeToken";
+  const telegramGroupLink = "https://t.me/MikeTokenAnn";
   const handleJoinTelgramChannel = () => {
+    window.open(telegramChannelLink, "_blank");
+  };
+  const handleJoinTelegramGroup = () => {
     window.open(telegramGroupLink, "_blank");
   };
-  const handleJoinTelegramCheck = async() => {
+  const handleJoinTelegramChannelCheck = async () => {
     await axios.post(`/earnings/${username}`).then((res) => {
       if (res.data.joinTelegram.status) {
         if (!res.data.joinTelegram.earned) {
@@ -46,30 +43,28 @@ export default function Task() {
       }
     });
   };
-  // const handleSubscribeTelegramChannel = async() => {
-  //   try {
-  //     await axios.post(`/earnings/${username}`).then((res) => {
-  //       if(res.data.subscribeTelegram.status) {
-  //         if(!res.data.subscribeTelegram.earned) {
-  //           dispatch(updateBalance(username, balance + 1000)).then(() => {
-  //             axios.post(`/earnings/update/subscribeTelegram/${username}`, {
-  //               status: true,
-  //               earned: true,
-  //             });
-  //             toast.success("You have received +1000 coins successfully!");
-  //           })
-  //         } else {
-  //           toast.warning("You have already received bonus!");
-  //         }
-  //       } else {
-  //         toast.warning("You didn't subscribe Telegram Channel yet! Please join again");
-  //       }
-  //     })
-  //   }
-  //   catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  const handleSubscribeTelegramChannel = async () => {
+    await axios.post(`/earnings/${username}`).then((res) => {
+      if (res.data.subscribeTelegram.status) {
+        if (!res.data.subscribeTelegram.earned) {
+          dispatch(updateBalance(username, balance + 1000)).then(() => {
+            axios.post(`/earnings/update/subscribeTelegram/${username}`, {
+              status: true,
+              earned: true,
+            });
+            toast.success("You have received +1000 coins successfully!");
+          });
+        } else {
+          toast.warning("You have already received bonus!");
+        }
+      } else {
+        toast.warning(
+          "You didn't subscribe Telegram Channel yet! Please join again"
+        );
+      }
+    });
+  };
+
   const handleDailyTask = () => {
     setColorTag(!colorTag);
   };
@@ -144,7 +139,7 @@ export default function Task() {
                 className="text-[white] text-[xl]"
                 style={{ fontFamily: "poppins" }}
               >
-                Join Mike's TG Group and Channel
+                Join Mike's TG Channel
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
                 <button
@@ -155,7 +150,29 @@ export default function Task() {
                 </button>
                 <button
                   className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                  onClick={handleJoinTelegramCheck}
+                  onClick={handleJoinTelegramChannelCheck}
+                >
+                  Check
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+              <h2
+                className="text-[white] text-[xl]"
+                style={{ fontFamily: "poppins" }}
+              >
+                Subscribe Mike's TG Group
+              </h2>
+              <div className="flex justify-center items-center  w-full gap-3">
+                <button
+                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                  onClick={handleJoinTelegramGroup}
+                >
+                  Join
+                </button>
+                <button
+                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                  onClick={handleSubscribeTelegramChannel}
                 >
                   Check
                 </button>
@@ -167,22 +184,6 @@ export default function Task() {
                 style={{ fontFamily: "poppins" }}
               >
                 Follow Mike's Twitter
-              </h2>
-              <div className="flex justify-center items-center  w-full gap-3">
-                <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
-                  Join
-                </button>
-                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
-                  Check
-                </button>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
-              <h2
-                className="text-[white] text-[xl]"
-                style={{ fontFamily: "poppins" }}
-              >
-                Subscribe to Mike's YT Channel
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
                 <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
