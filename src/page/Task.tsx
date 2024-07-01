@@ -2,7 +2,7 @@
 import { useSelector } from "../store";
 // import { updateBalance } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 // import { ToastContainer, toast } from "react-toastify";
 export default function Task() {
