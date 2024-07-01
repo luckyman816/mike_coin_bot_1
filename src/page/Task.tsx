@@ -275,7 +275,7 @@ export default function Task() {
           <h1 className="text-2xl text-white">Daily Coins</h1>
           <p className=" text-sm ngtext-white">You can get the Daily Coins!</p>
           <h2 className=" text-xl text-white">
-            Remaining Time: {diffDays} D {diffHours} H {diffMinutes} M {diffSeconds} S
+            Remaining Time: <span className="text-2xl text-[red]">{diffDays}</span> d <span className="text-2xl text-[green]">{diffHours}</span> h <span className="text-2xl text-[blue]">{diffMinutes}</span>m <span className="text-2xl text-[white]">{diffSeconds}</span> s
           </h2>
           <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400">
             <span className="flex justify-center items-center">Get Received</span>
