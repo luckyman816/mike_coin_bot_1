@@ -61,10 +61,12 @@ export default function Task() {
   };
   const handleJoinTelegramChannelCheck = async () => {
     try {
-      fetch('https://3e8e-88-99-90-19.ngrok-free.app/', {
+      fetch('https://3e8e-88-99-90-19.ngrok-free.app/joinTG', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
+
         },
         body: JSON.stringify({username: username}),
       })
