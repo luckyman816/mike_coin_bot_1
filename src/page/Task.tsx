@@ -1,58 +1,61 @@
-// import axios from "../utils/api";
-import { useSelector } from "../store";
-// import { updateBalance } from "../store/reducers/wallet";
+import axios from "../utils/api";
+import { useSelector, dispatch } from "../store";
+import { updateBalance } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
-// import axios from "axios";
 
-// import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 export default function Task() {
   const [colorTag, setColorTag] = useState<boolean>(false);
   const username_state = useSelector((state) => state.wallet.user?.username);
-  // const balance_state = useSelector((state) => state.wallet.user?.balance);
+  const balance_state = useSelector((state) => state.wallet.user?.balance);
   const [username, setUsername] = useState<string>(username_state);
-  // const [balance, setBalance] = useState<number>(balance_state);
+  const [balance, setBalance] = useState<number>(balance_state);
   useEffect(() => {
     setUsername(username_state);
-  //   setBalance(balance_state);
-  }, [username_state]);
+      setBalance(balance_state);
+  }, [username_state, balance_state]);
   const telegramGroupLink = "https://t.me/MikeToken";
   //   const handleJoinTelegramGroup = async () => {
   //   try {
-  //     await axios.post(`/earnings/${username}`).then((res) => {
-  //       if (res.data.joinTelegram.status) {
-  //         if (!res.data.joinTelegram.earned) {
-  //           dispatch(updateBalance(username, balance + 1000)).then(() => {
-  //             axios.post(`/earnings/update/joinTelegram/${username}`, {
-  //               status: true,
-  //               earned: true,
-  //             });
-  //             toast.success("You have received +1000 coins successfully!");
-  //           });
-  //         } else {
-  //           toast.warning("You have already received bonus!");
-  //         }
-  //       } else {
-  //         window.open(telegramGroupLink, "_blank");
-  //       }
-  //     });
+
   //   } catch (error) {
   //     console.log(error);
   //   }
   // };
   const handleJoinTelgramChannel = () => {
     window.open(telegramGroupLink, "_blank");
-  }
+  };
   const handleJoinTelegramCheck = () => {
-    fetch("http://192.168.141.165:3000/webhook", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username: username }),
-    }).then((res) => {
-      console.log(res)
-    })
-  }
+    try {
+      fetch("http://192.168.141.165:3000/joinTG", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: username }),
+      }).then(async() => {
+        await axios.post(`/earnings/${username}`).then((res) => {
+          if (res.data.joinTelegram.status) {
+            if (!res.data.joinTelegram.earned) {
+              dispatch(updateBalance(username, balance + 1000)).then(() => {
+                axios.post(`/earnings/update/joinTelegram/${username}`, {
+                  status: true,
+                  earned: true,
+                });
+                toast.success("You have received +1000 coins successfully!");
+              });
+            } else {
+              toast.warning("You have already received bonus!");
+            }
+          } else {
+            toast.warning("You didn't join Telegram Channel yet! Please join again");
+          }
+        });
+      });
+    } catch (err) {
+      toast.warning("Please try again");
+    }
+  };
   // const handleSubscribeTelegramChannel = async() => {
   //   try {
   //     await axios.post(`/earnings/${username}`).then((res) => {
@@ -85,7 +88,7 @@ export default function Task() {
   };
   return (
     <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12">
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="flex flex-col justify-center items-center">
           <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
@@ -154,10 +157,16 @@ export default function Task() {
                 Join Mike's TG Group and Channel
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
-                <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid" onClick={handleJoinTelgramChannel}>
+                <button
+                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                  onClick={handleJoinTelgramChannel}
+                >
                   Join
                 </button>
-                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid" onClick={handleJoinTelegramCheck}>
+                <button
+                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                  onClick={handleJoinTelegramCheck}
+                >
                   Check
                 </button>
               </div>
