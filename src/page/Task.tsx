@@ -16,11 +16,15 @@ export default function Task() {
   }, [username_state, balance_state]);
   const telegramChannelLink = "https://t.me/MikeToken";
   const telegramGroupLink = "https://t.me/MikeTokenAnn";
+  const twitterChannelLink = "https://twitter.com/MikeTokenio";
   const handleJoinTelgramChannel = () => {
     window.open(telegramChannelLink, "_blank");
   };
   const handleJoinTelegramGroup = () => {
     window.open(telegramGroupLink, "_blank");
+  };
+  const handleTwitterChannel = () => {
+    window.open(twitterChannelLink, "_blank");
   };
   const handleJoinTelegramChannelCheck = async () => {
     await axios.post(`/earnings/${username}`).then((res) => {
@@ -43,7 +47,7 @@ export default function Task() {
       }
     });
   };
-  const handleSubscribeTelegramChannel = async () => {
+  const handleSubscribeTelegramChannelCheck = async () => {
     await axios.post(`/earnings/${username}`).then((res) => {
       if (res.data.subscribeTelegram.status) {
         if (!res.data.subscribeTelegram.earned) {
@@ -61,6 +65,21 @@ export default function Task() {
         toast.warning(
           "You didn't subscribe Telegram Channel yet! Please join again"
         );
+      }
+    });
+  };
+  const handleTwitterChannelCheck = async() => {
+    await axios.post(`/earnings/${username}`).then((res) => {
+      if (!res.data.followTwitter.earned) {
+        dispatch(updateBalance(username, balance + 1000)).then(() => {
+          axios.post(`/earnings/update/subscribeTelegram/${username}`, {
+            status: true,
+            earned: true,
+          });
+          toast.success("You have received +1000 coins successfully!");
+        });
+      } else {
+        toast.warning("You have already received bonus!");
       }
     });
   };
@@ -172,7 +191,7 @@ export default function Task() {
                 </button>
                 <button
                   className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                  onClick={handleSubscribeTelegramChannel}
+                  onClick={handleSubscribeTelegramChannelCheck}
                 >
                   Check
                 </button>
@@ -186,10 +205,13 @@ export default function Task() {
                 Follow Mike's Twitter
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
-                <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
+                <button
+                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                  onClick={handleTwitterChannel}
+                >
                   Join
                 </button>
-                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+                <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid" onClick={handleTwitterChannelCheck}>
                   Check
                 </button>
               </div>

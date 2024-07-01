@@ -13,7 +13,7 @@ export default function Airdrop() {
           />
           <img src="image/icon/input.png" alt="" className="absolute top-[30%] right-[10px] w-5 h-5"/>
         </div>
-        <button className="bg-[#33CC66] text-[white] w-[20%] rounded-[10px] flex justify-center items-center text-xl gap-2">
+        <button className="bg-[#33CC66] text-[white] w-[fit-content] rounded-[10px] flex justify-center items-center text-xl gap-2">
           <img src="image/icon/submit.png" alt="" className=" w-6 h-6 " />
           Submit
         </button>
