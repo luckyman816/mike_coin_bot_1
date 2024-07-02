@@ -100,13 +100,13 @@ export default function QuestList() {
               />
             </div>
           ) : (
-            <div className="max-h-[40vh] max-sm:max-h-[40vh] overflow-auto w-full">
+            <div className="max-h-[30vh] max-sm:max-h-[30vh] overflow-auto w-full">
               {friends.map((item, index) => (
                 <div
                   key={index}
                   className={`flex ${
                     index > 0 && "my-3"
-                  } px-3 py-2 items-center bg-[#363636] rounded-lg w-[70%] text-[white]`}
+                  } px-3 py-2 items-center bg-gradient-to-r from-[#567481] to-[#2D4047] rounded-lg w-[70%] text-[white]`}
                 >
                   {item["friend"]}
                 </div>
