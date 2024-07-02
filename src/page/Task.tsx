@@ -174,6 +174,7 @@ export default function Task() {
   const handleLetsGoTelegramGroupCheck = async() => {
     try {
       await axios.post(`/vibe/${username}`).then((res) => {
+        console.log("4444444444", res.data.vibe_date)
         console.log("3333333333", Math.floor(moment().diff(res.data.vibe_date, "seconds") / (60 * 60 * 24)))
         if(Math.floor(moment().diff(res.data.vibe_date, "seconds") / (60 * 60 * 24)) < 1) {
           dispatch(updateBalance(username, balance + 1000)).then(() => {
