@@ -171,25 +171,32 @@ export default function Task() {
       toast.warning("Please wait for the next day!");
     }
   };
-  const handleLetsGoTelegramGroupCheck = async() => {
+  const handleLetsGoTelegramGroupCheck = async () => {
     try {
       await axios.post(`/vibe/${username}`).then((res) => {
-        console.log("4444444444", res.data[0]['vibe_date'])
-        console.log("3333333333", Math.floor(moment().diff(res.data[0]['vibe_date'], "seconds") / (60 * 60 * 24)))
-        if(Math.floor(moment().diff(res.data[0]['vibe_date'], "seconds") / (60 * 60 * 24)) >= 1) {
+        if (
+          Math.floor(
+            moment().diff(res.data[0]["vibe_date"], "seconds") / (60 * 60 * 24)
+          ) >= 1 &&
+          res.data[0]["message"]
+        ) {
           dispatch(updateBalance(username, balance + 1000)).then(() => {
             axios.post(`/vibe/updateVibe/${username}`, {
               vibe_date: moment(),
-            })
+            });
+            axios.post(`/vibe/updateMessage/${username}`, { message: false });
             toast.success("You have received +1000 coins successfully!");
-          })
+          });
         } else {
-          toast.warning("Please wait for 24 hours!");
+          Math.floor(
+            moment().diff(res.data[0]["vibe_date"], "seconds") / (60 * 60 * 24)
+          ) < 1 && toast.warning("Please wait for 24 hours!");
+          !res.data[0]["message"] &&
+            toast.warning("You should post a vibe in Channel");
         }
-      })
-
+      });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       toast.warning(" Please join Telegram Channel");
     }
   };
