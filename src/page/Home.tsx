@@ -172,13 +172,6 @@ function Home() {
               {formatNumberWithCommas(token)}
             </h1>
           </div>
-
-          <h3
-            className="text-2xl font-bold text-[#fff243]"
-            style={{ fontFamily: "spicy" }}
-          >
-            &nbsp;&nbsp;MKT
-          </h3>
         </div>
         <div className="flex justify-center items-center relative">
           <div className="bg-color-animation flex justify-center items-center absolute">
