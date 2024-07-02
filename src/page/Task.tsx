@@ -177,7 +177,7 @@ export default function Task() {
         console.log("3333333333", Math.floor(moment().diff(res.data.vibe_date, "seconds") / (60 * 60 * 24)))
         if(Math.floor(moment().diff(res.data.vibe_date, "seconds") / (60 * 60 * 24)) < 1) {
           dispatch(updateBalance(username, balance + 1000)).then(() => {
-            axios.post(`/vibe/update/${username}`, {
+            axios.post(`/vibe/updateVibe/${username}`, {
               vibe_date: moment(),
             })
             toast.success("You have received +1000 coins successfully!");
