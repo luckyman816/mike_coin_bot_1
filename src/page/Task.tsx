@@ -61,7 +61,7 @@ export default function Task() {
   };
   const handleJoinTelegramChannelCheck = async () => {
     try {
-      fetch('http://88.99.90.19:3000/joinTG', {
+      fetch('https://relaxing-dane-lively.ngrok-free.app/joinTG', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
