@@ -25,7 +25,7 @@ export default function QuestList() {
       });
     }
   });
-  console.log("friends", friends);
+  console.log("friends", friends, friends.length);
   console.log("textToCopy", textToCopy);
   return (
     <div className="max-h-[75vh] max-sm:max-h-[75vh] overflow-auto p-5 flex flex-col justify-center items-center gap-2">
@@ -108,7 +108,7 @@ export default function QuestList() {
                     index > 0 && "my-3"
                   } px-3 py-2 items-center bg-[#363636] rounded-lg w-[70%] text-[white]`}
                 >
-                  {item['friend']}
+                  {item["friend"]}
                 </div>
               ))}
             </div>
