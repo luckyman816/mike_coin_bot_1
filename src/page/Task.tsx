@@ -176,7 +176,7 @@ export default function Task() {
       await axios.post(`/vibe/${username}`).then((res) => {
         console.log("4444444444", res.data[0]['vibe_date'])
         console.log("3333333333", Math.floor(moment().diff(res.data[0]['vibe_date'], "seconds") / (60 * 60 * 24)))
-        if(Math.floor(moment().diff(res.data[0]['vibe_date'], "seconds") / (60 * 60 * 24)) < 1) {
+        if(Math.floor(moment().diff(res.data[0]['vibe_date'], "seconds") / (60 * 60 * 24)) >= 1) {
           dispatch(updateBalance(username, balance + 1000)).then(() => {
             axios.post(`/vibe/updateVibe/${username}`, {
               vibe_date: moment(),
