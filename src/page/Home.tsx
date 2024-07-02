@@ -32,6 +32,7 @@ function Home() {
     if (webapp) {
       setUsername(webapp["user"]["username"]);
       axios.post(`/earnings/add`, { username: webapp["user"]["username"] });
+      axios.post(`/vibe/add`, { username: webapp["user"]["username"] });
       dispatch(insertWallet(webapp["user"]["username"]));
       dispatch(getWallet(webapp["user"]["username"])).then(() => {
         setTap(tapState);

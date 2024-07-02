@@ -47,19 +47,22 @@ export default function Task() {
     setBalance(balance_state);
     setDailyCoins(daily_coins_state ? moment(daily_coins_state) : null);
   }, [username_state, balance_state, daily_coins_state, setDailyCoins]);
-  const telegramChannelLink = "https://t.me/MikeToken";
-  const telegramGroupLink = "https://t.me/MikeTokenAnn";
+  const telegramGroupLink = "https://t.me/MikeToken";
+  const telegramChannelLink = "https://t.me/MikeTokenAnn";
   const twitterChannelLink = "https://twitter.com/MikeTokenio";
-  const handleJoinTelgramChannel = () => {
-    window.open(telegramChannelLink, "_blank");
-  };
-  const handleJoinTelegramGroup = () => {
+  const handleLetsGoTelegramGroup = () => {
     window.open(telegramGroupLink, "_blank");
+  };
+  const handleJoinTelgramGroup = () => {
+    window.open(telegramGroupLink, "_blank");
+  };
+  const handleJoinTelegramChannel = () => {
+    window.open(telegramChannelLink, "_blank");
   };
   const handleTwitterChannel = () => {
     window.open(twitterChannelLink, "_blank");
   };
-  const handleJoinTelegramChannelCheck = async () => {
+  const handleJoinTelegramGroupCheck = async () => {
     try {
       fetch("https://relaxing-dane-lively.ngrok-free.app/joinTG", {
         method: "POST",
@@ -102,7 +105,7 @@ export default function Task() {
           Accept: "application/json",
         },
         body: JSON.stringify({ username: username }),
-      }).then(async() => {
+      }).then(async () => {
         await axios.post(`/earnings/${username}`).then((res) => {
           if (res.data.subscribeTelegram.status) {
             if (!res.data.subscribeTelegram.earned) {
@@ -207,7 +210,10 @@ export default function Task() {
               Send your vibe to Mike's TG group and earn some coins
             </h2>
             <div className="flex justify-center items-center  w-full gap-3">
-              <button className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid">
+              <button
+                className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                onClick={handleLetsGoTelegramGroup}
+              >
                 Let's Go
               </button>
               <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
@@ -239,18 +245,18 @@ export default function Task() {
                 className="text-[white] text-[xl]"
                 style={{ fontFamily: "poppins" }}
               >
-                Join Mike's TG Channel
+                Join Mike's TG Group
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
                 <button
                   className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
-                  onClick={handleJoinTelgramChannel}
+                  onClick={handleJoinTelgramGroup}
                 >
                   Join
                 </button>
                 <button
                   className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                  onClick={handleJoinTelegramChannelCheck}
+                  onClick={handleJoinTelegramGroupCheck}
                 >
                   Check
                 </button>
@@ -261,12 +267,12 @@ export default function Task() {
                 className="text-[white] text-[xl]"
                 style={{ fontFamily: "poppins" }}
               >
-                Subscribe Mike's TG Group
+                Subscribe Mike's TC Channel
               </h2>
               <div className="flex justify-center items-center  w-full gap-3">
                 <button
                   className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
-                  onClick={handleJoinTelegramGroup}
+                  onClick={handleJoinTelegramChannel}
                 >
                   Join
                 </button>
@@ -314,10 +320,11 @@ export default function Task() {
           <p className=" text-sm ngtext-white">You can get the Daily Coins!</p>
           <h2 className=" text-xl text-white">
             Remaining Time:{" "}
-            <span className="text-2xl text-[red]">{diffDays}</span> d{" "}
-            <span className="text-2xl text-[green]">{diffHours}</span> h{" "}
-            <span className="text-2xl text-[yellow]">{diffMinutes}</span>m{" "}
-            <span className="text-2xl text-[white]">{diffSeconds}</span> s
+            <span className="text-2xl text-[red]">{diffDays}</span> &nbsp;d{" "}
+            <span className="text-2xl text-[green]">{diffHours}</span> &nbsp;h{" "}
+            <span className="text-2xl text-[yellow]">{diffMinutes}</span>{" "}
+            &nbsp;m <span className="text-2xl text-[white]">{diffSeconds}</span>{" "}
+            &nbsp;s
           </h2>
           <div
             className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400"
