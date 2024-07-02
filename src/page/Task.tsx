@@ -171,6 +171,26 @@ export default function Task() {
       toast.warning("Please wait for the next day!");
     }
   };
+  const handleLetsGoTelegramGroupCheck = async() => {
+    try {
+      await axios.post(`/vibe/${username}`).then((res) => {
+        if(Math.floor(moment().diff(res.data.vibe_date, "seconds") / (60 * 60 * 24)) < 1) {
+          dispatch(updateBalance(username, balance + 1000)).then(() => {
+            axios.post(`/vibe/update/${username}`, {
+              vibe_date: moment(),
+            })
+            toast.success("You have received +1000 coins successfully!");
+          })
+        } else {
+          toast.warning("Please wait for 24 hours!");
+        }
+      })
+
+    } catch (err) {
+      console.log(err)
+      toast.warning(" Please join Telegram Channel");
+    }
+  };
   return (
     <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12">
       <ToastContainer />
@@ -216,7 +236,10 @@ export default function Task() {
               >
                 Let's Go
               </button>
-              <button className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid">
+              <button
+                className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                onClick={handleLetsGoTelegramGroupCheck}
+              >
                 Check
               </button>
             </div>
