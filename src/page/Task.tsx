@@ -187,12 +187,14 @@ export default function Task() {
             axios.post(`/vibe/updateMessage/${username}`, { message: false });
             toast.success("You have received +1000 coins successfully!");
           });
-        } else {
+        } else if (
           Math.floor(
             moment().diff(res.data[0]["vibe_date"], "seconds") / (60 * 60 * 24)
-          ) < 1 && toast.warning("Please wait for 24 hours!");
-          !res.data[0]["message"] &&
-            toast.warning("You should post a vibe in Channel");
+          ) < 1
+        ) {
+          toast.warning("Please wait for 24 hours!");
+        } else if (!res.data[0]["message"]) {
+          toast.warning("You should post a vibe in Channel");
         }
       });
     } catch (err) {
