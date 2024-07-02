@@ -5,7 +5,6 @@ import { toast, ToastContainer } from "react-toastify";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import axios from "../utils/api";
 import "../css/font.css";
-// import { CopyToClipboard } from "react-copy-to-clipboard";
 export default function QuestList() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const [username, setUsername] = useState<string>(username_state);
