@@ -38,7 +38,9 @@ export default function Airdrop() {
             toast.success("Successfully added address!");
           });
       } catch (error) {
-        toast.warning("Address is already saved");
+        if (error) {
+          toast.warning("Address is already saved");
+        }
       }
     } else {
       toast.warning("Address is invalid");
