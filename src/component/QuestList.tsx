@@ -108,7 +108,7 @@ export default function QuestList() {
                     index > 0 && "my-3"
                   } px-3 py-2 items-center bg-[#363636] rounded-lg w-[70%] text-[white]`}
                 >
-                  {item}
+                  {item['friend']}
                 </div>
               ))}
             </div>
