@@ -61,61 +61,71 @@ export default function Task() {
   };
   const handleJoinTelegramChannelCheck = async () => {
     try {
-      fetch('https://relaxing-dane-lively.ngrok-free.app/joinTG', {
-        method: 'POST',
+      fetch("https://relaxing-dane-lively.ngrok-free.app/joinTG", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify({username: username}),
-      })
-        .then(async() => {
-          await axios.post(`/earnings/${username}`).then((res) => {
-            if (res.data.joinTelegram.status) {
-              if (!res.data.joinTelegram.earned) {
-                dispatch(updateBalance(username, balance + 1000)).then(() => {
-                  axios.post(`/earnings/update/joinTelegram/${username}`, {
-                    status: true,
-                    earned: true,
-                  });
-                  toast.success("You have received +1000 coins successfully!");
+        body: JSON.stringify({ username: username }),
+      }).then(async () => {
+        await axios.post(`/earnings/${username}`).then((res) => {
+          if (res.data.joinTelegram.status) {
+            if (!res.data.joinTelegram.earned) {
+              dispatch(updateBalance(username, balance + 1000)).then(() => {
+                axios.post(`/earnings/update/joinTelegram/${username}`, {
+                  status: true,
+                  earned: true,
                 });
-              } else {
-                toast.warning("You have already received bonus!");
-              }
+                toast.success("You have received +1000 coins successfully!");
+              });
             } else {
-              toast.warning(
-                "You didn't join Telegram Channel yet! Please join again"
-              );
+              toast.warning("You have already received bonus!");
             }
-          });
+          } else {
+            toast.warning(
+              "You didn't join Telegram Channel yet! Please join again"
+            );
+          }
         });
-
-    } catch(err) {
+      });
+    } catch (err) {
       console.log(err);
     }
   };
   const handleSubscribeTelegramChannelCheck = async () => {
-    await axios.post(`/earnings/${username}`).then((res) => {
-      if (res.data.subscribeTelegram.status) {
-        if (!res.data.subscribeTelegram.earned) {
-          dispatch(updateBalance(username, balance + 1000)).then(() => {
-            axios.post(`/earnings/update/subscribeTelegram/${username}`, {
-              status: true,
-              earned: true,
-            });
-            toast.success("You have received +1000 coins successfully!");
-          });
-        } else {
-          toast.warning("You have already received bonus!");
-        }
-      } else {
-        toast.warning(
-          "You didn't subscribe Telegram Channel yet! Please join again"
-        );
-      }
-    });
+    try {
+      fetch("https://relaxing-dane-lively.ngrok-free.app/joinTC", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ username: username }),
+      }).then(async() => {
+        await axios.post(`/earnings/${username}`).then((res) => {
+          if (res.data.subscribeTelegram.status) {
+            if (!res.data.subscribeTelegram.earned) {
+              dispatch(updateBalance(username, balance + 1000)).then(() => {
+                axios.post(`/earnings/update/subscribeTelegram/${username}`, {
+                  status: true,
+                  earned: true,
+                });
+                toast.success("You have received +1000 coins successfully!");
+              });
+            } else {
+              toast.warning("You have already received bonus!");
+            }
+          } else {
+            toast.warning(
+              "You didn't subscribe Telegram Channel yet! Please join again"
+            );
+          }
+        });
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
   const handleTwitterChannelCheck = async () => {
     await axios.post(`/earnings/${username}`).then((res) => {
@@ -306,7 +316,7 @@ export default function Task() {
             Remaining Time:{" "}
             <span className="text-2xl text-[red]">{diffDays}</span> d{" "}
             <span className="text-2xl text-[green]">{diffHours}</span> h{" "}
-            <span className="text-2xl text-[blue]">{diffMinutes}</span>m{" "}
+            <span className="text-2xl text-[yellow]">{diffMinutes}</span>m{" "}
             <span className="text-2xl text-[white]">{diffSeconds}</span> s
           </h2>
           <div
