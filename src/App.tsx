@@ -32,7 +32,7 @@ function App() {
   }, []);
   return (
     <Router>
-      {isMobile ? (
+      {!isMobile ? (
         <MobileQR />
       ) : loading ? (
         <Loading />
