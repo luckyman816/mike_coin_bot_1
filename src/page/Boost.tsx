@@ -25,7 +25,7 @@ export default function Boost() {
     setIsModalOpen(false);
   };
   const handleMultiTap = () => {
-    if (tap > 32) {
+    if (tap >= 32) {
       toast.warning("Tap limit reached!");
     } else {
       dispatch(updateTap(username, tap * 2));
@@ -34,7 +34,7 @@ export default function Boost() {
     }
   };
   const handleLimit = () => {
-    if (limit > 5000) {
+    if (limit >= 5000) {
       toast.warning("Energy limit reached!");
     } else {
       dispatch(updateLimit(username, limit + 1000));
