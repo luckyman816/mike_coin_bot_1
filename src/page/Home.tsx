@@ -108,12 +108,12 @@ function Home() {
       setScore(`+${tap}`);
       if (token + tap > 1000000000) {
         setToken(1000000000);
-        dispatch(updateWallet(username, 1000000000, remainedEnergy - 1));
+        dispatch(updateWallet(username, 1000000000, remainedEnergy - tap));
       } else {
         setToken(token + tap);
-        dispatch(updateWallet(username, token + tap, remainedEnergy - 1));
+        dispatch(updateWallet(username, token + tap, remainedEnergy - tap));
       }
-      setRemainedEnergy(remainedEnergy - 1);
+      setRemainedEnergy(remainedEnergy - tap);
       handleClick(event);
     }
   };
