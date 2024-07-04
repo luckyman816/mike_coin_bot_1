@@ -111,7 +111,7 @@ function Home() {
         dispatch(updateWallet(username, 1000000000, remainedEnergy - tap));
       } else {
         setToken(token + tap);
-        if (remainedEnergy < 0) {
+        if ((remainedEnergy - tap) < 0) {
           dispatch(updateWallet(username, token + tap, 0));
           setRemainedEnergy(0);
         } else {
