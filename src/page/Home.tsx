@@ -111,9 +111,15 @@ function Home() {
         dispatch(updateWallet(username, 1000000000, remainedEnergy - tap));
       } else {
         setToken(token + tap);
-        dispatch(updateWallet(username, token + tap, remainedEnergy - tap));
+        if (remainedEnergy < 0) {
+          dispatch(updateWallet(username, token + tap, 0));
+          setRemainedEnergy(0);
+        } else {
+          dispatch(updateWallet(username, token + tap, remainedEnergy - tap));
+          setRemainedEnergy(remainedEnergy - tap);
+        }
       }
-      setRemainedEnergy(remainedEnergy - tap);
+
       handleClick(event);
     }
   };
