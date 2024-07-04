@@ -202,7 +202,7 @@ function Home() {
                 {remainedEnergy} &#8725; {limit}
               </p>
             </div>
-            <ProgressBar value={remainedEnergy / 10} />
+            <ProgressBar value={remainedEnergy / (limit / 100)} />
           </div>
         </div>
       </div>
