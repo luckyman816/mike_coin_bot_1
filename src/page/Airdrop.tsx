@@ -49,7 +49,7 @@ export default function Airdrop() {
     }
   };
   return (
-    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12">
+    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12 mb-[30%]">
       <ToastContainer />
       <div className="flex flex-col justify-center items-center gap-5">
         <img src="image/assets/wallet.png" alt="" className="w-24 h-24" />
