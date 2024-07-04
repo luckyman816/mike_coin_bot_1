@@ -5,35 +5,43 @@ import { useEffect, useState } from "react";
 import Modal from "../component/modal";
 export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
-  const username_state = useSelector((state) => state.wallet.user?.username );
+  const username_state = useSelector((state) => state.wallet.user?.username);
   const limit_state = useSelector((state) => state.wallet.user?.limit);
   const tap_state = useSelector((state) => state.wallet.user?.tap);
-  const [token, setToken] = useState<number>(tokenState)
-  const [username, setUsername] = useState<string>(username_state)
-  const [limit, setLimit] = useState<number>(limit_state)
-  const [tap, setTap] = useState<number>(tap_state)
+  const [token, setToken] = useState<number>(tokenState);
+  const [username, setUsername] = useState<string>(username_state);
+  const [limit, setLimit] = useState<number>(limit_state);
+  const [tap, setTap] = useState<number>(tap_state);
   useEffect(() => {
-    setToken(tokenState)
-    setUsername(username_state)
-    setLimit(limit_state)
-    setTap(tap_state)
-  }, [tokenState, username_state, limit_state, tap_state])
+    setToken(tokenState);
+    setUsername(username_state);
+    setLimit(limit_state);
+    setTap(tap_state);
+  }, [tokenState, username_state, limit_state, tap_state]);
   const handleFullEnergy = () => {
-    console.log("-----full energy💰🏆💪------>", limit_state)
-    dispatch(updateEnergy(username, limit))
-    toast.success("Successfully updated energy!")
+    console.log("-----full energy💰🏆💪------>", limit_state);
+    dispatch(updateEnergy(username, limit));
+    toast.success("Successfully updated energy!");
     setIsModalOpen(false);
-  }
+  };
   const handleMultiTap = () => {
-    dispatch(updateTap(username, tap * 2))
-    setIsTapModalOpen(false);
-    toast.success("Successfully updated tap!")
-  }
-  const handleLimit= () => {
-    dispatch(updateLimit(username, limit * 2))
-    setIsLimitModalOpen(false);
-    toast.success("Successfully updated limit!")
-  }
+    if (tap > 32) {
+      toast.warning("Tap limit reached!");
+    } else {
+      dispatch(updateTap(username, tap * 2));
+      setIsTapModalOpen(false);
+      toast.success("Successfully updated tap!");
+    }
+  };
+  const handleLimit = () => {
+    if (limit > 5000) {
+      toast.warning("Energy limit reached!");
+    } else {
+      dispatch(updateLimit(username, limit + 1000));
+      setIsLimitModalOpen(false);
+      toast.success("Successfully updated limit!");
+    }
+  };
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const handleMouseClick = () => {
     setIsModalOpen(true);
@@ -58,7 +66,7 @@ export default function Boost() {
   };
   return (
     <div className="Boost max-w-full text-white max-sm:h-[78vh] mt-12">
-      <ToastContainer/>
+      <ToastContainer />
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center p-4">
         <div className="flex flex-col justify-center items-center">
           <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
@@ -112,38 +120,59 @@ export default function Boost() {
       </div>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12"/>
+          <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12" />
           <h1 className="text-2xl text-white">Full energy</h1>
-          <p className=" text-sm text-white">Recharge your energy to the maximum and do another round of mining</p>
+          <p className=" text-sm text-white">
+            Recharge your energy to the maximum and do another round of mining
+          </p>
           <div className="flex items-center">
-            <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
+            <img src="image/dollar.png" alt="" className=" w-14 h-14" />
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
-          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleFullEnergy}><span className="flex justify-center items-center">Go ahead</span></div>
+          <div
+            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
+            onClick={handleFullEnergy}
+          >
+            <span className="flex justify-center items-center">Go ahead</span>
+          </div>
         </div>
       </Modal>
       <Modal isOpen={isTapModalOpen} onClose={handleCloseTapModal}>
         <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/double-tap.png" alt="" className=" w-12 h-12"/>
+          <img src="image/double-tap.png" alt="" className=" w-12 h-12" />
           <h1 className="text-2xl text-white">Multi-Tap</h1>
-          <p className=" text-sm text-white">Select the Multi-tap, can get the token x 2</p>
+          <p className=" text-sm text-white">
+            Select the Multi-tap, can get the token x 2
+          </p>
           <div className="flex items-center">
-            <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
+            <img src="image/dollar.png" alt="" className=" w-14 h-14" />
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
-          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleMultiTap}><span className="flex justify-center items-center">Go ahead</span></div>
+          <div
+            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
+            onClick={handleMultiTap}
+          >
+            <span className="flex justify-center items-center">Go ahead</span>
+          </div>
         </div>
       </Modal>
       <Modal isOpen={isLimitModalOpen} onClose={handleCloseLimitModal}>
         <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/battery.png" alt="" className=" w-12 h-12"/>
+          <img src="image/battery.png" alt="" className=" w-12 h-12" />
           <h1 className="text-2xl text-white">Energy Limit</h1>
-          <p className=" text-sm text-white">You can increase the Energy Limit, can get the energy x 2</p>
+          <p className=" text-sm text-white">
+            You can increase the Energy Limit, can get the energy x 2
+          </p>
           <div className="flex items-center">
-            <img src="image/dollar.png" alt="" className=" w-14 h-14"/>
+            <img src="image/dollar.png" alt="" className=" w-14 h-14" />
             <h1 className="text-white text-2xl">FREE</h1>
           </div>
-          <div className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center" onClick={handleLimit}><span className="flex justify-center items-center">Go ahead</span></div>
+          <div
+            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
+            onClick={handleLimit}
+          >
+            <span className="flex justify-center items-center">Go ahead</span>
+          </div>
         </div>
       </Modal>
     </div>

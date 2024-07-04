@@ -104,11 +104,11 @@ function Home() {
   }, [username, remainedEnergy, limit]);
 
   const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (remainedEnergy > 0 && token < 100000) {
+    if (remainedEnergy > 0 && token < 1000000000) {
       setScore(`+${tap}`);
-      if (token + tap > 100000) {
-        setToken(100000);
-        dispatch(updateWallet(username, 100000, remainedEnergy - 1));
+      if (token + tap > 1000000000) {
+        setToken(1000000000);
+        dispatch(updateWallet(username, 1000000000, remainedEnergy - 1));
       } else {
         setToken(token + tap);
         dispatch(updateWallet(username, token + tap, remainedEnergy - 1));
