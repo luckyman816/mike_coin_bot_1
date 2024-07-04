@@ -152,7 +152,7 @@ function Home() {
           </div>
         </div>
         <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[25%]">
-          <h2 className=" text-sm text-[#1ED760]">Coins To Level Up</h2>
+          <h2 className=" text-sm text-[#1ED760]">Coins Level Up</h2>
           <div className="flex justify-center items-center">
             <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
             <h2 className="text-sm text-[white]"> 1 M </h2>
