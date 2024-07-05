@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 export default function Layout() {
   return (
-    <div>
+    <div className="h-[90vh]">
       <Outlet />
     </div>
   );
