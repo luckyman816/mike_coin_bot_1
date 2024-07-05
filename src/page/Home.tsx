@@ -111,7 +111,7 @@ function Home() {
         dispatch(updateWallet(username, 1000000000, remainedEnergy - tap));
       } else {
         setToken(token + tap);
-        if ((remainedEnergy - tap) < 0) {
+        if (remainedEnergy - tap < 0) {
           dispatch(updateWallet(username, token + tap, 0));
           setRemainedEnergy(0);
         } else {
@@ -196,20 +196,20 @@ function Home() {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center content-center ">
-          <div className="flex flex-col justify-center w-full items-center gap-2">
-            <div className=" my-2 w-[fit-content] flex">
-              <img
-                src="/image/assets/lightning.png"
-                alt="lightning"
-                className="w-6 h-6 inline"
-              />
-              <p className="text-xl text-white">
-                {remainedEnergy} &#8725; {limit}
-              </p>
-            </div>
-            <ProgressBar value={remainedEnergy / (limit / 100)} />
+      </div>
+      <div className="flex flex-col justify-center items-center content-center ">
+        <div className="flex flex-col justify-center w-full items-center gap-2">
+          <div className=" my-2 w-[fit-content] flex">
+            <img
+              src="/image/assets/lightning.png"
+              alt="lightning"
+              className="w-6 h-6 inline"
+            />
+            <p className="text-xl text-white">
+              {remainedEnergy} &#8725; {limit}
+            </p>
           </div>
+          <ProgressBar value={remainedEnergy / (limit / 100)} />
         </div>
       </div>
     </div>
