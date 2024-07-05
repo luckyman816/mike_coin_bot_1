@@ -37,7 +37,7 @@ function App() {
       ) : */loading ? (
         <Loading />
       ) : (
-        <div className="App w-[700px] h-[75vh] max-sm:w-[750px] max-sm:h-[70vh]">
+        <div className="App">
           <ReduxProvider store={store}>
             <Routes>
               <Route path="/" element={<Layout />}>
