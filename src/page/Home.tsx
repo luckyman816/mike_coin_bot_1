@@ -167,7 +167,7 @@ function Home() {
       </div>
       <div
         id="mainWindow"
-        className="relative mt-3 flex flex-col items-center justify-between w-full h-[72vh] mb-9"
+        className="relative mt-3 flex flex-col items-center justify-between w-full h-[62vh] mb-9"
       >
         <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-[80%] rounded-[10px] p-2">
           <div className="flex justify-center items-center">
