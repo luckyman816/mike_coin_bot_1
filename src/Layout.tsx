@@ -13,8 +13,6 @@ export default function Layout() {
       ref={mainScreenRef}
       onTouchMove={handleTouchMove}
       style={{
-        width: "100%",
-        height: "100%",
         touchAction: "none",
       }}
     >
