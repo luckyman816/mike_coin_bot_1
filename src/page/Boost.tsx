@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import {
   updateBalance,
   updateEnergy,
+  updateFullEnergy,
   updateLimit,
   updateTap,
   getWallet,
@@ -14,10 +15,14 @@ export default function Boost() {
   const username_state = useSelector((state) => state.wallet.user?.username);
   const limit_state = useSelector((state) => state.wallet.user?.limit);
   const tap_state = useSelector((state) => state.wallet.user?.tap);
+  const full_energy_state = useSelector(
+    (state) => state.wallet.user?.full_energy
+  );
   const [token, setToken] = useState<number>(tokenState);
   const [username, setUsername] = useState<string>(username_state);
   const [limit, setLimit] = useState<number>(limit_state);
   const [tap, setTap] = useState<number>(tap_state);
+  const [full_energy, setFullEnergy] = useState<number>(full_energy_state);
   useEffect(() => {
     dispatch(getWallet(username));
   }, [username]);
@@ -26,12 +31,19 @@ export default function Boost() {
     setUsername(username_state);
     setLimit(limit_state);
     setTap(tap_state);
-  }, [tokenState, username_state, limit_state, tap_state]);
+    setFullEnergy(full_energy_state);
+  }, [tokenState, username_state, limit_state, tap_state, full_energy_state]);
   const handleFullEnergy = () => {
     console.log("-----full energy💰🏆💪------>", limit_state);
-    dispatch(updateEnergy(username, limit));
-    toast.success("Successfully updated energy!");
-    setIsModalOpen(false);
+    if (full_energy > 6) {
+      toast.warning("Full energy limit reached!");
+    } else {
+      dispatch(updateFullEnergy(username, full_energy + 1)).then(() => {
+        dispatch(updateEnergy(username, limit));
+        toast.success("Successfully updated energy!");
+        setIsModalOpen(false);
+      });
+    }
   };
   const handleMultiTap = () => {
     if (tap >= 32) {
@@ -106,7 +118,9 @@ export default function Boost() {
           <img src="/image/icon/lightning.svg" alt="" className="w-10 h-10" />
           <div className="flex flex-col">
             <h3 className="text-2xl text-white">Full energy</h3>
-            <h3 className="text-xl text-[#a8a8a7]">6/6 available</h3>
+            <h3 className="text-xl text-[#a8a8a7]">
+              {full_energy}/6 available
+            </h3>
           </div>
         </div>
         <div className="flex justify-start">

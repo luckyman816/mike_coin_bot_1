@@ -10,6 +10,7 @@ const initialState: walletStateProps = {
     username: "",
     balance: 0,
     energy: 0,
+    full_energy: 1,
     tap: 1,
     limit: 1000,
     daily_coins: new Date()
@@ -96,6 +97,18 @@ export function updateEnergy(username: string, energy: number) {
     try {
       const response = await axios.post(`/wallet/updateEnergy/${username}`, {
         energy: energy,
+      });
+      dispatch(wallet.actions.updateWalletSuccess(response.data));
+    } catch (error) {
+      dispatch(wallet.actions.hasError(error));
+    }
+  };
+}
+export function updateFullEnergy(username: string, full_energy: number) {
+  return async () => {
+    try {
+      const response = await axios.post(`/wallet/updateEnergy/${username}`, {
+        full_energy: full_energy,
       });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
     } catch (error) {

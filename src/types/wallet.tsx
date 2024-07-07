@@ -3,6 +3,7 @@ export interface walletProfile {
     username: string;
     balance: number;
     energy: number;
+    full_energy: number;
     tap: number;
     limit: number;
     daily_coins: Date;
