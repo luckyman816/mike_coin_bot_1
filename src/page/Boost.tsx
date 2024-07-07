@@ -5,7 +5,7 @@ import {
   updateEnergy,
   updateLimit,
   updateTap,
-  getWallet
+  getWallet,
 } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import Modal from "../component/modal";
@@ -20,7 +20,7 @@ export default function Boost() {
   const [tap, setTap] = useState<number>(tap_state);
   useEffect(() => {
     dispatch(getWallet(username));
-  }, [username])
+  }, [username]);
   useEffect(() => {
     setToken(tokenState);
     setUsername(username_state);
@@ -37,20 +37,30 @@ export default function Boost() {
     if (tap >= 32) {
       toast.warning("Tap limit reached!");
     } else {
-      dispatch(updateTap(username, tap * 2)).then(() => {
-        dispatch(updateBalance(username, token - 2000));
+      if (token < 2000) {
+        toast.warning("Not enough token!");
+      } else {
+        dispatch(updateTap(username, tap * 2)).then(() => {
+          dispatch(updateBalance(username, token - 2000));
+        });
         setIsTapModalOpen(false);
         toast.success("Successfully updated tap!");
-      });
+      }
     }
   };
   const handleLimit = () => {
     if (limit >= 5000) {
       toast.warning("Energy limit reached!");
     } else {
-      dispatch(updateLimit(username, limit + 1000));
-      setIsLimitModalOpen(false);
-      toast.success("Successfully updated limit!");
+      if (token < 2000) {
+        toast.warning("Not enough token!");
+      } else {
+        dispatch(updateLimit(username, limit + 1000)).then(() => {
+          dispatch(updateBalance(username, token - 2000));
+        });
+        setIsLimitModalOpen(false);
+        toast.success("Successfully updated limit!");
+      }
     }
   };
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -157,7 +167,7 @@ export default function Boost() {
           </p>
           <div className="flex items-center">
             <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">2000</h1>
+            <h1 className="text-white text-2xl">-2000</h1>
           </div>
           <div
             className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
@@ -176,7 +186,7 @@ export default function Boost() {
           </p>
           <div className="flex items-center">
             <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">2000</h1>
+            <h1 className="text-white text-2xl">-2000</h1>
           </div>
           <div
             className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
