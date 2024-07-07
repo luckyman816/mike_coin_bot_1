@@ -1,6 +1,12 @@
 import { dispatch, useSelector } from "../store";
 import { toast, ToastContainer } from "react-toastify";
-import { updateEnergy, updateLimit, updateTap } from "../store/reducers/wallet";
+import {
+  updateBalance,
+  updateEnergy,
+  updateLimit,
+  updateTap,
+  getWallet
+} from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import Modal from "../component/modal";
 export default function Boost() {
@@ -12,6 +18,9 @@ export default function Boost() {
   const [username, setUsername] = useState<string>(username_state);
   const [limit, setLimit] = useState<number>(limit_state);
   const [tap, setTap] = useState<number>(tap_state);
+  useEffect(() => {
+    dispatch(getWallet(username));
+  }, [username])
   useEffect(() => {
     setToken(tokenState);
     setUsername(username_state);
@@ -28,9 +37,11 @@ export default function Boost() {
     if (tap >= 32) {
       toast.warning("Tap limit reached!");
     } else {
-      dispatch(updateTap(username, tap * 2));
-      setIsTapModalOpen(false);
-      toast.success("Successfully updated tap!");
+      dispatch(updateTap(username, tap * 2)).then(() => {
+        dispatch(updateBalance(username, token - 2000));
+        setIsTapModalOpen(false);
+        toast.success("Successfully updated tap!");
+      });
     }
   };
   const handleLimit = () => {
@@ -146,7 +157,7 @@ export default function Boost() {
           </p>
           <div className="flex items-center">
             <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">FREE</h1>
+            <h1 className="text-white text-2xl">2000</h1>
           </div>
           <div
             className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
@@ -165,7 +176,7 @@ export default function Boost() {
           </p>
           <div className="flex items-center">
             <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">FREE</h1>
+            <h1 className="text-white text-2xl">2000</h1>
           </div>
           <div
             className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
