@@ -10,6 +10,8 @@ const Loading = () => {
           style={{
             backgroundImage: "url('image/mike1.png')",
             backgroundSize: "cover",
+            width: "50px",
+            height: "50px",
           }}
         ></div>
         <div
@@ -17,6 +19,8 @@ const Loading = () => {
           style={{
             backgroundImage: "url('image/mike2.png')",
             backgroundSize: "cover",
+            width: "50px",
+            height: "50px",
           }}
         ></div>
         <div
@@ -24,6 +28,8 @@ const Loading = () => {
           style={{
             backgroundImage: "url('image/mike3.png')",
             backgroundSize: "cover",
+            width: "50px",
+            height: "50px",
           }}
         ></div>
         <div
@@ -31,6 +37,8 @@ const Loading = () => {
           style={{
             backgroundImage: "url('image/mike4.png')",
             backgroundSize: "cover",
+            width: "50px",
+            height: "50px",
           }}
         ></div>
         <div
@@ -38,6 +46,8 @@ const Loading = () => {
           style={{
             backgroundImage: "url('image/mike5.png')",
             backgroundSize: "cover",
+            width: "50px",
+            height: "50px",
           }}
         ></div>
       </div>
