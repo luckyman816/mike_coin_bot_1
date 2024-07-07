@@ -8,35 +8,35 @@ const Loading = () => {
         <div
           id="square1"
           style={{
-            backgroundImage: "url('image/mike_1.png')",
+            backgroundImage: "url('image/mike1.png')",
             backgroundSize: "cover",
           }}
         ></div>
         <div
           id="square2"
           style={{
-            backgroundImage: "url('image/mike_2.png')",
+            backgroundImage: "url('image/mike2.png')",
             backgroundSize: "cover",
           }}
         ></div>
         <div
           id="square3"
           style={{
-            backgroundImage: "url('image/mike_3.png')",
+            backgroundImage: "url('image/mike3.png')",
             backgroundSize: "cover",
           }}
         ></div>
         <div
           id="square4"
           style={{
-            backgroundImage: "url('image/mike_4.png')",
+            backgroundImage: "url('image/mike4.png')",
             backgroundSize: "cover",
           }}
         ></div>
         <div
           id="square5"
           style={{
-            backgroundImage: "url('image/mike_5.png')",
+            backgroundImage: "url('image/mike5.png')",
             backgroundSize: "cover",
           }}
         ></div>
