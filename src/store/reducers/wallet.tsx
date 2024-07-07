@@ -107,7 +107,7 @@ export function updateEnergy(username: string, energy: number) {
 export function updateFullEnergy(username: string, full_energy: number) {
   return async () => {
     try {
-      const response = await axios.post(`/wallet/updateEnergy/${username}`, {
+      const response = await axios.post(`/wallet/updateFullEnergy/${username}`, {
         full_energy: full_energy,
       });
       dispatch(wallet.actions.updateWalletSuccess(response.data));
