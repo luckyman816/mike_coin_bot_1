@@ -2,7 +2,7 @@ import "./Loading.css";
 const Loading = () => {
     const imgURL: string[] = ["/image/social/instagram.png", "/image/social/telegram.png", "/image/social/twitter.png", "/image/social/youtubu.png"];
   return (
-    <div className="flex flex-col justify-around items-center " style={{background: "radial-gradient(68.4% 68.4% at 51.16% 53.22%, #00647F 0%, #020304 100%)"}}>
+    <div className="flex flex-col justify-around items-center w-full h-full " style={{background: "radial-gradient(68.4% 68.4% at 51.16% 53.22%, #00647F 0%, #020304 100%)"}}>
       <img src="/image/title.png" alt="" className=" w-[60vw] h-auto" />
       <div className="loadingspinner">
         <div
