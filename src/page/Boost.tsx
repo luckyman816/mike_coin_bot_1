@@ -39,9 +39,8 @@ export default function Boost() {
       toast.warning("Full energy limit reached!");
     } else {
       dispatch(updateFullEnergy(username, full_energy + 1)).then(() => {
-        dispatch(updateEnergy(username, limit)).then(() => {
-          toast.success("Successfully updated energy!");
-        });
+        dispatch(updateEnergy(username, limit));
+        toast.success("Successfully updated energy!");
       });
     }
     setIsModalOpen(false);
@@ -54,9 +53,8 @@ export default function Boost() {
         toast.warning("Not enough token!");
       } else {
         dispatch(updateTap(username, tap * 2)).then(() => {
-          dispatch(updateBalance(username, token - 2000)).then(() => {
-            toast.success("Successfully updated tap!");
-          });
+          dispatch(updateBalance(username, token - 2000));
+          toast.success("Successfully updated tap!");
         });
       }
     }
@@ -70,9 +68,8 @@ export default function Boost() {
         toast.warning("Not enough token!");
       } else {
         dispatch(updateLimit(username, limit + 1000)).then(() => {
-          dispatch(updateBalance(username, token - 2000)).then(() => {
-            toast.success("Successfully updated limit!");
-          });
+          dispatch(updateBalance(username, token - 2000));
+          toast.success("Successfully updated limit!");
         });
       }
     }
