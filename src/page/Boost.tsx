@@ -39,11 +39,12 @@ export default function Boost() {
       toast.warning("Full energy limit reached!");
     } else {
       dispatch(updateFullEnergy(username, full_energy + 1)).then(() => {
-        dispatch(updateEnergy(username, limit));
-        toast.success("Successfully updated energy!");
-        setIsModalOpen(false);
+        dispatch(updateEnergy(username, limit)).then(() => {
+          toast.success("Successfully updated energy!");
+        });
       });
     }
+    setIsModalOpen(false);
   };
   const handleMultiTap = () => {
     if (tap >= 32) {
@@ -53,12 +54,13 @@ export default function Boost() {
         toast.warning("Not enough token!");
       } else {
         dispatch(updateTap(username, tap * 2)).then(() => {
-          dispatch(updateBalance(username, token - 2000));
+          dispatch(updateBalance(username, token - 2000)).then(() => {
+            toast.success("Successfully updated tap!");
+          });
         });
-        setIsTapModalOpen(false);
-        toast.success("Successfully updated tap!");
       }
     }
+    setIsTapModalOpen(false);
   };
   const handleLimit = () => {
     if (limit >= 5000) {
@@ -68,12 +70,13 @@ export default function Boost() {
         toast.warning("Not enough token!");
       } else {
         dispatch(updateLimit(username, limit + 1000)).then(() => {
-          dispatch(updateBalance(username, token - 2000));
+          dispatch(updateBalance(username, token - 2000)).then(() => {
+            toast.success("Successfully updated limit!");
+          });
         });
-        setIsLimitModalOpen(false);
-        toast.success("Successfully updated limit!");
       }
     }
+    setIsLimitModalOpen(false);
   };
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const handleMouseClick = () => {
