@@ -28,7 +28,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 8000);
   }, []);
   return (
     <Router>
