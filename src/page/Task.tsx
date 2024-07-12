@@ -197,7 +197,7 @@ export default function Task() {
     }
   };
   return (
-    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[78vh] mt-12 mb-[13%]">
+    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[75vh] mt-12 mb-[13%]">
       <ToastContainer />
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="flex flex-col justify-center items-center">
