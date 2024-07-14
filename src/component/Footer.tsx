@@ -21,7 +21,7 @@ export default function Footer() {
         <img
           src="/image/footer/refferal.png"
           alt="quest"
-          className=" w-12 h-12"
+          className=" w-12 h-12 border border-white"
         />
       </Link>
       <Link
@@ -32,7 +32,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12" />
+        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12 border border-white" />
       </Link>
       <Link
         to=""
@@ -40,7 +40,7 @@ export default function Footer() {
           path === "/" ? "scale-[110%] opacity-100" : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/earn.png" alt="play" className=" w-20 h-20" />
+        <img src="/image/footer/earn.png" alt="play" className=" w-20 h-20 " />
       </Link>
       <Link
         to="/boost"
@@ -50,7 +50,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/boost.png" alt="boost" className=" w-12 h-12" />
+        <img src="/image/footer/boost.png" alt="boost" className=" w-12 h-12 border border-white" />
       </Link>
       <Link
         to="/airdrop"
@@ -61,9 +61,9 @@ export default function Footer() {
         }`}
       >
         <img
-          src="/image/footer/airdrop.png"
+          src="/image/footer/airdrop.png "
           alt="airdrop"
-          className=" w-12 h-12"
+          className=" w-12 h-12 border border-white"
         />
       </Link>
     </div>
