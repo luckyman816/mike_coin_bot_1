@@ -167,7 +167,7 @@ function Home() {
       </div>
       <div
         id="mainWindow"
-        className="relative mt-3 flex flex-col items-center justify-between w-full h-[70vh] mb-6"
+        className="relative mt-3 flex flex-col items-center justify-between w-full h-[70vh] mb-4"
       >
         <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-[80%] rounded-[10px] p-2">
           <div className="flex justify-center items-center">
@@ -197,7 +197,7 @@ function Home() {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center content-center ">
-          <div className="flex flex-col justify-center w-full items-center gap-2">
+          <div className="flex flex-col justify-center w-full items-center gap-1">
             <div className=" my-2 w-[fit-content] flex">
               <img
                 src="/image/assets/lightning.png"
