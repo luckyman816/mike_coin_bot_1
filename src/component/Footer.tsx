@@ -21,7 +21,7 @@ export default function Footer() {
         <img
           src="/image/footer/refferal.png"
           alt="quest"
-          className=" w-12 h-12 border border-white"
+          className=" w-12 h-12 border border-white rounded-[8px]"
         />
       </Link>
       <Link
@@ -32,7 +32,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12 border border-white" />
+        <img src="/image/footer/task.png" alt="ranking" className="w-12 h-12 border border-white rounded-[8px]" />
       </Link>
       <Link
         to=""
@@ -50,7 +50,7 @@ export default function Footer() {
             : "opacity-50 text-white"
         }`}
       >
-        <img src="/image/footer/boost.png" alt="boost" className=" w-12 h-12 border border-white" />
+        <img src="/image/footer/boost.png" alt="boost" className=" w-12 h-12 border border-white rounded-[8px]" />
       </Link>
       <Link
         to="/airdrop"
@@ -63,7 +63,7 @@ export default function Footer() {
         <img
           src="/image/footer/airdrop.png "
           alt="airdrop"
-          className=" w-12 h-12 border border-white rounded-s-lg"
+          className=" w-12 h-12 border border-white rounded-[8px]"
         />
       </Link>
     </div>
