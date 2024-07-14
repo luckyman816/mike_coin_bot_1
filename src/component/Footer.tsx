@@ -63,7 +63,7 @@ export default function Footer() {
         <img
           src="/image/footer/airdrop.png "
           alt="airdrop"
-          className=" w-12 h-12 border border-white"
+          className=" w-12 h-12 border border-white rounded-s-lg"
         />
       </Link>
     </div>
