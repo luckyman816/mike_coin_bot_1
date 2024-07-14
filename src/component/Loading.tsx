@@ -1,9 +1,12 @@
 import "./Loading.css";
+import "../css/font.css";
 const Loading = () => {
     const imgURL: string[] = ["/image/social/instagram.png", "/image/social/telegram.png", "/image/social/twitter.png", "/image/social/youtubu.png"];
   return (
-    <div className="flex flex-col justify-around items-center w-full h-screen " style={{background: "radial-gradient(68.4% 68.4% at 51.16% 53.22%, #00647F 0%, #020304 100%)"}}>
-      <img src="/image/title.png" alt="" className=" w-[60vw] h-auto" />
+    <div className="flex flex-col justify-around items-center w-full h-screen p-5" style={{background: "radial-gradient(68.4% 68.4% at 51.16% 53.22%, #00647F 0%, #020304 100%)"}}>
+      <h1 className="text-[60px]" style={{fontFamily: " spicy"}}>
+        Monsters Mystery World!
+      </h1>
       <div className="loadingspinner">
         <div
           id="square1"
