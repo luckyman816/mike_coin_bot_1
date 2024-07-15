@@ -268,7 +268,7 @@ export default function Task() {
           )}
           {colorTag && (
             <div className="flex flex-col justify-center items-center gap-3 w-[80%]">
-              <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+              <div className="flex flex-col justify-center items-center w-full rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
                 <h2
                   className="text-[white] text-[xl]"
                   style={{ fontFamily: "poppins" }}
@@ -290,7 +290,7 @@ export default function Task() {
                   </button>
                 </div>
               </div>
-              <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+              <div className="flex flex-col justify-center items-center w-full rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
                 <h2
                   className="text-[white] text-[xl]"
                   style={{ fontFamily: "poppins" }}
@@ -312,7 +312,7 @@ export default function Task() {
                   </button>
                 </div>
               </div>
-              <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+              <div className="flex flex-col justify-center items-center w-full rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
                 <h2
                   className="text-[white] text-[xl]"
                   style={{ fontFamily: "poppins" }}
