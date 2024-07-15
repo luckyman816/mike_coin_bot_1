@@ -124,19 +124,15 @@ function Home() {
       handleClick(event);
     }
   };
-  const handleMultiTouchStart = (event: TouchEvent) => {
-    // Iterate over each touch point
-    Array.from(event.touches).forEach((touch) => {
-      console.log("Touch's current position:", touch);
-      // Call handleClick for each touch point
-      handleClick(event);
-    });
-  };
   const handleTouch = (event: any) => {
     const length = event.touches.length;
     if (remainedEnergy - length >= 0 && length >= 1) {
       setRemainedEnergy(remainedEnergy - length);
-      handleMultiTouchStart(event);
+      Array.from(event.touches).forEach((touch) => {
+        console.log("Touch's current position:", touch);
+        // Call handleClick for each touch point
+        handleClick(event);
+      });
     }
   };
   const handleMouseDown = () => {
