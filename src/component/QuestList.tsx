@@ -74,7 +74,7 @@ export default function QuestList() {
           </CopyToClipboard>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-start w-[80%]">
+      <div className="flex flex-col justify-center items-start w-[90%]">
         <div className="flex justify-start items-center w-full">
           <h2
             className="text-white text-3xl mb-6"
