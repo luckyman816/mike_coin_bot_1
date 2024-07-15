@@ -137,7 +137,7 @@ export default function Boost() {
               <h3 className="text-2xl text-white text-left">Multitap</h3>
               <div className="flex gap-3 align-middle">
                 <img src="/image/dollar.png" alt="" className="w-5 h-5" />
-                <h3 className="text-[#a8a8a7]">2K * 2M</h3>
+                <h3 className="text-[#a8a8a7] text-xl">2K * 2M</h3>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function Boost() {
               <h3 className="text-2xl text-white text-left">Energy limit</h3>
               <div className="flex gap-3 align-middle">
                 <img src="/image/dollar.png" alt="" className="w-5 h-5" />
-                <h3 className="text-[#a8a8a7]">2K * 2M</h3>
+                <h3 className="text-[#a8a8a7] text-xl">2K * 2M</h3>
               </div>
             </div>
           </div>
