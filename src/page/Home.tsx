@@ -135,41 +135,38 @@ function Home() {
   return (
     <div className="flex flex-col justify-between items-center p-2 h-full">
       <ToastContainer />
-      <div className="flex justify-around items-center px-3 w-[90%]">
-        <h3
-          className="text-2xl font-bold text-[white]"
-          style={{ fontFamily: "spicy" }}
-        >
-          Hello, {username}
-        </h3>
-        <img src="image/assets/icon.png" alt="" className=" w-10 h-10" />
-      </div>
-      <div className="flex gap-2 justify-around items-center w-full">
-        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
-          <h2 className=" text-sm text-[#F8B219]">Earn Per Tap</h2>
-          <div className="flex justify-center items-center">
-            <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
-            <h2 className="text-sm text-[white]">+{tap}</h2>
+      <div>
+        <div className="flex justify-between items-center px-3 w-[90%]">
+          <h3
+            className="text-2xl font-bold text-[white]"
+            style={{ fontFamily: "spicy" }}
+          >
+            Hello, {username}
+          </h3>
+          <img src="image/assets/icon.png" alt="" className=" w-10 h-10" />
+        </div>
+        <div className="flex gap-2 justify-around items-center w-full">
+          <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
+            <h2 className=" text-sm text-[#F8B219]">Earn Per Tap</h2>
+            <div className="flex justify-center items-center">
+              <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
+              <h2 className="text-sm text-[white]">+{tap}</h2>
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
+            <h2 className=" text-sm text-[#00E9F8]">Level</h2>
+            <div className="flex justify-center items-center">
+              <h2 className="text-sm text-[white]"> 1 </h2>
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
+            <h2 className=" text-sm text-[#1ED760]">Coins Level</h2>
+            <div className="flex justify-center items-center">
+              <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
+              <h2 className="text-sm text-[white]"> 1 M </h2>
+            </div>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
-          <h2 className=" text-sm text-[#00E9F8]">Level</h2>
-          <div className="flex justify-center items-center">
-            <h2 className="text-sm text-[white]"> 1 </h2>
-          </div>
-        </div>
-        <div className="bg-gradient-to-r from-[#567481] to-[#2D4047] flex flex-col justify-center items-center p-2 rounded-[8px] w-[30%]">
-          <h2 className=" text-sm text-[#1ED760]">Coins Level</h2>
-          <div className="flex justify-center items-center">
-            <img src="/image/assets/mkt.png" alt="" className=" w-5 h-5" />
-            <h2 className="text-sm text-[white]"> 1 M </h2>
-          </div>
-        </div>
-      </div>
-      <div
-        id="mainWindow"
-        className="relative mt-3 flex flex-col items-center justify-between w-full mb-4"
-      >
         <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-full rounded-[10px] p-2">
           <div className="flex justify-center items-center">
             <img src="image/assets/mkt.png" alt="" className=" w-10 h-10" />
@@ -181,22 +178,25 @@ function Home() {
             </h1>
           </div>
         </div>
-        <div className="flex justify-center items-center relative h-[40vh]">
-          <div className="bg-color-animation flex justify-center items-center absolute">
-            <div
-              className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
-                remainedEnergy > 0
-                  ? "cursor-pointer"
-                  : "cursor-not-allowed opacity-50"
+      </div>
+
+      <div className="flex justify-center items-center relative h-[40vh]">
+        <div className="bg-color-animation flex justify-center items-center absolute">
+          <div
+            className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${remainedEnergy > 0
+              ? "cursor-pointer"
+              : "cursor-not-allowed opacity-50"
               } ${imgStatus ? " border-[5px]" : "border-0"}
             `}
-              ref={bodyRef}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseLeave}
-              onClick={handleTap}
-            />
-          </div>
+            ref={bodyRef}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseLeave}
+            onClick={handleTap}
+          />
         </div>
+      </div>
+
+      <div className="flex flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex flex-col justify-center w-full items-center gap-1">
             <div className=" my-2 w-[fit-content] flex">
@@ -212,8 +212,8 @@ function Home() {
             <ProgressBar value={remainedEnergy / (limit / 100)} />
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer/>
     </div>
   );
 }
