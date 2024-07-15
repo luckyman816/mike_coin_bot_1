@@ -134,7 +134,7 @@ function Home() {
   return (
     <div className=" mt-2 h-full">
       <ToastContainer />
-      <div className="flex justify-around items-center px-3 w-full">
+      <div className="flex justify-around items-center px-3 w-[90%]">
         <h3
           className="text-2xl font-bold text-[white]"
           style={{ fontFamily: "spicy" }}
@@ -167,7 +167,7 @@ function Home() {
       </div>
       <div
         id="mainWindow"
-        className="relative mt-3 flex flex-col items-center justify-between w-full h-[72vh] mb-4"
+        className="relative mt-3 flex flex-col items-center justify-between w-[90%] h-[72vh] mb-4"
       >
         <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-full rounded-[10px] p-2">
           <div className="flex justify-center items-center">
