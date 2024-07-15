@@ -4,6 +4,7 @@ import axios from "../utils/api";
 import Web3 from "web3";
 import { ToastContainer, toast } from "react-toastify";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Footer from "../component/Footer";
 const web3 = new Web3("https://bsc-dataseed.binance.org/");
 export default function Airdrop() {
   const username_state = useSelector((state) => state.wallet.user.username);
@@ -49,7 +50,7 @@ export default function Airdrop() {
     }
   };
   return (
-    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[75vh] mt-12 mb-[13%]">
+    <div className="Ranking w-full h-full flex flex-col justify-between items-center">
       <ToastContainer />
       <div className="flex flex-col justify-center items-center gap-5">
         <img src="image/assets/wallet.png" alt="" className="w-24 h-24" />
@@ -79,6 +80,7 @@ export default function Airdrop() {
           Submit
         </button>
       </div>
+      <Footer/>
     </div>
   );
 }
