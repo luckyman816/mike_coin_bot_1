@@ -196,7 +196,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center w-full">
+      <div className="flex flex-col justify-center items-center w-full gap-2">
         <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex flex-col justify-center w-full items-center gap-1">
             <div className=" my-2 w-[fit-content] flex">
