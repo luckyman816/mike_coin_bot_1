@@ -132,7 +132,7 @@ function Home() {
   };
   console.log("imgStatus", imgStatus);
   return (
-    <div className=" mt-2 h-[95%] p-2">
+    <div className=" mt-4 h-[95%] p-2">
       <ToastContainer />
       <div className="flex justify-around items-center px-3 w-[90%]">
         <h3
