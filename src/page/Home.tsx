@@ -167,7 +167,7 @@ function Home() {
       </div>
       <div
         id="mainWindow"
-        className="relative mt-3 flex flex-col items-center justify-between w-full h-[68vh]  mb-4"
+        className="relative mt-3 flex flex-col items-center justify-between w-full mb-4"
       >
         <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-full rounded-[10px] p-2">
           <div className="flex justify-center items-center">
@@ -180,7 +180,7 @@ function Home() {
             </h1>
           </div>
         </div>
-        <div className="flex justify-center items-center relative">
+        <div className="flex justify-center items-center relative h-[fit-content]">
           <div className="bg-color-animation flex justify-center items-center absolute">
             <div
               className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
