@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState, useRef } from "react";
 import { ToastContainer } from "react-toastify";
+import Footer from "../component/Footer";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressBar from "../component/ProgressBar";
 import { dispatch, useSelector } from "../store";
@@ -180,7 +181,7 @@ function Home() {
             </h1>
           </div>
         </div>
-        <div className="flex justify-center items-center relative h-[fit-content]">
+        <div className="flex justify-center items-center relative h-[40vh]">
           <div className="bg-color-animation flex justify-center items-center absolute">
             <div
               className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${
@@ -212,6 +213,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

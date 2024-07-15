@@ -5,7 +5,6 @@ import Home from "./page/Home";
 import Ranking from "./page/Ranking";
 import Quest from "./page/Quest";
 import { ToastContainer } from "react-toastify";
-import Footer from "./component/Footer";
 import Layout from "./Layout";
 import Loading from "./component/Loading";
 import { Provider as ReduxProvider } from "react-redux";
@@ -50,7 +49,6 @@ function App() {
               </Route>
             </Routes>
             <ToastContainer />
-            <Footer />
           </ReduxProvider>
         </div>
       )}
