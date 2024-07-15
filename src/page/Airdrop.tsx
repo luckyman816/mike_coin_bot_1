@@ -52,7 +52,7 @@ export default function Airdrop() {
   return (
     <>
       <ToastContainer />
-      <div className="Ranking w-full h-full flex flex-col justify-between items-center">
+      <div className="Ranking w-full h-full flex flex-col justify-between items-center mt-5">
         <div className="flex flex-col justify-center items-center gap-5 w-full">
           <img src="image/assets/wallet.png" alt="" className="w-24 h-24" />
           <h2 className="text-sm text-[white]">
