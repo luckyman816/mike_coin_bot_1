@@ -102,7 +102,7 @@ export default function Boost() {
     <>
       <ToastContainer />
       <div className="Boost h-full w-full flex flex-col justify-between items-center">
-        <div className="w-full mx-auto flex flex-col justify-center p-4">
+        <div className="w-full mt-11 flex flex-col justify-center p-4">
           <div className="flex flex-col justify-center items-center">
             <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
               <img src="/image/dollar.png" alt="" className="w-10 h-10" />
