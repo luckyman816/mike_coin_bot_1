@@ -201,7 +201,7 @@ export default function Task() {
     <>
       <ToastContainer />
       <div className="w-full h-full flex flex-col justify-between items-center">
-        <div className="flex flex-col justify-center items-center gap-4">
+        <div className="flex flex-col justify-center items-center gap-4 w-full">
           <div className="flex flex-col justify-center items-center">
             <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
           </div>
@@ -267,7 +267,7 @@ export default function Task() {
             </div>
           )}
           {colorTag && (
-            <div className="flex flex-col justify-center items-center gap-3 w-full">
+            <div className="flex flex-col justify-center items-center gap-3 w-[80%]">
               <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
                 <h2
                   className="text-[white] text-[xl]"
