@@ -201,7 +201,7 @@ export default function Task() {
     <>
       <ToastContainer />
       <div className="w-full h-full flex flex-col justify-between items-center">
-        <div className="flex flex-col justify-center items-center gap-4 w-full">
+        <div className="flex flex-col justify-center items-center gap-4 w-full mt-11">
           <div className="flex flex-col justify-center items-center">
             <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
           </div>
