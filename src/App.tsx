@@ -12,17 +12,17 @@ import { store } from "./store";
 import Boost from "./page/Boost";
 import Task from "./page/Task";
 import Airdrop from "./page/Airdrop";
-import MobileQR from "./component/MobileQR";
+// import MobileQR from "./component/MobileQR";
 function App() {
   const [loading, setLoading] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
-    setIsMobile(isMobile);
-  }, []);
+  // const [isMobile, setIsMobile] = useState(false);
+  // useEffect(() => {
+  //   const isMobile =
+  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //       navigator.userAgent
+  //     );
+  //   setIsMobile(isMobile);
+  // }, []);
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -31,9 +31,9 @@ function App() {
   }, []);
   return (
     <Router>
-      {!isMobile ? (
+      {/*!isMobile ? (
         <MobileQR />
-      ) : loading ? (
+      ) : */loading ? (
         <Loading />
       ) : (
         <div className="App h-screen">
