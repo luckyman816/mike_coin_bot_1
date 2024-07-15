@@ -27,7 +27,7 @@ export default function QuestList() {
   console.log("friends", friends, friends.length);
   console.log("textToCopy", textToCopy);
   return (
-    <div className="overflow-auto p-5 flex flex-col justify-center items-center gap-2 w-full">
+    <div className="overflow-auto mt-11 p-5 flex flex-col justify-center items-center gap-2 w-full">
       <ToastContainer />
       <div className="flex flex-col justify-center items-center">
         <h1 className=" text-white text-3xl" style={{ fontFamily: "spicy" }}>
