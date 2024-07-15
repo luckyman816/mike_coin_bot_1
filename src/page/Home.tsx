@@ -54,7 +54,7 @@ function Home() {
   }
   const bodyRef = useRef<HTMLDivElement>(null);
   const [score, setScore] = useState<string>(`+${tap}`);
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = (event: any) => {
     event.preventDefault();
     const rect = event.currentTarget.getBoundingClientRect();
     const x = Math.random() * (event.clientX - rect.left);
@@ -124,7 +124,14 @@ function Home() {
       handleClick(event);
     }
   };
-
+  // const handleMultiTouchStart = (event: TouchEvent) => {
+  //   // Iterate over each touch point
+  //   Array.from(event.touches).forEach((touch) => {
+  //     console.log("Touch's current position:", touch);
+  //     // Call handleClick for each touch point
+  //     handleClick(event);
+  //   });
+  // };
   const handleMouseDown = () => {
     setImgStatus(true);
   };
