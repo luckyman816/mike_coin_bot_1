@@ -133,7 +133,7 @@ function Home() {
   };
   console.log("imgStatus", imgStatus);
   return (
-    <div className="flex flex-col justify-between items-center p-2 h-full">
+    <div className="flex flex-col justify-between items-center p-2 h-full w-full">
       <ToastContainer />
       <div className="w-full flex flex-col justify-center items-center gap-2">
         <div className="flex justify-between items-center px-3 w-[90%]">
@@ -196,7 +196,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center w-full">
         <div className="flex flex-col justify-center items-center content-center ">
           <div className="flex flex-col justify-center w-full items-center gap-1">
             <div className=" my-2 w-[fit-content] flex">
