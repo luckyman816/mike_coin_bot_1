@@ -99,119 +99,121 @@ export default function Boost() {
     setIsLimitModalOpen(false);
   };
   return (
-    <div className="Boost h-full w-full flex flex-col justify-between items-center">
+    <>
       <ToastContainer />
-      <div className="w-full mx-auto flex flex-col justify-center p-4">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
-            <img src="/image/dollar.png" alt="" className="w-10 h-10" />
-            <h1 className="text-4xl">{token}</h1>
+      <div className="Boost h-full w-full flex flex-col justify-between items-center">
+        <div className="w-full mx-auto flex flex-col justify-center p-4">
+          <div className="flex flex-col justify-center items-center">
+            <div className="flex px-3 py-1 gap-5 text-white text-lg font-bold justify-center align-middle overflow-y-hidden">
+              <img src="/image/dollar.png" alt="" className="w-10 h-10" />
+              <h1 className="text-4xl">{token}</h1>
+            </div>
           </div>
-        </div>
-        <hr className="my-3 border-[#363636] border-1" />
-        <div className="flex justify-start">
-          <h1 className="text-white text-xl">Free daily boosters</h1>
-        </div>
-        <div
-          className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] hover:bg-[#3a3a3a]`}
-          onClick={handleMouseClick}
-        >
-          <img src="/image/icon/lightning.svg" alt="" className="w-10 h-10" />
-          <div className="flex flex-col">
-            <h3 className="text-2xl text-white">Full energy</h3>
-            <h3 className="text-xl text-[#a8a8a7]">
-              {full_energy}/6 available
-            </h3>
+          <hr className="my-3 border-[#363636] border-1" />
+          <div className="flex justify-start">
+            <h1 className="text-white text-xl">Free daily boosters</h1>
           </div>
-        </div>
-        <div className="flex justify-start">
-          <h1 className="text-white text-xl">Boosters</h1>
-        </div>
-        <div
-          className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
-          onClick={handleMouseTapClick}
-        >
-          <img src="/image/double-tap.png" alt="" className="w-10 h-10" />
-          <div className="flex flex-col gap-1">
-            <h3 className="text-2xl text-white text-left">Multitap</h3>
-            <div className="flex gap-3 align-middle">
-              <img src="/image/dollar.png" alt="" className="w-5 h-5" />
-              <h3>2K * 2M</h3>
+          <div
+            className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] hover:bg-[#3a3a3a]`}
+            onClick={handleMouseClick}
+          >
+            <img src="/image/icon/lightning.svg" alt="" className="w-10 h-10" />
+            <div className="flex flex-col">
+              <h3 className="text-2xl text-white">Full energy</h3>
+              <h3 className="text-xl text-[#a8a8a7]">
+                {full_energy}/6 available
+              </h3>
+            </div>
+          </div>
+          <div className="flex justify-start">
+            <h1 className="text-white text-xl">Boosters</h1>
+          </div>
+          <div
+            className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
+            onClick={handleMouseTapClick}
+          >
+            <img src="/image/double-tap.png" alt="" className="w-10 h-10" />
+            <div className="flex flex-col gap-1">
+              <h3 className="text-2xl text-white text-left">Multitap</h3>
+              <div className="flex gap-3 align-middle">
+                <img src="/image/dollar.png" alt="" className="w-5 h-5" />
+                <h3>2K * 2M</h3>
+              </div>
+            </div>
+          </div>
+          <div
+            className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
+            onClick={handleMouseLimitClick}
+          >
+            <img src="/image/battery.png" alt="" className="w-10 h-10" />
+            <div className="flex flex-col gap-1">
+              <h3 className="text-2xl text-white text-left">Energy limit</h3>
+              <div className="flex gap-3 align-middle">
+                <img src="/image/dollar.png" alt="" className="w-5 h-5" />
+                <h3>2K * 2M</h3>
+              </div>
             </div>
           </div>
         </div>
-        <div
-          className={`flex my-3 px-5 py-3 items-center bg-gradient-to-r from-[#556165] to-[#293135] rounded-[30px] gap-2 hover:bg-[#3a3a3a]`}
-          onClick={handleMouseLimitClick}
-        >
-          <img src="/image/battery.png" alt="" className="w-10 h-10" />
-          <div className="flex flex-col gap-1">
-            <h3 className="text-2xl text-white text-left">Energy limit</h3>
-            <div className="flex gap-3 align-middle">
-              <img src="/image/dollar.png" alt="" className="w-5 h-5" />
-              <h3>2K * 2M</h3>
+        <Footer />
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          <div className="flex flex-col items-center align-middle gap-3">
+            <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12" />
+            <h1 className="text-2xl text-white">Full energy</h1>
+            <p className=" text-sm text-white">
+              Recharge your energy to the maximum and do another round of mining
+            </p>
+            <div className="flex items-center">
+              <img src="image/dollar.png" alt="" className=" w-14 h-14" />
+              <h1 className="text-white text-2xl">FREE</h1>
+            </div>
+            <div
+              className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
+              onClick={handleFullEnergy}
+            >
+              <span className="flex justify-center items-center">Go ahead</span>
             </div>
           </div>
-        </div>
+        </Modal>
+        <Modal isOpen={isTapModalOpen} onClose={handleCloseTapModal}>
+          <div className="flex flex-col items-center align-middle gap-3">
+            <img src="image/double-tap.png" alt="" className=" w-12 h-12" />
+            <h1 className="text-2xl text-white">Multi-Tap</h1>
+            <p className=" text-sm text-white">
+              Select the Multi-tap, can get the token x 2
+            </p>
+            <div className="flex items-center">
+              <img src="image/dollar.png" alt="" className=" w-14 h-14" />
+              <h1 className="text-white text-2xl">-2000</h1>
+            </div>
+            <div
+              className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
+              onClick={handleMultiTap}
+            >
+              <span className="flex justify-center items-center">Go ahead</span>
+            </div>
+          </div>
+        </Modal>
+        <Modal isOpen={isLimitModalOpen} onClose={handleCloseLimitModal}>
+          <div className="flex flex-col items-center align-middle gap-3">
+            <img src="image/battery.png" alt="" className=" w-12 h-12" />
+            <h1 className="text-2xl text-white">Energy Limit</h1>
+            <p className=" text-sm text-white">
+              You can increase the Energy Limit, can get the energy x 2
+            </p>
+            <div className="flex items-center">
+              <img src="image/dollar.png" alt="" className=" w-14 h-14" />
+              <h1 className="text-white text-2xl">-2000</h1>
+            </div>
+            <div
+              className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
+              onClick={handleLimit}
+            >
+              <span className="flex justify-center items-center">Go ahead</span>
+            </div>
+          </div>
+        </Modal>
       </div>
-      <Footer/>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12" />
-          <h1 className="text-2xl text-white">Full energy</h1>
-          <p className=" text-sm text-white">
-            Recharge your energy to the maximum and do another round of mining
-          </p>
-          <div className="flex items-center">
-            <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">FREE</h1>
-          </div>
-          <div
-            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
-            onClick={handleFullEnergy}
-          >
-            <span className="flex justify-center items-center">Go ahead</span>
-          </div>
-        </div>
-      </Modal>
-      <Modal isOpen={isTapModalOpen} onClose={handleCloseTapModal}>
-        <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/double-tap.png" alt="" className=" w-12 h-12" />
-          <h1 className="text-2xl text-white">Multi-Tap</h1>
-          <p className=" text-sm text-white">
-            Select the Multi-tap, can get the token x 2
-          </p>
-          <div className="flex items-center">
-            <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">-2000</h1>
-          </div>
-          <div
-            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
-            onClick={handleMultiTap}
-          >
-            <span className="flex justify-center items-center">Go ahead</span>
-          </div>
-        </div>
-      </Modal>
-      <Modal isOpen={isLimitModalOpen} onClose={handleCloseLimitModal}>
-        <div className="flex flex-col items-center align-middle gap-3">
-          <img src="image/battery.png" alt="" className=" w-12 h-12" />
-          <h1 className="text-2xl text-white">Energy Limit</h1>
-          <p className=" text-sm text-white">
-            You can increase the Energy Limit, can get the energy x 2
-          </p>
-          <div className="flex items-center">
-            <img src="image/dollar.png" alt="" className=" w-14 h-14" />
-            <h1 className="text-white text-2xl">-2000</h1>
-          </div>
-          <div
-            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center"
-            onClick={handleLimit}
-          >
-            <span className="flex justify-center items-center">Go ahead</span>
-          </div>
-        </div>
-      </Modal>
-    </div>
+    </>
   );
 }
