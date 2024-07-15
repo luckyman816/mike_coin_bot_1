@@ -133,7 +133,7 @@ function Home() {
   };
   console.log("imgStatus", imgStatus);
   return (
-    <div className="flex flex-col justify-between items-center mt-4 p-2">
+    <div className="flex flex-col justify-between items-center p-2">
       <ToastContainer />
       <div className="flex justify-around items-center px-3 w-[90%]">
         <h3
