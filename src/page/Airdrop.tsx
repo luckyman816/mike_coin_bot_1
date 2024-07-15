@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "../store";
 import axios from "../utils/api";
 import Web3 from "web3";
-import { ToastContainer, toast } from "react-toastify";
+import { /*ToastContainer,*/ toast } from "react-toastify";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Footer from "../component/Footer";
 const web3 = new Web3("https://bsc-dataseed.binance.org/");
@@ -51,7 +51,7 @@ export default function Airdrop() {
   };
   return (
     <div className="Ranking w-full h-full flex flex-col justify-between items-center">
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="flex flex-col justify-center items-center gap-5 w-full">
         <img src="image/assets/wallet.png" alt="" className="w-24 h-24" />
         <h2 className="text-sm text-[white]">
