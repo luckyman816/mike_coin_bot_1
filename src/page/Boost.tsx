@@ -10,6 +10,7 @@ import {
 } from "../store/reducers/wallet";
 import { useEffect, useState } from "react";
 import Modal from "../component/modal";
+import Footer from "../component/Footer";
 export default function Boost() {
   const tokenState = useSelector((state) => state.wallet.user?.balance);
   const username_state = useSelector((state) => state.wallet.user?.username);
@@ -98,7 +99,7 @@ export default function Boost() {
     setIsLimitModalOpen(false);
   };
   return (
-    <div className="Boost max-w-full text-white max-sm:h-[75vh] mt-12 mb-[13%]">
+    <div className="Boost h-full flex flex-col justify-between items-center">
       <ToastContainer />
       <div className="md:w-full h-[65vh] mx-auto flex flex-col justify-center p-4">
         <div className="flex flex-col justify-center items-center">
@@ -153,6 +154,7 @@ export default function Boost() {
           </div>
         </div>
       </div>
+      <Footer/>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <div className="flex flex-col items-center align-middle gap-3">
           <img src="image/icon/lightning.svg" alt="" className=" w-12 h-12" />
