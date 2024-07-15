@@ -135,8 +135,8 @@ function Home() {
   return (
     <div className="flex flex-col justify-between items-center h-full w-full">
       <ToastContainer />
-      <div className="w-full flex flex-col justify-center items-center gap-2">
-        <div className="flex justify-between items-center px-3 w-[90%]">
+      <div className="w-[90%] flex flex-col justify-center items-center gap-2">
+        <div className="flex justify-between items-center px-3 w-full">
           <h3
             className="text-2xl font-bold text-[white]"
             style={{ fontFamily: "spicy" }}
@@ -167,7 +167,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-full rounded-[10px] p-2">
+        <div className="flex justify-center items-center w-full mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-full rounded-[10px] p-2">
           <div className="flex justify-center items-center">
             <img src="image/assets/mkt.png" alt="" className=" w-10 h-10" />
             <h1
