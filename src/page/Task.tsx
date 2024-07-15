@@ -188,7 +188,7 @@ export default function Task() {
             toast.success("You have received +1000 coins successfully!");
           });
         } else {
-            toast.warning("Did you post a vibe in Channel? \n Or please wait for 24 hours!");
+          toast.warning("Did you post a vibe in Channel? \n Or please wait for 24 hours!");
         }
       });
     } catch (err) {
@@ -197,171 +197,171 @@ export default function Task() {
     }
   };
   return (
-    <div className="Ranking max-w-full mx-auto text-white max-sm:h-[75vh] mt-12 mb-[13%]">
+    <>
       <ToastContainer />
-      <div className="flex flex-col justify-center items-center gap-4">
-        <div className="flex flex-col justify-center items-center">
-          <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
-        </div>
-        <div className="flex justify-center items-center w-[80%] h-11 rounded-[10px] bg-[#394A50]">
-          <div
-            className={`h-full cursor-pointer flex items-center justify-center w-[50%] text-[white] rounded-[10px] ${
-              !colorTag
-                ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
-                : "bg-[#394A50]"
-            }`}
-            onClick={handleDailyTask}
-          >
-            Daily Tasks
+      <div className="w-full h-full flex flex-col justify-between items-center">
+        <div className="flex flex-col justify-center items-center gap-4">
+          <div className="flex flex-col justify-center items-center">
+            <img src="image/assets/task.png" alt="" className=" w-28 h-28" />
           </div>
-          <div
-            className={`h-full cursor-pointer flex items-center w-[50%] justify-center text-[white] rounded-[10px] ${
-              colorTag
-                ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
-                : "bg-[#394A50]"
-            }`}
-            onClick={handleOtherTask}
-          >
-            Other Tasks
+          <div className="flex justify-center items-center w-[80%] h-11 rounded-[10px] bg-[#394A50]">
+            <div
+              className={`h-full cursor-pointer flex items-center justify-center w-[50%] text-[white] rounded-[10px] ${!colorTag
+                  ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
+                  : "bg-[#394A50]"
+                }`}
+              onClick={handleDailyTask}
+            >
+              Daily Tasks
+            </div>
+            <div
+              className={`h-full cursor-pointer flex items-center w-[50%] justify-center text-[white] rounded-[10px] ${colorTag
+                  ? "bg-gradient-to-r from-[#8977C8] to-[#06E2F4]"
+                  : "bg-[#394A50]"
+                }`}
+              onClick={handleOtherTask}
+            >
+              Other Tasks
+            </div>
           </div>
-        </div>
 
-        {!colorTag && (
-          <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
-            <h2
-              className="text-[white] text-[xl]"
-              style={{ fontFamily: "poppins" }}
-            >
-              Send your vibe to Mike's TG group and earn some coins
-            </h2>
-            <div className="flex justify-center items-center  w-full gap-3">
+          {!colorTag && (
+            <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+              <h2
+                className="text-[white] text-[xl]"
+                style={{ fontFamily: "poppins" }}
+              >
+                Send your vibe to Mike's TG group and earn some coins
+              </h2>
+              <div className="flex justify-center items-center  w-full gap-3">
+                <button
+                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                  onClick={handleLetsGoTelegramGroup}
+                >
+                  Let's Go
+                </button>
+                <button
+                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                  onClick={handleLetsGoTelegramGroupCheck}
+                >
+                  Check
+                </button>
+              </div>
+            </div>
+          )}
+          {!colorTag && (
+            <div className="flex justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+              <h2
+                className="text-[white] text-[xl]"
+                style={{ fontFamily: "poppins" }}
+              >
+                Receive your daily coins
+              </h2>
               <button
-                className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
-                onClick={handleLetsGoTelegramGroup}
+                className="bg-[#F8B219] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                onClick={handleOpenReceiveModal}
               >
-                Let's Go
-              </button>
-              <button
-                className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                onClick={handleLetsGoTelegramGroupCheck}
-              >
-                Check
+                Receive
               </button>
             </div>
-          </div>
-        )}
-        {!colorTag && (
-          <div className="flex justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
-            <h2
-              className="text-[white] text-[xl]"
-              style={{ fontFamily: "poppins" }}
-            >
-              Receive your daily coins
-            </h2>
-            <button
-              className="bg-[#F8B219] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-              onClick={handleOpenReceiveModal}
-            >
-              Receive
-            </button>
-          </div>
-        )}
-        {colorTag && (
-          <div className="flex flex-col justify-center items-center gap-3 w-full">
-            <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
-              <h2
-                className="text-[white] text-[xl]"
-                style={{ fontFamily: "poppins" }}
-              >
-                Join Mike's TG Group
-              </h2>
-              <div className="flex justify-center items-center  w-full gap-3">
-                <button
-                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
-                  onClick={handleJoinTelgramGroup}
+          )}
+          {colorTag && (
+            <div className="flex flex-col justify-center items-center gap-3 w-full">
+              <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+                <h2
+                  className="text-[white] text-[xl]"
+                  style={{ fontFamily: "poppins" }}
                 >
-                  Join
-                </button>
-                <button
-                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                  onClick={handleJoinTelegramGroupCheck}
+                  Join Mike's TG Group
+                </h2>
+                <div className="flex justify-center items-center  w-full gap-3">
+                  <button
+                    className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                    onClick={handleJoinTelgramGroup}
+                  >
+                    Join
+                  </button>
+                  <button
+                    className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                    onClick={handleJoinTelegramGroupCheck}
+                  >
+                    Check
+                  </button>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+                <h2
+                  className="text-[white] text-[xl]"
+                  style={{ fontFamily: "poppins" }}
                 >
-                  Check
-                </button>
+                  Subscribe Mike's TC Channel
+                </h2>
+                <div className="flex justify-center items-center  w-full gap-3">
+                  <button
+                    className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                    onClick={handleJoinTelegramChannel}
+                  >
+                    Join
+                  </button>
+                  <button
+                    className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                    onClick={handleSubscribeTelegramChannelCheck}
+                  >
+                    Check
+                  </button>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
+                <h2
+                  className="text-[white] text-[xl]"
+                  style={{ fontFamily: "poppins" }}
+                >
+                  Follow Mike's Twitter
+                </h2>
+                <div className="flex justify-center items-center  w-full gap-3">
+                  <button
+                    className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
+                    onClick={handleTwitterChannel}
+                  >
+                    Join
+                  </button>
+                  <button
+                    className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
+                    onClick={handleTwitterChannelCheck}
+                  >
+                    Check
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
-              <h2
-                className="text-[white] text-[xl]"
-                style={{ fontFamily: "poppins" }}
-              >
-                Subscribe Mike's TC Channel
-              </h2>
-              <div className="flex justify-center items-center  w-full gap-3">
-                <button
-                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
-                  onClick={handleJoinTelegramChannel}
-                >
-                  Join
-                </button>
-                <button
-                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                  onClick={handleSubscribeTelegramChannelCheck}
-                >
-                  Check
-                </button>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center w-[80%] rounded-[10px] bg-gradient-to-r from-[#556165] to-[#293135] p-3 gap-2">
-              <h2
-                className="text-[white] text-[xl]"
-                style={{ fontFamily: "poppins" }}
-              >
-                Follow Mike's Twitter
-              </h2>
-              <div className="flex justify-center items-center  w-full gap-3">
-                <button
-                  className="bg-[#3C4648] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-[#33CC66] border-solid"
-                  onClick={handleTwitterChannel}
-                >
-                  Join
-                </button>
-                <button
-                  className="bg-[#33CC66] text-[white] w-[40%] rounded-[10px] flex justify-center items-center text-[16px] gap-2 border-[1px] border-white border-solid"
-                  onClick={handleTwitterChannelCheck}
-                >
-                  Check
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-      <Modal isOpen={isReceiveModalOpen} onClose={handleCloseReceiveModal}>
-        <div className="flex flex-col items-center align-middle gap-3">
-          <img
-            src="image/assets/sand-timer.png"
-            alt=""
-            className=" w-12 h-12"
-          />
-          <h1 className="text-2xl text-white">Daily Coins</h1>
-          <p className=" text-sm ngtext-white">You can get the Daily Coins!</p>
-          <h2 className=" text-xl text-white">
-            Remaining Time:{" "}
-            <span className="text-2xl text-[red]">{diffDays}</span> &nbsp;d{" "}
-            <span className="text-2xl text-[green]">{diffHours}</span> &nbsp;h{" "}
-            <span className="text-2xl text-[yellow]">{diffMinutes}</span>{" "}
-            &nbsp;m <span className="text-2xl text-[white]">{diffSeconds}</span>{" "}
-            &nbsp;s
-          </h2>
-          <div
-            className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400"
-            onClick={receivedCoins}
-          >
-            <span className="flex justify-center items-center">Receive</span>
-          </div>
+          )}
         </div>
-      </Modal>
-    </div>
+        <Modal isOpen={isReceiveModalOpen} onClose={handleCloseReceiveModal}>
+          <div className="flex flex-col items-center align-middle gap-3">
+            <img
+              src="image/assets/sand-timer.png"
+              alt=""
+              className=" w-12 h-12"
+            />
+            <h1 className="text-2xl text-white">Daily Coins</h1>
+            <p className=" text-sm ngtext-white">You can get the Daily Coins!</p>
+            <h2 className=" text-xl text-white">
+              Remaining Time:{" "}
+              <span className="text-2xl text-[red]">{diffDays}</span> &nbsp;d{" "}
+              <span className="text-2xl text-[green]">{diffHours}</span> &nbsp;h{" "}
+              <span className="text-2xl text-[yellow]">{diffMinutes}</span>{" "}
+              &nbsp;m <span className="text-2xl text-[white]">{diffSeconds}</span>{" "}
+              &nbsp;s
+            </h2>
+            <div
+              className="w-full h-9 bg-indigo-600 text-white rounded-[20px] flex justify-center items-center hover:bg-indigo-400"
+              onClick={receivedCoins}
+            >
+              <span className="flex justify-center items-center">Receive</span>
+            </div>
+          </div>
+        </Modal>
+      </div>
+    </>
   );
 }
