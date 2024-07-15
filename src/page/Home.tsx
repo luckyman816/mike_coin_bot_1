@@ -132,7 +132,7 @@ function Home() {
   };
   console.log("imgStatus", imgStatus);
   return (
-    <div className=" mt-4 h-[95%] p-2">
+    <div className="flex flex-col justify-between items-center mt-4 p-2">
       <ToastContainer />
       <div className="flex justify-around items-center px-3 w-[90%]">
         <h3
@@ -167,7 +167,7 @@ function Home() {
       </div>
       <div
         id="mainWindow"
-        className="relative mt-3 flex flex-col items-center justify-between w-ful h-[68vh] mb-4"
+        className="relative mt-3 flex flex-col items-center justify-between w-full h-[68vh]  mb-4"
       >
         <div className="flex justify-center items-center mb-7 bg-gradient-to-r from-[#A07FF1] to-[#06E1F4] w-full rounded-[10px] p-2">
           <div className="flex justify-center items-center">
