@@ -149,7 +149,7 @@ function Home() {
   return (
     <div className="flex flex-col justify-between items-center h-full w-full">
       <ToastContainer />
-      <div className="w-[90%] flex flex-col justify-center items-center gap-2">
+      <div className="w-[90%] flex flex-col justify-center items-center gap-4">
         <div className="flex justify-between items-center px-3 w-full">
           <h3
             className="text-2xl font-bold text-[white]"
