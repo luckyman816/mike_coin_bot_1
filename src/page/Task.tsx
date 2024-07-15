@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Modal from "../component/modal";
 import moment from "moment";
+import Footer from "../component/Footer";
 export default function Task() {
   const [colorTag, setColorTag] = useState<boolean>(false);
   const username_state = useSelector((state) => state.wallet.user?.username);
@@ -336,6 +337,7 @@ export default function Task() {
             </div>
           )}
         </div>
+        <Footer/>
         <Modal isOpen={isReceiveModalOpen} onClose={handleCloseReceiveModal}>
           <div className="flex flex-col items-center align-middle gap-3">
             <img
