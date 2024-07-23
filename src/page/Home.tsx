@@ -56,23 +56,29 @@ function Home() {
   const [score, setScore] = useState<string>(`+${tap}`);
   const handleTouch = (event: React.TouchEvent<HTMLDivElement>) => {
     event.preventDefault();
+    
+    // Get the first touch point
     const touch = event.touches[0];
+    
+    // Get the bounding rectangle of the current target
     const rect = event.currentTarget.getBoundingClientRect();
-    // const x = Math.random() * (event.clientX - rect.left);
-    // const y = Math.random() * (event.clientY - rect.top);
+    
     // Calculate the position of the touch relative to the element
-    const x = Math.random() * (touch.clientX - rect.left);
-    const y = Math.random() * (touch.clientY - rect.top);
-
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+  
+    // Create a style element for the animation
     const styleElement = document.createElement("style");
     document.head.appendChild(styleElement);
-
+  
+    // Insert keyframes for the fade-out animation
     styleElement.sheet &&
       styleElement.sheet.insertRule(
-        "@keyframes fade-out-top-right {0% {opacity: 1; transform: translateY(0); } 100% {opacity: 0;transform: translateY(-100%);}}",
+        "@keyframes fade-out-top-right {0% {opacity: 1; transform: translateY(0); } 100% {opacity: 0; transform: translateY(-100%);}}",
         0
       );
-
+  
+    // Create a new div for the coin display
     const newDiv = document.createElement("div");
     newDiv.textContent = `${score}`;
     newDiv.style.backgroundImage = "url('image/dollar.png')";
@@ -92,10 +98,14 @@ function Home() {
     newDiv.style.color = "#58E1E2";
     newDiv.className =
       "dynamic-div animate-fadeouttopright transform max-sm:text-3xl text-5xl font-bold transition not-selectable";
-
+  
+    // Append the new div to the body or a specific ref
     bodyRef.current && bodyRef.current.appendChild(newDiv);
-    const interval = setTimeout(() => newDiv && newDiv.remove(), 1000);
-
+    
+    // Set a timeout to remove the div after 1 second
+    const interval = setTimeout(() => newDiv.remove(), 1000);
+  
+    // Cleanup function to clear the timeout
     return () => clearTimeout(interval);
   };
   useEffect(() => {
