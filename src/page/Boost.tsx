@@ -36,7 +36,7 @@ export default function Boost() {
   }, [tokenState, username_state, limit_state, tap_state, full_energy_state]);
   const handleFullEnergy = () => {
     console.log("-----full energy💰🏆💪------>", limit_state);
-    if (full_energy > 6) {
+    if (full_energy + 1 > 6) {
       toast.warning("Full energy limit reached!");
     } else {
       dispatch(updateFullEnergy(username, full_energy + 1)).then(() => {
