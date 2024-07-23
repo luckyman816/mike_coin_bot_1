@@ -104,37 +104,42 @@ function Home() {
     return () => clearInterval(interval);
   }, [username, remainedEnergy, limit]);
 
-  const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (remainedEnergy > 0 && token < 1000000000) {
-      setScore(`+${tap}`);
-      if (token + tap > 1000000000) {
-        setToken(1000000000);
-        dispatch(updateWallet(username, 1000000000, remainedEnergy - tap));
-      } else {
-        setToken(token + tap);
-        if (remainedEnergy - tap < 0) {
-          dispatch(updateWallet(username, token + tap, 0));
-          setRemainedEnergy(0);
-        } else {
-          dispatch(updateWallet(username, token + tap, remainedEnergy - tap));
-          setRemainedEnergy(remainedEnergy - tap);
-        }
-      }
+  // const handleTap = (event: React.MouseEvent<HTMLDivElement>) => {
 
-      handleClick(event);
+  // };
+  const [isTouching, setIsTouching] = useState(false);
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (event.touches.length === 1) {
+      setIsTouching(true);
+    } else {
+      setIsTouching(false);
     }
   };
-  // const handleTouch = (event: any) => {
-  //   const length = event.touches.length;
-  //   if (remainedEnergy - length >= 0 && length >= 1) {
-  //     setRemainedEnergy(remainedEnergy - length);
-  //     Array.from(event.touches).forEach((touch) => {
-  //       console.log("Touch's current position:", touch);
-  //       // Call handleClick for each touch point
-  //       handleClick(event);
-  //     });
-  //   }
-  // };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (isTouching) {
+      if (remainedEnergy > 0 && token < 1000000000) {
+        setScore(`+${tap}`);
+        if (token + tap > 1000000000) {
+          setToken(1000000000);
+          dispatch(updateWallet(username, 1000000000, remainedEnergy - tap));
+        } else {
+          setToken(token + tap);
+          if (remainedEnergy - tap < 0) {
+            dispatch(updateWallet(username, token + tap, 0));
+            setRemainedEnergy(0);
+          } else {
+            dispatch(updateWallet(username, token + tap, remainedEnergy - tap));
+            setRemainedEnergy(remainedEnergy - tap);
+          }
+        }
+
+        handleClick(event);
+      }
+    }
+    setIsTouching(false);
+  };
   const handleMouseDown = () => {
     setImgStatus(true);
   };
@@ -201,7 +206,8 @@ function Home() {
             ref={bodyRef}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseLeave}
-            onClick={handleTap}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           />
         </div>
       </div>
