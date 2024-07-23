@@ -52,7 +52,7 @@ function Home() {
   function formatNumberWithCommas(number: number, locale = "en-US") {
     return new Intl.NumberFormat(locale).format(number);
   }
-  const bodyRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement | null>(null);
   const [score, setScore] = useState<string>(`+${tap}`);
   const handleTouch = (event: React.TouchEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -127,12 +127,13 @@ function Home() {
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
     if (event.touches.length === 1) {
       setIsTouching(true);
+      handleTouch(event);
     } else {
       setIsTouching(false);
     }
   };
 
-  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchEnd = () => {
     if (isTouching) {
       if (remainedEnergy > 0 && token < 1000000000) {
         setScore(`+${tap}`);
@@ -149,8 +150,6 @@ function Home() {
             setRemainedEnergy(remainedEnergy - tap);
           }
         }
-
-        handleTouch(event);
       }
     }
     setIsTouching(false);
