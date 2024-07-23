@@ -96,6 +96,7 @@ function Home() {
     newDiv.style.left = `${x + 50}px`;
     newDiv.style.top = `${y}px`;
     newDiv.style.color = "#58E1E2";
+    newDiv.style.zIndex = "10";
     newDiv.className =
       "dynamic-div animate-fadeouttopright transform max-sm:text-3xl text-5xl font-bold transition not-selectable";
   
@@ -212,7 +213,7 @@ function Home() {
       <div className="flex justify-center items-center relative h-[40vh]">
         <div className="bg-color-animation flex justify-center items-center absolute">
           <div
-            className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] z-10 ${remainedEnergy > 0
+            className={`bg-[url('/image/mikeToken.png')] rounded-full bg-cover z-50 w-[280px] h-[270px] max-sm:w-[280px] max-sm:h-[270px] ${remainedEnergy > 0
               ? "cursor-pointer"
               : "cursor-not-allowed opacity-50"
               } ${imgStatus ? " border-[5px]" : "border-0"}
