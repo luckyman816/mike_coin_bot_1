@@ -54,11 +54,15 @@ function Home() {
   }
   const bodyRef = useRef<HTMLDivElement>(null);
   const [score, setScore] = useState<string>(`+${tap}`);
-  const handleClick = (event: any) => {
+  const handleTouch = (event: React.TouchEvent<HTMLDivElement>) => {
     event.preventDefault();
+    const touch = event.touches[0];
     const rect = event.currentTarget.getBoundingClientRect();
-    const x = Math.random() * (event.clientX - rect.left);
-    const y = Math.random() * (event.clientY - rect.top);
+    // const x = Math.random() * (event.clientX - rect.left);
+    // const y = Math.random() * (event.clientY - rect.top);
+    // Calculate the position of the touch relative to the element
+    const x = Math.random() * (touch.clientX - rect.left);
+    const y = Math.random() * (touch.clientY - rect.top);
 
     const styleElement = document.createElement("style");
     document.head.appendChild(styleElement);
@@ -135,7 +139,7 @@ function Home() {
           }
         }
 
-        handleClick(event);
+        handleTouch(event);
       }
     }
     setIsTouching(false);
